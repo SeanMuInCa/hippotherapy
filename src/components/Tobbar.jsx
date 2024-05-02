@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@douyinfe/semi-ui";
 import "../index.css";
 import Logo from '@/components/Logo';

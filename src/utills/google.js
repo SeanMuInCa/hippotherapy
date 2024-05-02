@@ -1,3 +1,7 @@
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-empty */
+/* eslint-disable no-unused-vars */
 (function () {
     var gtConstEvalStartTime = new Date();
     var h = this || self,

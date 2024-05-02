@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Card } from '@douyinfe/semi-ui';
 
 export default function PicCard() {
