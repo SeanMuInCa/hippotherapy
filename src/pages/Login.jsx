@@ -9,7 +9,7 @@ export default function Login() {
             <div className="mt-5 w-96">
                 <Input placeholder="password" size='large' mode='password'/>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 w-96">
                 <Button type="primary" block={true}>
                     Login
                 </Button>
