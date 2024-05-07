@@ -1,33 +1,43 @@
-import { Image, Form, Input,Table,Button } from "antd";
+import { Image, Form, Input, Table, Button } from "antd";
 import { useState } from "react";
 
-const {Column} = Table;
+const { Column } = Table;
 
 export default function Assessment() {
   const Data = [
     {
-        id:1,
-        part:'head',
-        score:0,
-        img:["https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg","https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg","https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"],
+      id: 1,
+      part: "head",
+      score: 0,
+      img: [
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      ],
     },
     {
-        id:2,
-        part:'shoulder',
-        score:0,
-        img:["https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"],
+      id: 2,
+      part: "shoulder",
+      score: 0,
+      img: [
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      ],
     },
     {
-        id:3,
-        part:'body',
-        score:0,
-        img:["https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"],
+      id: 3,
+      part: "body",
+      score: 0,
+      img: [
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      ],
     },
     {
-        id:4,
-        part:'heap',
-        score:0,
-        img:["https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"],
+      id: 4,
+      part: "heap",
+      score: 0,
+      img: [
+        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      ],
     },
   ];
   const handleClick = (index) => {
@@ -39,9 +49,9 @@ export default function Assessment() {
   const buttons = [];
   for (let i = 0; i < 5; i++) {
     buttons.push(
-      <Button key={i} onClick={()=>handleClick(i)} >
-        {i+1} 
-      </Button>
+      <Button key={i} onClick={() => handleClick(i)}>
+        {i + 1}
+      </Button>,
     );
   }
   return (
@@ -76,29 +86,25 @@ export default function Assessment() {
     //   </Form.Item>
     // </Form>
     <Form>
-        <Form.Item className="mx-10">
-            <Table bordered dataSource={Data} pagination={false}>
-                <Column title="part" dataIndex="part" key="part"/>
-                <Column title="img" dataIndex="img" key="img"
-                render={(img) =>(
-                    <>
-                        {img.map((item)=>{
-                            return <Image src={item} key={item} width={50}/>;
-                        })}
-                    </>
-                )}
-                />
-                <Column key="oper" title="operation"
-                render={()=>(
-                    <>
-                    {buttons}
-                    
-                    </>
-                )}
-                />
-                <Column title="score" dataIndex="score" key="score"/>
-            </Table>
-        </Form.Item>
+      <Form.Item className="mx-10">
+        <Table bordered dataSource={Data} pagination={false}>
+          <Column title="part" dataIndex="part" key="part" />
+          <Column
+            title="img"
+            dataIndex="img"
+            key="img"
+            render={(img) => (
+              <>
+                {img.map((item) => {
+                  return <Image src={item} key={item} width={50} />;
+                })}
+              </>
+            )}
+          />
+          <Column key="oper" title="operation" render={() => <>{buttons}</>} />
+          <Column title="score" dataIndex="score" key="score" />
+        </Table>
+      </Form.Item>
     </Form>
   );
 }
