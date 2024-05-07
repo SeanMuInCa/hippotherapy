@@ -1,33 +1,28 @@
 import { Input, Button, Form } from "antd";
-import { useState } from "react";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 
 export default function Login() {
   const nav = useNavigate();
   const onFinish = (values) => {
+    console.log(values);
     nav("/home");
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+
   return (
     <>
       <div className="mx-auto my-10 flex justify-center w-50 h-50">
         <Logo size="large"></Logo>
       </div>
       <Form
-        className="flex flex-col mx-auto my-20 justify-center items-center w-full"
+      labelAlign='left'
+        className="flex flex-col items-center w-full"
         name="basic"
-        labelCol={{
-          span: 200,
-        }}
-        style={{
-          maxWidth: 1920,
-        }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
+        labelCol={{
+					span: 3,
+				}}
       >
         <Form.Item
           className="w-6/12"
@@ -40,7 +35,7 @@ export default function Login() {
             },
           ]}
         >
-          <Input />
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username"/>
         </Form.Item>
 
         <Form.Item
@@ -54,15 +49,10 @@ export default function Login() {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Password"/>
         </Form.Item>
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
+        <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>

@@ -4,7 +4,7 @@ export default function PicCard() {
   const { Meta } = Card;
 
   return (
-    <>
+    <div className="flex justify-around flex-wrap my-10">
       <Card
         style={{ width: 300, height: 350 }}
         cover={
@@ -60,6 +60,6 @@ export default function PicCard() {
       >
         <Meta title="卡片封面" />
       </Card>
-    </>
+    </div>
   );
 }

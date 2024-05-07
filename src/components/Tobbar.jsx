@@ -16,12 +16,12 @@ export default function Tobbar() {
   };
   return (
     <div className="flex justify-between items-center">
-      <div className="font-bold text-lg flex">
+      <div className="font-bold text-lg flex mx-5">
         <Logo></Logo>
         <span className="m-2">Welcome to use XXX</span>
       </div>
       <div>
-        <Button onClick={handleClick}>
+        <Button onClick={handleClick} className="mx-5">
           {flag ? "Light Mode" : "Dark Mode"}
         </Button>
       </div>
