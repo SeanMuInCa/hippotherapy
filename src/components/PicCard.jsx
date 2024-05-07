@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card } from "antd";
 
 export default function PicCard() {
   const { Meta } = Card;
