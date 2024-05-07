@@ -1,4 +1,4 @@
-import { Card } from "@douyinfe/semi-ui";
+import { Card } from 'antd';
 
 export default function PicCard() {
   const { Meta } = Card;
