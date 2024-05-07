@@ -2,7 +2,7 @@ import { createHashRouter, Navigate } from "react-router-dom";
 import Login from "@/pages/Login.jsx";
 import Home from "@/pages/Home.jsx";
 import PicCard from "../components/PicCard.jsx";
-import Register from '@/pages/Register.jsx';
+import Register from "@/pages/Register.jsx";
 // 全局路由
 export const globalRouters = createHashRouter([
   // 对精确匹配"/login"，跳转Login页面
@@ -32,6 +32,6 @@ export const globalRouters = createHashRouter([
   },
   {
     path: "/register",
-    element: <Register/>,
+    element: <Register />,
   },
 ]);

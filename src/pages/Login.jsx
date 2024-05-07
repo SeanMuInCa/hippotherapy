@@ -1,5 +1,5 @@
 import { Input, Button, Form } from "antd";
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 
@@ -16,13 +16,13 @@ export default function Login() {
         <Logo size="large"></Logo>
       </div>
       <Form
-      labelAlign='left'
+        labelAlign="left"
         className="flex flex-col items-center w-full"
         name="basic"
         onFinish={onFinish}
         labelCol={{
-					span: 3,
-				}}
+          span: 3,
+        }}
       >
         <Form.Item
           className="w-6/12"
@@ -35,7 +35,10 @@ export default function Login() {
             },
           ]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username"/>
+          <Input
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="Username"
+          />
         </Form.Item>
 
         <Form.Item
@@ -49,7 +52,10 @@ export default function Login() {
             },
           ]}
         >
-          <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Password"/>
+          <Input.Password
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            placeholder="Password"
+          />
         </Form.Item>
 
         <Form.Item>
