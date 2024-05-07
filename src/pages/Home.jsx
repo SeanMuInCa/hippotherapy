@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import PicCard from "../components/PicCard";
+import Assessment from "../components/Assessment";
 function Home() {
   const nav = useNavigate();
   const handleClick = () => {
@@ -17,6 +18,7 @@ function Home() {
           </Button>
         </div>
       </div>
+      <Assessment></Assessment>
     </>
   );
 }
