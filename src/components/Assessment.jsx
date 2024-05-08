@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Button, Image } from "antd";
+import { Table, Button, Image, notification } from "antd";
 const Assessment = () => {
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
@@ -20,6 +20,12 @@ const Assessment = () => {
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (title)=>{
+    api.info({
+      message:`${title}`,
+    });
+  };
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const submit = () => {
     let res = checkAll();
@@ -29,7 +35,9 @@ const Assessment = () => {
       return;
     }
     console.log("has 0");
+    openNotification('you have to finish all the steps');
   };
+
   const columns = [
     {
       title: "Part",
@@ -196,6 +204,7 @@ const Assessment = () => {
   ];
   return (
     <>
+    {contextHolder}
       <Table
         className="mx-10 my-10"
         columns={columns}

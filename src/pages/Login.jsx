@@ -11,6 +11,7 @@ export default function Login() {
     console.log(values);
     nav("/home");
     actions.setLoginStatus(true);
+    localStorage.setItem('isLogin', true);
   };
 
   return (
