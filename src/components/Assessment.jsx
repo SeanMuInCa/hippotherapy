@@ -97,10 +97,7 @@ const Assessment = () => {
       key: "0",
       part: "Head Later Tilt",
       img: (
-        <Image
-          src="/images/head1.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/head1.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[0],
     },
@@ -108,10 +105,7 @@ const Assessment = () => {
       key: "1",
       part: "Trunk Lateral Shift",
       img: (
-        <Image
-          src="/images/trunk1.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/trunk1.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[1],
     },
@@ -119,10 +113,7 @@ const Assessment = () => {
       key: "2",
       part: "Pelvic Obliquity",
       img: (
-        <Image
-          src="/images/pelvic1.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/pelvic1.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[2],
     },
@@ -130,10 +121,7 @@ const Assessment = () => {
       key: "3",
       part: "Head Ant/Post Tilt",
       img: (
-        <Image
-          src="/images/head2.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/head2.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[3],
     },
@@ -141,10 +129,7 @@ const Assessment = () => {
       key: "4",
       part: "Thoracic curve",
       img: (
-        <Image
-          src="/images/thoracic.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/thoracic.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[4],
     },
@@ -152,10 +137,7 @@ const Assessment = () => {
       key: "5",
       part: "Lumbar curve",
       img: (
-        <Image
-          src="/images/lumbar.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/lumbar.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[5],
     },
@@ -163,10 +145,7 @@ const Assessment = () => {
       key: "6",
       part: "Trunk Inclination",
       img: (
-        <Image
-          src="/images/trunk2.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/trunk2.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[6],
     },
@@ -174,43 +153,27 @@ const Assessment = () => {
       key: "7",
       part: "Pelvic Tilt",
       img: (
-        <Image
-          src="/images/pelvic2.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/pelvic2.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[7],
     },
     {
       key: "8",
       part: "Hip Flex",
-      img: (
-        <Image
-          src="/images/hip.png"
-          style={{ width: 500, height: 100 }}
-        />
-      ),
+      img: <Image src="/images/hip.png" style={{ width: 500, height: 100 }} />,
       score: result[8],
     },
     {
       key: "9",
       part: "Knee Ext/Flex",
-      img: (
-        <Image
-          src="/images/knee.png"
-          style={{ width: 500, height: 100 }}
-        />
-      ),
+      img: <Image src="/images/knee.png" style={{ width: 500, height: 100 }} />,
       score: result[9],
     },
     {
       key: "10",
       part: "Elbow Flexion/Extension",
       img: (
-        <Image
-          src="/images/elbow.png"
-          style={{ width: 500, height: 100 }}
-        />
+        <Image src="/images/elbow.png" style={{ width: 500, height: 100 }} />
       ),
       score: result[10],
     },

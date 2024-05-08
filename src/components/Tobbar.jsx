@@ -1,13 +1,13 @@
-import { Button} from 'antd';
+import { Button } from "antd";
 import "../index.css";
 import Logo from "@/components/Logo";
-import { useNavigate } from 'react-router-dom';
-import useUserStore from '@/store/userStore';
+import { useNavigate } from "react-router-dom";
+import useUserStore from "@/store/userStore";
 export default function Tobbar() {
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
   const handleClick = () => {
-    nav('/login');
+    nav("/login");
     actions.setLoginStatus(false);
   };
   return (
@@ -17,11 +17,25 @@ export default function Tobbar() {
         <span className="m-2">Welcome to use XXX</span>
       </div>
       <div>
-      {state.isLogin ? <Button onClick={handleClick} className="mx-5" shape="circle" size='large'>
-          MZH
-        </Button> : <Button onClick={handleClick} className="mx-5" shape="circle" size='large'>
-          no
-        </Button>}
+        {state.isLogin ? (
+          <Button
+            onClick={handleClick}
+            className="mx-5"
+            shape="circle"
+            size="large"
+          >
+            MZH
+          </Button>
+        ) : (
+          <Button
+            onClick={handleClick}
+            className="mx-5"
+            shape="circle"
+            size="large"
+          >
+            no
+          </Button>
+        )}
       </div>
     </div>
   );

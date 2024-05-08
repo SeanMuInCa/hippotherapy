@@ -1,17 +1,17 @@
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import PicCard from "../components/PicCard";
-import useUserStore from '@/store/userStore';
+import useUserStore from "@/store/userStore";
 function Home() {
-  const [{isLogin}] = useUserStore();
+  const [{ isLogin }] = useUserStore();
   console.log(isLogin);
   const nav = useNavigate();
   const handleClick = () => {
     nav("/login");
   };
-  const goAssessment = ()=>{
+  const goAssessment = () => {
     nav("/assessment");
-  }
+  };
   return (
     <>
       <PicCard></PicCard>
@@ -22,7 +22,7 @@ function Home() {
             Back to Login
           </Button>
           <Button type="primary" onClick={goAssessment}>
-          goAssessment
+            goAssessment
           </Button>
         </div>
       </div>

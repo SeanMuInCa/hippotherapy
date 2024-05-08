@@ -10,32 +10,32 @@ import Assessment from "../components/Assessment.jsx";
 const globalRouters = [
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/home",
-    element: <Home />
+    element: <Home />,
   },
   {
     path: "/pics",
-    element: <PicCard />
+    element: <PicCard />,
   },
   {
     path: "/",
-    element: <Navigate to="/login" />
+    element: <Navigate to="/login" />,
   },
   {
     path: "*",
-    element: <Navigate to="/login" />
+    element: <Navigate to="/login" />,
   },
   {
     path: "/register",
-    element: <Register />
+    element: <Register />,
   },
   {
     path: "/assessment",
-    element: <Assessment />
-  }
+    element: <Assessment />,
+  },
 ];
 
 export default globalRouters;
