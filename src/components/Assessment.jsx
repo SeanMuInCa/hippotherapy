@@ -1,110 +1,228 @@
-import { Image, Form, Input, Table, Button } from "antd";
 import { useState } from "react";
-
-const { Column } = Table;
-
-export default function Assessment() {
-  const Data = [
-    {
-      id: 1,
-      part: "head",
-      score: 0,
-      img: [
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      ],
-    },
-    {
-      id: 2,
-      part: "shoulder",
-      score: 0,
-      img: [
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      ],
-    },
-    {
-      id: 3,
-      part: "body",
-      score: 0,
-      img: [
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      ],
-    },
-    {
-      id: 4,
-      part: "heap",
-      score: 0,
-      img: [
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      ],
-    },
-  ];
-  const handleClick = (index) => {
-    console.log(index);
-    Data[index].score = index;
-    setScore(index);
-  };
-  const [score, setScore] = useState(0);
-  const buttons = [];
-  for (let i = 0; i < 5; i++) {
-    buttons.push(
-      <Button key={i} onClick={() => handleClick(i)}>
-        {i + 1}
-      </Button>,
-    );
-  }
-  return (
-    // <Form>
-    //   <Form.Item
-    //     className="flex justify-center"
-    //     name="head"
-    //     label="Head"
-    //     style={{alignItems:"center"}}
-    //     rules={[
-    //       {
-    //         required: true,
-    //         message: "Please input your assessment!",
-    //       },
-    //     ]}
-    //   >
-    //     <Image.PreviewGroup
-    //       preview={{
-    //         movable: false,
-    //       }}
-    //     >
-    //       {imgData.map((item, index) => (
-    //         <Image
-    //           width={100}
-    //           src={item}
-    //           key={index}
-    //           onClick={() => handleClick(index)}
-    //         />
-    //       ))}
-    //       <Input className="w-20"></Input>
-    //     </Image.PreviewGroup>
-    //   </Form.Item>
-    // </Form>
-    <Form>
-      <Form.Item className="mx-10">
-        <Table bordered dataSource={Data} pagination={false}>
-          <Column title="part" dataIndex="part" key="part" />
-          <Column
-            title="img"
-            dataIndex="img"
-            key="img"
-            render={(img) => (
-              <>
-                {img.map((item) => {
-                  return <Image src={item} key={item} width={50} />;
-                })}
-              </>
-            )}
-          />
-          <Column key="oper" title="operation" render={() => <>{buttons}</>} />
-          <Column title="score" dataIndex="score" key="score" />
-        </Table>
-      </Form.Item>
-    </Form>
-  );
-}
+import { Table, Button, Image } from "antd";
+const Assessment = () => {
+	const [clickedButtons, setClickedButtons] = useState({});
+	const handleButtonClick = (record, buttonId) => {
+		console.log(`Button ${buttonId} clicked in row:`, record);
+		setClickedButtons((prevState) => ({
+			...prevState,
+			[record.key]: buttonId,
+		}));
+		setResult((prevState) => ({
+			...prevState,
+			[record.key]: buttonId,
+		}));
+	};
+	const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	const columns = [
+		{
+			title: "Part",
+			dataIndex: "part",
+			key: "part",
+		},
+		{
+			title: "Img",
+			dataIndex: "img",
+			key: "img",
+			// render: () => (
+			// 	<>
+			// 		<Image
+			// 			src={img}
+			// 			style={{ width: 500, height:100 }}
+			// 		/>
+			// 	</>
+			// ),
+		},
+		{
+			title: "Action",
+			key: "action",
+			render: (text, record) => (
+				<span>
+					<Button
+						onClick={() => handleButtonClick(record, 1)}
+						style={{
+							background: clickedButtons[record.key] === 1 ? "green" : "inherit",
+						}}
+					>
+						1
+					</Button>
+					<Button
+						onClick={() => handleButtonClick(record, 2)}
+						style={{
+							background: clickedButtons[record.key] === 2 ? "green" : "inherit",
+						}}
+					>
+						2
+					</Button>
+					<Button
+						onClick={() => handleButtonClick(record, 3)}
+						style={{
+							background: clickedButtons[record.key] === 3 ? "green" : "inherit",
+						}}
+					>
+						3
+					</Button>
+					<Button
+						onClick={() => handleButtonClick(record, 4)}
+						style={{
+							background: clickedButtons[record.key] === 4 ? "green" : "inherit",
+						}}
+					>
+						4
+					</Button>
+					<Button
+						onClick={() => handleButtonClick(record, 5)}
+						style={{
+							background: clickedButtons[record.key] === 5 ? "green" : "inherit",
+						}}
+					>
+						5
+					</Button>
+				</span>
+			),
+		},
+		{
+			title: "Score",
+			dataIndex: "score",
+			key: "score",
+		},
+	];
+	const data = [
+		{
+			key: "0",
+			part: "Head Later Tilt",
+			img: (
+				<Image
+					src="../../public/images/head1.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[0],
+		},
+		{
+			key: "1",
+			part: "Trunk Lateral Shift",
+			img: (
+				<Image
+					src="../../public/images/trunk1.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[1],
+		},
+		{
+			key: "2",
+			part: "Pelvic Obliquity",
+			img: (
+				<Image
+					src="../../public/images/pelvic1.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[2],
+		},
+		{
+			key: "3",
+			part: "Head Ant/Post Tilt",
+            img: (
+				<Image
+					src="../../public/images/head2.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[3],
+		},
+		{
+			key: "4",
+			part: "Thoracic curve",
+            img: (
+				<Image
+					src="../../public/images/thoracic.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[4],
+		},
+		{
+			key: "5",
+			part: "Lumbar curve",
+            img: (
+				<Image
+					src="../../public/images/lumbar.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[5],
+		},
+		{
+			key: "6",
+			part: "Trunk Inclination",
+            img: (
+				<Image
+					src="../../public/images/trunk2.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[6],
+		},
+		{
+			key: "7",
+			part: "Pelvic Tilt",
+            img: (
+				<Image
+					src="../../public/images/pelvic2.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[7],
+		},
+		{
+			key: "8",
+			part: "Hip Flex",
+            img: (
+				<Image
+					src="../../public/images/hip.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[8],
+		},
+		{
+			key: "9",
+			part: "Knee Ext/Flex",
+            img: (
+				<Image
+					src="../../public/images/knee.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[9],
+		},
+		{
+			key: "10",
+			part: "Elbow Flexion/Extension",
+            img: (
+				<Image
+					src="../../public/images/elbow.png"
+					style={{ width: 500, height: 100 }}
+				/>
+			),
+			score: result[10],
+		},
+	];
+	return (
+		<>
+            <Table
+			className="mx-10"
+			columns={columns}
+			dataSource={data}
+			pagination={false}
+			bordered={true}
+		/>
+        <div className="flex">
+        <Button type="primary" className="mx-auto my-10">Submit</Button>
+        </div>
+        </>
+	);
+};
+export default Assessment;

@@ -28,7 +28,7 @@ export const globalRouters = createHashRouter([
   // 未匹配，，跳转Login页面
   {
     path: "*",
-    element: <Navigate to="/#/login" />,
+    element: <Navigate to="/login" />,
   },
   {
     path: "/register",
