@@ -8,7 +8,7 @@ const Assessment = () => {
       ...prevState,
       [record.key]: buttonId,
     }));
-    setResult(prevState => {
+    setResult((prevState) => {
       // 创建副本
       const newState = [...prevState];
       // 修改副本中对应位置的值
@@ -17,18 +17,18 @@ const Assessment = () => {
       return newState;
     });
   };
-  const checkAll = ()=>{
-    return result.find(item => item === 0);
+  const checkAll = () => {
+    return result.find((item) => item === 0);
   };
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  const submit = ()=>{
+  const submit = () => {
     let res = checkAll();
     console.log(typeof res);
-    if(typeof res == 'undefined'){
-      console.log('done');//submit here
+    if (typeof res == "undefined") {
+      console.log("done"); //submit here
       return;
     }
-    console.log('has 0');
+    console.log("has 0");
   };
   const columns = [
     {
