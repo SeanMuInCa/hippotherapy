@@ -6,7 +6,7 @@ const App = () => {
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    nav('/login');
+    nav("/login");
   };
 
   return (
