@@ -9,7 +9,7 @@ export default function Tobbar() {
   const handleClick = () => {
     nav("/login");
     actions.setLoginStatus(false);
-    localStorage.removeItem('isLogin');
+    localStorage.removeItem("isLogin");
   };
   return (
     <div className="flex justify-between items-center">

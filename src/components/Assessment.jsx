@@ -21,9 +21,9 @@ const Assessment = () => {
     return result.find((item) => item === 0);
   };
   const [api, contextHolder] = notification.useNotification();
-  const openNotification = (title)=>{
+  const openNotification = (title) => {
     api.info({
-      message:`${title}`,
+      message: `${title}`,
     });
   };
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -35,7 +35,7 @@ const Assessment = () => {
       return;
     }
     console.log("has 0");
-    openNotification('you have to finish all the steps');
+    openNotification("you have to finish all the steps");
   };
 
   const columns = [
@@ -204,7 +204,7 @@ const Assessment = () => {
   ];
   return (
     <>
-    {contextHolder}
+      {contextHolder}
       <Table
         className="mx-10 my-10"
         columns={columns}

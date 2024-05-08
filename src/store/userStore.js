@@ -6,7 +6,7 @@ const useUserStore = defineStore({
       username: "",
       password: "",
       role: "",
-      isLogin: localStorage.getItem('isLogin') || false,
+      isLogin: localStorage.getItem("isLogin") || false,
     };
   },
   actions: {
