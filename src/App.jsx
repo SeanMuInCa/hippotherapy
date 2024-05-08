@@ -5,12 +5,12 @@ import { globalRouters } from "@/router/routes.jsx";
 // import Login from "@/pages/Login.jsx";
 
 function App() {
-	return (
-		<>
-			<Tobbar></Tobbar>
-			<RouterProvider router={globalRouters} />
-		</>
-	);
+  return (
+    <>
+      <Tobbar></Tobbar>
+      <RouterProvider router={globalRouters} />
+    </>
+  );
 }
 
 export default App;
