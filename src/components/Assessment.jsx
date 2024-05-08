@@ -8,12 +8,28 @@ const Assessment = () => {
       ...prevState,
       [record.key]: buttonId,
     }));
-    setResult((prevState) => ({
-      ...prevState,
-      [record.key]: buttonId,
-    }));
+    setResult(prevState => {
+      // 创建副本
+      const newState = [...prevState];
+      // 修改副本中对应位置的值
+      newState[record.key] = buttonId;
+      // 返回新的状态
+      return newState;
+    });
+  };
+  const checkAll = ()=>{
+    return result.find(item => item === 0);
   };
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const submit = ()=>{
+    let res = checkAll();
+    console.log(typeof res);
+    if(typeof res == 'undefined'){
+      console.log('done');//submit here
+      return;
+    }
+    console.log('has 0');
+  };
   const columns = [
     {
       title: "Part",
@@ -188,7 +204,7 @@ const Assessment = () => {
         bordered={true}
       />
       <div className="flex">
-        <Button type="primary" className="mx-auto my-10">
+        <Button type="primary" className="mx-auto my-10" onClick={submit}>
           Submit
         </Button>
       </div>
