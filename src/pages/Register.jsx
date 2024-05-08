@@ -1,10 +1,12 @@
 import Logo from "../components/Logo";
 import { Button, Checkbox, Form, Input } from "antd";
-
+import { useNavigate } from "react-router-dom";
 const App = () => {
   const [form] = Form.useForm();
+  const nav = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    nav('/login');
   };
 
   return (

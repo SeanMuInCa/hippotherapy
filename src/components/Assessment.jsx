@@ -206,7 +206,7 @@ const Assessment = () => {
     <>
       {contextHolder}
       <Table
-        className="mx-10 my-10"
+        className="mx-2 my-10"
         columns={columns}
         dataSource={data}
         pagination={false}
