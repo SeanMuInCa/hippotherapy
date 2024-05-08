@@ -1,37 +1,41 @@
-import { createHashRouter, Navigate } from "react-router-dom";
+// routes.js
+import { Route, Navigate } from "react-router-dom";
 import Login from "@/pages/Login.jsx";
 import Home from "@/pages/Home.jsx";
 import PicCard from "../components/PicCard.jsx";
 import Register from "@/pages/Register.jsx";
-// 全局路由
-export const globalRouters = createHashRouter([
-  // 对精确匹配"/login"，跳转Login页面
+import Assessment from "../components/Assessment.jsx";
+
+// 定义路由数组
+const globalRouters = [
   {
     path: "/login",
-    element: <Login />,
+    element: <Login />
   },
-  // 精确匹配"/home"，跳转Home页面
   {
     path: "/home",
-    element: <Home />,
+    element: <Home />
   },
-  // 精确匹配"/account"，跳转Account页面
   {
     path: "/pics",
-    element: <PicCard />,
+    element: <PicCard />
   },
-  // 如果URL没有"#路由"，跳转Home页面
   {
     path: "/",
-    element: <Navigate to="/login" />,
+    element: <Navigate to="/login" />
   },
-  // 未匹配，，跳转Login页面
   {
     path: "*",
-    element: <Navigate to="/login" />,
+    element: <Navigate to="/login" />
   },
   {
     path: "/register",
-    element: <Register />,
+    element: <Register />
   },
-]);
+  {
+    path: "/assessment",
+    element: <Assessment />
+  }
+];
+
+export default globalRouters;

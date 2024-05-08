@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { Button } from "antd";
+import { Button} from 'antd';
 import "../index.css";
 import Logo from "@/components/Logo";
+import { useNavigate } from 'react-router-dom';
+import useUserStore from '@/store/userStore';
 export default function Tobbar() {
-  const [flag, setFlag] = useState(false);
+  const [state, actions] = useUserStore.useStore();
+  const nav = useNavigate();
   const handleClick = () => {
-    const body = document.body;
-    if (body.hasAttribute("theme-mode")) {
-      body.removeAttribute("theme-mode");
-      setFlag(false);
-    } else {
-      body.setAttribute("theme-mode", "dark");
-      setFlag(true);
-    }
+    nav('/login');
+    actions.setLoginStatus(false);
   };
   return (
     <div className="flex justify-between items-center">
@@ -21,9 +17,11 @@ export default function Tobbar() {
         <span className="m-2">Welcome to use XXX</span>
       </div>
       <div>
-        <Button onClick={handleClick} className="mx-5">
-          {flag ? "Light Mode" : "Dark Mode"}
-        </Button>
+      {state.isLogin ? <Button onClick={handleClick} className="mx-5" shape="circle" size='large'>
+          MZH
+        </Button> : <Button onClick={handleClick} className="mx-5" shape="circle" size='large'>
+          no
+        </Button>}
       </div>
     </div>
   );

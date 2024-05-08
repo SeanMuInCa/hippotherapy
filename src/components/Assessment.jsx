@@ -21,7 +21,7 @@ const Assessment = () => {
       key: "part",
     },
     {
-      title: "Img",
+      title: "Seated postural control measure",
       dataIndex: "img",
       key: "img",
       // render: () => (
@@ -98,7 +98,7 @@ const Assessment = () => {
       part: "Head Later Tilt",
       img: (
         <Image
-          src="../../public/images/head1.png"
+          src="/images/head1.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -109,7 +109,7 @@ const Assessment = () => {
       part: "Trunk Lateral Shift",
       img: (
         <Image
-          src="../../public/images/trunk1.png"
+          src="/images/trunk1.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -120,7 +120,7 @@ const Assessment = () => {
       part: "Pelvic Obliquity",
       img: (
         <Image
-          src="../../public/images/pelvic1.png"
+          src="/images/pelvic1.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -131,7 +131,7 @@ const Assessment = () => {
       part: "Head Ant/Post Tilt",
       img: (
         <Image
-          src="../../public/images/head2.png"
+          src="/images/head2.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -142,7 +142,7 @@ const Assessment = () => {
       part: "Thoracic curve",
       img: (
         <Image
-          src="../../public/images/thoracic.png"
+          src="/images/thoracic.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -153,7 +153,7 @@ const Assessment = () => {
       part: "Lumbar curve",
       img: (
         <Image
-          src="../../public/images/lumbar.png"
+          src="/images/lumbar.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -164,7 +164,7 @@ const Assessment = () => {
       part: "Trunk Inclination",
       img: (
         <Image
-          src="../../public/images/trunk2.png"
+          src="/images/trunk2.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -175,7 +175,7 @@ const Assessment = () => {
       part: "Pelvic Tilt",
       img: (
         <Image
-          src="../../public/images/pelvic2.png"
+          src="/images/pelvic2.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -186,7 +186,7 @@ const Assessment = () => {
       part: "Hip Flex",
       img: (
         <Image
-          src="../../public/images/hip.png"
+          src="/images/hip.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -197,7 +197,7 @@ const Assessment = () => {
       part: "Knee Ext/Flex",
       img: (
         <Image
-          src="../../public/images/knee.png"
+          src="/images/knee.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -208,7 +208,7 @@ const Assessment = () => {
       part: "Elbow Flexion/Extension",
       img: (
         <Image
-          src="../../public/images/elbow.png"
+          src="/images/elbow.png"
           style={{ width: 500, height: 100 }}
         />
       ),
@@ -218,7 +218,7 @@ const Assessment = () => {
   return (
     <>
       <Table
-        className="mx-10"
+        className="mx-10 my-10"
         columns={columns}
         dataSource={data}
         pagination={false}

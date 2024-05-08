@@ -2,12 +2,15 @@ import { Input, Button, Form } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
-
+import useUserStore from "../store/userStore";
 export default function Login() {
+  const [state, actions] = useUserStore.useStore();
+  console.log(state,actions);
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log(values);
     nav("/home");
+    actions.setLoginStatus(true);
   };
 
   return (
