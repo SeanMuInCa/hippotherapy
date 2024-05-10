@@ -15,7 +15,7 @@ function Home() {
   };
   return (
     <>
-    <Card></Card>
+      <Card></Card>
       <PicCard></PicCard>
       <div className="my-20">
         <h1 className="text-center">Home Page</h1>
