@@ -54,11 +54,13 @@ export default function CardTemp() {
     <>
       <Card title="Small size card" style={{ width: 300 }}>
         <div className="flex justify-evenly">
-          <div className="bg-red-500 flex-2 rounded-xl w-20 h-20 text-center leading-normal text-5xl font-bold">
+          <div className="bg-red-500 flex-2 rounded-xl w-20 h-20 text-center leading-normal text-5xl font-bold px-1">
             {data[0].fName.charAt(0)} {data[0].lName.charAt(0)}
           </div>
-          <div className=" flex-1">
-            <p></p>
+          <div className=" flex-1 px-5 py-2">
+            <p>{data[0].email}</p>
+            <p>{data[0].language}</p>
+            <p>{data[0].location}</p>
           </div>
         </div>
       </Card>
