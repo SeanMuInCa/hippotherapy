@@ -1,8 +1,7 @@
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import PicCard from "../components/PicCard";
 import useUserStore from "@/store/userStore";
-import Card from "../components/Card";
+import Card from "../components/CardTemp";
 function Home() {
   const [{ isLogin }] = useUserStore();
   console.log(isLogin);
@@ -16,7 +15,6 @@ function Home() {
   return (
     <>
       <Card></Card>
-      <PicCard></PicCard>
       <div className="my-20">
         <h1 className="text-center">Home Page</h1>
         <div className="flex justify-center mt-10">
