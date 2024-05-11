@@ -1,66 +1,18 @@
 import { Card } from "antd";
-export default function CardTemp() {
-  const data = [
-    {
-      id: 0,
-      fName: "aaa0",
-      lName: "bbb",
-      email: "abc@abc.com",
-      language: "english",
-      number: "1231234567",
-      gender: "male",
-      location: "sk",
-      history: "history",
-      diagnosis: "diagnosis",
-    },
-    {
-      id: 1,
-      fName: "aaa1",
-      lName: "bbb",
-      email: "abc@abc.com",
-      language: "english",
-      number: "1231234567",
-      gender: "male",
-      location: "sk",
-      history: "history",
-      diagnosis: "diagnosis",
-    },
-    {
-      id: 2,
-      fName: "aaa2",
-      lName: "bbb",
-      email: "abc@abc.com",
-      language: "english",
-      number: "1231234567",
-      gender: "male",
-      location: "sk",
-      history: "history",
-      diagnosis: "diagnosis",
-    },
-    {
-      id: 3,
-      fName: "aaa3",
-      lName: "bbb",
-      email: "abc@abc.com",
-      language: "english",
-      number: "1231234567",
-      gender: "male",
-      location: "sk",
-      history: "history",
-      diagnosis: "diagnosis",
-    },
-  ];
+export default function CardTemp(props) {
+  console.log(props);
+  const data = props.data;
   return (
     <>
-      <Card title="Small size card" style={{ width: 300 }}>
+      <Card title="Small size card" style={{ width: 300, margin:10 }}>
         <div className="flex justify-evenly">
           <div className="bg-red-500 flex-2 rounded-xl w-20 h-20 text-center leading-normal text-5xl font-bold px-1">
-            {data[0].fName.charAt(0)} {data[0].lName.charAt(0)}
+            {data.fName.charAt(0)} {data.lName.charAt(0)}
           </div>
           <div className=" flex-1 px-5 py-2">
-            <p>{data[0].email}</p>
-            <p>{data[0].language}</p>
-            <p>{data[0].location}</p>
+            <p>{data.email}</p>
+            <p>{data.language}</p>
+            <p>{data.location}</p>
           </div>
         </div>
       </Card>
