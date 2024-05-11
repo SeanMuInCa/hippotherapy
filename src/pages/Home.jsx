@@ -65,7 +65,9 @@ function Home() {
   return (
     <>
       <div className="flex mx-5 flex-wrap">
-      {data.map((item,i) => (<CardTemp key={i} data={item}></CardTemp>))}
+        {data.map((item, i) => (
+          <CardTemp key={i} data={item}></CardTemp>
+        ))}
       </div>
       <div className="my-20">
         <h1 className="text-center">Home Page</h1>
