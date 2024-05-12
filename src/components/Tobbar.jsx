@@ -15,7 +15,7 @@ export default function Tobbar() {
     nav("/register");
   };
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center bg-gray-100">
       <div className="font-bold flex mx-5">
         <Logo></Logo>
         <span className="m-2 text-sm md:text-lg lg:text-xl xl:text-2xl leading-8">
