@@ -12,6 +12,7 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
-    semi:['error', 'always']
+    semi:['error', 'always'],
+    "react/prop-types":"off"
   },
 }
