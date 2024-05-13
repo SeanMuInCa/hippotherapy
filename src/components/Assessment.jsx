@@ -66,7 +66,7 @@ const Assessment = () => {
             onClick={() => handleButtonClick(record, 1)}
             style={{
               background:
-                clickedButtons[record.key] === 1 ? "green" : "inherit",
+                clickedButtons[record.key] === 1 ? "#1677FF" : "inherit",
             }}
           >
             1
@@ -75,7 +75,7 @@ const Assessment = () => {
             onClick={() => handleButtonClick(record, 2)}
             style={{
               background:
-                clickedButtons[record.key] === 2 ? "green" : "inherit",
+                clickedButtons[record.key] === 2 ? "#1677FF" : "inherit",
             }}
           >
             2
@@ -84,7 +84,7 @@ const Assessment = () => {
             onClick={() => handleButtonClick(record, 3)}
             style={{
               background:
-                clickedButtons[record.key] === 3 ? "green" : "inherit",
+                clickedButtons[record.key] === 3 ? "#1677FF" : "inherit",
             }}
           >
             3
@@ -93,7 +93,7 @@ const Assessment = () => {
             onClick={() => handleButtonClick(record, 4)}
             style={{
               background:
-                clickedButtons[record.key] === 4 ? "green" : "inherit",
+                clickedButtons[record.key] === 4 ? "#1677FF" : "inherit",
             }}
           >
             4
@@ -102,7 +102,7 @@ const Assessment = () => {
             onClick={() => handleButtonClick(record, 5)}
             style={{
               background:
-                clickedButtons[record.key] === 5 ? "green" : "inherit",
+                clickedButtons[record.key] === 5 ? "#1677FF" : "inherit",
             }}
           >
             5
