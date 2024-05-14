@@ -61,6 +61,7 @@ const Assessment = () => {
       title: "Seated postural control measure",
       dataIndex: "img",
       key: "img",
+      width: '50%',
       // render: () => (
       // 	<>
       // 		<Image
@@ -224,6 +225,7 @@ const Assessment = () => {
         dataSource={data}
         pagination={false}
         bordered={true}
+        scroll={{ y: 500 }}
       />
       <div className="flex">
         <Button type="primary" className="mx-auto my-10" onClick={submit}>
