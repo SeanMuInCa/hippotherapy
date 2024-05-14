@@ -61,7 +61,7 @@ const Assessment = () => {
       title: "Seated postural control measure",
       dataIndex: "img",
       key: "img",
-      width: '50%',
+      width: "50%",
       // render: () => (
       // 	<>
       // 		<Image
