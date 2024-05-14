@@ -3,6 +3,7 @@ import { Route, Navigate } from "react-router-dom";
 import Login from "@/pages/Login.jsx";
 import Home from "@/pages/Home.jsx";
 import PicCard from "../components/PicCard.jsx";
+import Patient from '@/pages/Patient.jsx';
 import Register from "@/pages/Register.jsx";
 import Assessment from "../components/Assessment.jsx";
 
@@ -35,6 +36,14 @@ const globalRouters = [
   {
     path: "/assessment",
     element: <Assessment />,
+  },
+  {
+    path: "/patient",
+    element: <Patient />,
+  },
+  {
+    path: "/patient/:id",
+    element: <Patient />,
   },
 ];
 

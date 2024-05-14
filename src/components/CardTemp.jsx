@@ -4,7 +4,7 @@ export default function CardTemp(props) {
   const data = props.data;
   return (
     <>
-      <Card title="Small size card" style={{ width: 300, margin: 10 }}>
+      <Card title="Patient" style={{ width: 300, margin: 10 }}>
         <div className="flex justify-evenly">
           <div className="bg-red-500 flex-2 rounded-xl w-20 h-20 text-center leading-normal text-5xl font-bold px-1">
             {data.fName.charAt(0)} {data.lName.charAt(0)}

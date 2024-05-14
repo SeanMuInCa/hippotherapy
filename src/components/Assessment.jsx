@@ -37,7 +37,15 @@ const Assessment = () => {
     console.log("has 0");
     openNotification("you have to finish all the steps");
   };
-
+  const getScore = (score)=>{
+    switch(score){
+      case 1: return 1;
+      case 2: return 2;
+      case 3: return 3;
+      case 4: return 2;
+      case 5: return 1;
+    }
+  };
   const columns = [
     {
       title: "Part",
@@ -96,7 +104,7 @@ const Assessment = () => {
                 clickedButtons[record.key] === 4 ? "#1677FF" : "inherit",
             }}
           >
-            4
+            2
           </Button>
           <Button
             onClick={() => handleButtonClick(record, 5)}
@@ -105,7 +113,7 @@ const Assessment = () => {
                 clickedButtons[record.key] === 5 ? "#1677FF" : "inherit",
             }}
           >
-            5
+            1
           </Button>
         </span>
       ),
@@ -123,7 +131,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/head1.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[0],
+      score: getScore(result[0]),
     },
     {
       key: "1",
@@ -131,7 +139,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/trunk1.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[1],
+      score: getScore(result[1]),
     },
     {
       key: "2",
@@ -139,7 +147,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/pelvic1.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[2],
+      score: getScore(result[2]),
     },
     {
       key: "3",
@@ -147,7 +155,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/head2.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[3],
+      score: getScore(result[3]),
     },
     {
       key: "4",
@@ -155,7 +163,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/thoracic.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[4],
+      score: getScore(result[4]),
     },
     {
       key: "5",
@@ -163,7 +171,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/lumbar.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[5],
+      score: getScore(result[5]),
     },
     {
       key: "6",
@@ -171,7 +179,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/trunk2.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[6],
+      score: getScore(result[6]),
     },
     {
       key: "7",
@@ -179,19 +187,19 @@ const Assessment = () => {
       img: (
         <Image src="/images/pelvic2.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[7],
+      score: getScore(result[7]),
     },
     {
       key: "8",
       part: "Hip Flex",
       img: <Image src="/images/hip.png" style={{ width: 500, height: 100 }} />,
-      score: result[8],
+      score: getScore(result[8]),
     },
     {
       key: "9",
       part: "Knee Ext/Flex",
       img: <Image src="/images/knee.png" style={{ width: 500, height: 100 }} />,
-      score: result[9],
+      score: getScore(result[9]),
     },
     {
       key: "10",
@@ -199,7 +207,7 @@ const Assessment = () => {
       img: (
         <Image src="/images/elbow.png" style={{ width: 500, height: 100 }} />
       ),
-      score: result[10],
+      score: getScore(result[10]),
     },
   ];
   return (
