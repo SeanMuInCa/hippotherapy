@@ -4,6 +4,7 @@ import Login from "@/pages/Login.jsx";
 import Home from "@/pages/Home.jsx";
 import PicCard from "../components/PicCard.jsx";
 import Patient from "@/pages/Patient.jsx";
+import PatientDetail from "@/pages/PatientDetail.jsx";
 import Register from "@/pages/Register.jsx";
 import Assessment from "../components/Assessment.jsx";
 
@@ -43,7 +44,7 @@ const globalRouters = [
   },
   {
     path: "/patient/:id",
-    element: <Patient />,
+    element: <PatientDetail />,
   },
 ];
 
