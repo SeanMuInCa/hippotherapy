@@ -12,13 +12,12 @@ function Home() {
   const goAssessment = () => {
     nav("/assessment");
   };
-  const goPatients = ()=>{
-    nav('/patient');
+  const goPatients = () => {
+    nav("/patient");
   };
-  
+
   return (
     <>
-      
       <div className="my-20">
         <h1 className="text-center">Home Page</h1>
         <div className="flex justify-center mt-10">

@@ -37,13 +37,18 @@ const Assessment = () => {
     console.log("has 0");
     openNotification("you have to finish all the steps");
   };
-  const getScore = (score)=>{
-    switch(score){
-      case 1: return 1;
-      case 2: return 2;
-      case 3: return 3;
-      case 4: return 2;
-      case 5: return 1;
+  const getScore = (score) => {
+    switch (score) {
+      case 1:
+        return 1;
+      case 2:
+        return 2;
+      case 3:
+        return 3;
+      case 4:
+        return 2;
+      case 5:
+        return 1;
     }
   };
   const columns = [
