@@ -1,5 +1,5 @@
 // routes.js
-import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Login from "@/pages/Login.jsx";
 import Home from "@/pages/Home.jsx";
 import PicCard from "../components/PicCard.jsx";
