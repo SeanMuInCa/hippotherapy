@@ -11,19 +11,149 @@ const App = () => {
 
   return (
     <>
-      <div className="mx-auto my-10 flex justify-center w-50 h-50">
+      {/* <div className="mx-auto my-10 flex justify-center w-50 h-50">
         <Logo size="large"></Logo>
-      </div>
+      </div> */}
 
       <Form
         labelCol={{
           span: 5,
         }}
-        className="flex flex-col items-center"
+        className="flex flex-col items-center my-10"
         form={form}
         name="register"
         onFinish={onFinish}
       >
+        <Form.Item
+          className="w-6/12"
+          name="fName"
+          label="First Name"
+          rules={[
+            {
+              required: true,
+              message: "Please input your first name",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="lName"
+          label="Last Name"
+          rules={[
+            {
+              required: true,
+              message: "Please input your last name",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="phone"
+          label="Contact Number"
+          rules={[
+            {
+              required: true,
+              message: "Please input your number",
+            },
+          ]}
+        >
+          <Input placeholder="123-123-1234"/>
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="city"
+          label="City"
+          rules={[
+            {
+              required: true,
+              message: "Please input your city",
+            },
+          ]}
+        >
+          <Input placeholder="Saskatoon"/>
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="province"
+          label="Province"
+          rules={[
+            {
+              required: true,
+              message: "Please input your province",
+            },
+          ]}
+        >
+          <Input placeholder="Saskatchewan"/>
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="edu"
+          label="Education"
+          rules={[
+            {
+              required: true,
+              message: "Please input your education",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="specialization"
+          label="Specialization"
+          rules={[
+            {
+              required: true,
+              message: "Please input your specialization",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="train"
+          label="Training"
+          rules={[
+            {
+              required: true,
+              message: "Please input your training",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="expertise"
+          label="Expertise"
+          rules={[
+            {
+              required: true,
+              message: "Please input your expertise",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          className="w-6/12"
+          name="experience"
+          label="Years of Experience"
+          rules={[
+            {
+              required: true,
+              message: "Please input your years of experience",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           className="w-6/12"
           name="email"
@@ -83,7 +213,7 @@ const App = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           className="w-6/12 flex justify-center"
           name="agreement"
           valuePropName="checked"
@@ -99,7 +229,7 @@ const App = () => {
           <Checkbox className="align-middle mx-auto">
             I have read the <a href="">agreement</a>
           </Checkbox>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item className="w-6/12 flex justify-center">
           <Button type="primary" htmlType="submit">
