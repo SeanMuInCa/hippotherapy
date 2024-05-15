@@ -8,7 +8,7 @@ export default function CardTemp(props) {
   const data = props.data;
   const handleClick = (data) => {
     console.log(data);
-    // nav(`/patient/${data.id}`);
+    nav(`/patient/${data.id}`);
     patientStore[0].selected = data.id;
     console.log(patientStore[0].selected);
   };
@@ -30,7 +30,7 @@ export default function CardTemp(props) {
           </div>
         </div>
       </Card>
-      <PatientDetail id={patientStore[0].selected}></PatientDetail>
+      {/* <PatientDetail id={patientStore[0].selected}></PatientDetail> */}
     </>
   );
 }
