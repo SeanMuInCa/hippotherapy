@@ -1,9 +1,9 @@
 import { Input, Button, Form } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
-export default function Login() {
+export default function ResearcherLogin() {
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
@@ -68,13 +68,6 @@ export default function Login() {
           </Button>
         </Form.Item>
       </Form>
-      <div className="mx-auto my-5 text-center">
-        Login as researcher? Click{" "}
-        <Link to={'/researcherlogin'} className="underline text-blue-400">Here</Link> or{" "}
-        <Link to={"/register"} className="underline text-red-500">
-          Sign Up
-        </Link>
-      </div>
     </>
   );
 }

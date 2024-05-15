@@ -53,13 +53,13 @@ export default function Tobbar() {
           )}
         </div>
       </div>
-      <div className="bg-gray-100">
+      {/* <div className="bg-gray-100">
         <ul className="flex">
           <li>1</li>
           <li>1</li>
           <li>1</li>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }

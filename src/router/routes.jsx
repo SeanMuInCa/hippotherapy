@@ -7,12 +7,16 @@ import Patient from "@/pages/Patient.jsx";
 import PatientDetail from "@/pages/PatientDetail.jsx";
 import Register from "@/pages/Register.jsx";
 import Assessment from "../components/Assessment.jsx";
-
+import ResearcherLogin from "../pages/ResearcherLogin.jsx";
 // 定义路由数组
 const globalRouters = [
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/researcherlogin",
+    element: <ResearcherLogin />,
   },
   {
     path: "/home",
