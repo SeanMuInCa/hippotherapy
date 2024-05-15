@@ -2,10 +2,10 @@ import { Tabs } from "antd";
 import Patient from "../pages/Patient";
 import { useNavigate } from "react-router-dom";
 const Navgator = () => {
-    const nav = useNavigate();
+  const nav = useNavigate();
   const onChange = (key) => {
     console.log(key);
-    nav('/home');
+    nav("/home");
   };
   const items = [
     {
