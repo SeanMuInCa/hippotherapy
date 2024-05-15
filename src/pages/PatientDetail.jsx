@@ -13,8 +13,10 @@ export default function PatientDetail() {
         <div>{data.lName.toUpperCase().charAt(0)}</div>
       </div>
       <div className="bg-green-300 flex-1">
-        {Object.keys(data).map((key,index) => (
-            <p className="p-2" key={index}>{key}: {data[key]}</p>
+        {Object.keys(data).map((key, index) => (
+          <p className="p-2" key={index}>
+            {key}: {data[key]}
+          </p>
         ))}
       </div>
     </div>
