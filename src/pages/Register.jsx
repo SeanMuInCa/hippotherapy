@@ -61,7 +61,7 @@ const App = () => {
             },
           ]}
         >
-          <Input placeholder="123-123-1234"/>
+          <Input placeholder="123-123-1234" />
         </Form.Item>
         <Form.Item
           className="w-6/12"
@@ -74,7 +74,7 @@ const App = () => {
             },
           ]}
         >
-          <Input placeholder="Saskatoon"/>
+          <Input placeholder="Saskatoon" />
         </Form.Item>
         <Form.Item
           className="w-6/12"
@@ -87,7 +87,7 @@ const App = () => {
             },
           ]}
         >
-          <Input placeholder="Saskatchewan"/>
+          <Input placeholder="Saskatchewan" />
         </Form.Item>
         <Form.Item
           className="w-6/12"
