@@ -15,7 +15,7 @@ export default function Login() {
     localStorage.setItem("isLogin", true);
   };
   useEffect(() => {
-    localStorage.removeItem('isLogin');
+    localStorage.removeItem("isLogin");
   }, []);
   return (
     <>

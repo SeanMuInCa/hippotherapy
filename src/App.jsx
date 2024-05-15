@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Tobbar />
-      {userStore[0].isLogin ? <Navgator /> : ''}
+      {userStore[0].isLogin ? <Navgator /> : ""}
       <Routes>
         {globalRouters.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
