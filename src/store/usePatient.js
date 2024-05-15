@@ -53,7 +53,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
         },
       ],
-      selected:''
+      selected: "",
     };
   },
   actions: {},
