@@ -3,6 +3,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
+import { useEffect } from "react";
 export default function Login() {
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
@@ -13,7 +14,9 @@ export default function Login() {
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
   };
-
+  useEffect(() => {
+    localStorage.removeItem('isLogin');
+  }, []);
   return (
     <>
       <div className="mx-auto my-10 flex justify-center w-50 h-50">

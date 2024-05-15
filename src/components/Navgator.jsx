@@ -1,5 +1,5 @@
 import { Tabs } from "antd";
-
+import Patient from "../pages/Patient";
 const Navgator = () => {
   const onChange = (key) => {
     console.log(key);
@@ -13,7 +13,7 @@ const Navgator = () => {
     {
       key: "2",
       label: "Patient List",
-      children: "Content of Tab Pane 2",
+      children: <Patient></Patient>,
     },
     {
       key: "3",

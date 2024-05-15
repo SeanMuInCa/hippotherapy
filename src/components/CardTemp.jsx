@@ -5,7 +5,7 @@ export default function CardTemp(props) {
   const data = props.data;
   const handleClick = (data) => {
     console.log(data);
-    nav(`${data.id}`);
+    nav(`/patient/${data.id}`);
   };
   return (
     <>
