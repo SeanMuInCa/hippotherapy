@@ -70,7 +70,10 @@ export default function Login() {
       </Form>
       <div className="mx-auto my-5 text-center">
         Login as researcher? Click{" "}
-        <Link to={'/researcherlogin'} className="underline text-blue-400">Here</Link> or{" "}
+        <Link to={"/researcherlogin"} className="underline text-blue-400">
+          Here
+        </Link>{" "}
+        or{" "}
         <Link to={"/register"} className="underline text-red-500">
           Sign Up
         </Link>
