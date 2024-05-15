@@ -1,5 +1,6 @@
 import { Tabs } from "antd";
 import Patient from "../pages/Patient";
+
 const Navgator = () => {
   const onChange = (key) => {
     console.log(key);

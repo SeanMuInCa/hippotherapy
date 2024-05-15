@@ -1,11 +1,16 @@
 import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
+import usePatientStore from "../store/usePatient";
+import PatientDetail from "@/pages/PatientDetail";
 export default function CardTemp(props) {
+  const patientStore = usePatientStore();
   const nav = useNavigate();
   const data = props.data;
   const handleClick = (data) => {
     console.log(data);
-    nav(`/patient/${data.id}`);
+    // nav(`/patient/${data.id}`);
+    patientStore[0].selected = data.id;
+    console.log(patientStore[0].selected);
   };
   return (
     <>
@@ -25,6 +30,7 @@ export default function CardTemp(props) {
           </div>
         </div>
       </Card>
+      <PatientDetail id={patientStore[0].selected}></PatientDetail>
     </>
   );
 }
