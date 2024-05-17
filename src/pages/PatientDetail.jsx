@@ -2,12 +2,13 @@ import { useParams } from "react-router-dom";
 import usePatientStore from "../store/usePatient";
 import { Button } from "antd";
 import Avatar from "../components/Avatar";
-export default function PatientDetail() {
+import PatientForm from "../components/PatientForm";
+export default function PatientDetail(props) {
   const { id } = useParams();
   const patientStore = usePatientStore();
   console.log(patientStore[0].data);
   const data = patientStore[0].data[id];
-
+  console.log(props);
   console.log(data);
   return (
     <>
@@ -21,6 +22,7 @@ export default function PatientDetail() {
               {key}: {data[key]}
             </p>
           ))} */}
+          <PatientForm />
           <Button type="primary" className="mt-5">
             Edit Profile
           </Button>

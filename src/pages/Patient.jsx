@@ -10,7 +10,7 @@ export default function Patient() {
   if (choose)
     return (
       <>
-        <PatientDetail data={choose}></PatientDetail>
+        {/* <PatientDetail data={patients}></PatientDetail> */}
       </>
     );
   else
