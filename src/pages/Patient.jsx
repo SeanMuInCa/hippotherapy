@@ -8,11 +8,7 @@ export default function Patient() {
   const patients = patientStore[0].data;
   const [choose, setChoose] = useState(false);
   if (choose)
-    return (
-      <>
-        {/* <PatientDetail data={patients}></PatientDetail> */}
-      </>
-    );
+    return <>{/* <PatientDetail data={patients}></PatientDetail> */}</>;
   else
     return (
       <>

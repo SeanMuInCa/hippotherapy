@@ -8,10 +8,10 @@ const Navgator = () => {
     console.log(key);
     nav("/home");
   };
-  const handleTabClick = (key, e)=>{
+  const handleTabClick = (key, e) => {
     console.log(key);
     console.log(e);
-    if(key == 2) nav("/patient");
+    if (key == 2) nav("/patient");
   };
   const items = [
     {
@@ -32,7 +32,12 @@ const Navgator = () => {
   ];
   return (
     <div className="px-5">
-      <Tabs defaultActiveKey="2" items={items} onChange={onChange} onTabClick={handleTabClick}/>
+      <Tabs
+        defaultActiveKey="2"
+        items={items}
+        onChange={onChange}
+        onTabClick={handleTabClick}
+      />
     </div>
     // <div className="px-5 bg-gray-100 pt-5 pb-1 flex flex-wrap ">
     // 	<ul className="flex leading-9">

@@ -20,7 +20,7 @@ const globalRouters = [
   },
   {
     path: "/home",
-    element:<Navigate to="/patient" />,
+    element: <Navigate to="/patient" />,
   },
   {
     path: "/pics",
