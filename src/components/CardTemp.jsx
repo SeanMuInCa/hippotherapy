@@ -19,7 +19,11 @@ export default function CardTemp(props) {
   console.log(avatar);
   return (
     <>
-      <Card title={data.fName + " " + data.lName} className="w-full h-full mb-2" size="small">
+      <Card
+        title={data.fName + " " + data.lName}
+        className="w-full h-full mb-2"
+        size="small"
+      >
         <div
           className="flex justify-evenly cursor-pointer"
           onClick={() => handleClick(data)}

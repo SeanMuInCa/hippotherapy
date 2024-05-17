@@ -1,9 +1,7 @@
-import avatar from "../utils/getAvatar"
+import avatar from "../utils/getAvatar";
 
 const Avatar = () => {
-  return (
-    <img src={avatar} alt="" className="w-20"/>
-  )
-}
+  return <img src={avatar} alt="" className="w-20" />;
+};
 
-export default Avatar
+export default Avatar;
