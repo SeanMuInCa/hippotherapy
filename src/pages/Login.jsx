@@ -19,8 +19,9 @@ export default function Login() {
   }, []);
   return (
     <>
-      <div className="mx-auto my-10 flex justify-center w-50 h-50">
+      <div className="mx-auto my-10 flex justify-center w-50 h-50 flex-col items-center text-2xl">
         <Logo size="large"></Logo>
+        <p>Login for therapists</p>
       </div>
       <Form
         labelAlign="left"

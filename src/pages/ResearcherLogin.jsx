@@ -16,8 +16,9 @@ export default function ResearcherLogin() {
 
   return (
     <>
-      <div className="mx-auto my-10 flex justify-center w-50 h-50">
+      <div className="mx-auto text-2xl my-10 flex flex-col items-center justify-center w-50 h-50">
         <Logo size="large"></Logo>
+        <p>Login for researcher</p>
       </div>
       <Form
         labelAlign="left"
