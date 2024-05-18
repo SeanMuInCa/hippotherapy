@@ -4,17 +4,22 @@ import { Button } from "antd";
 import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
 import { useState } from "react";
+import avatar from "../utils/getAvatar";
 
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
-  const [img, setImg] = useState("");
+  
   const { id } = useParams();
   const patientStore = usePatientStore();
   const data = patientStore[0].data[id];
+  const [img, setImg] = useState(data.avatar);
   const handleEdit = () => {
     setEdit(true);
   };
-  const newAvatar = () => {};
+  const newAvatar = () => {
+    const newImg = avatar();
+    setImg(newImg);
+  };
   return (
     <>
       <div className="bg-gray-500 w-full flex flex-col items-center flex-wrap">

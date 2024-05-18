@@ -1,6 +1,5 @@
-import avatar from "../utils/getAvatar";
-const img = avatar();
-const Avatar = () => {
+
+const Avatar = ({img}) => {
   return <img src={img} alt="" className="w-20" />;
 };
 
