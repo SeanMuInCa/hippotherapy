@@ -7,22 +7,24 @@ import { useState } from "react";
 
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
-  const [img, setImg] = useState('');
+  const [img, setImg] = useState("");
   const { id } = useParams();
   const patientStore = usePatientStore();
   const data = patientStore[0].data[id];
   const handleEdit = () => {
     setEdit(true);
   };
-  const newAvatar = ()=>{
-    
-  };
+  const newAvatar = () => {};
   return (
     <>
       <div className="bg-gray-500 w-full flex flex-col items-center flex-wrap">
         <div className="w-32 h-32 bg-red-500 mx-20 text-6xl flex flex-col justify-around items-center">
-          <Avatar img={img}/>
-          {edit && <Button size="small" onClick={newAvatar}>Change one</Button>}
+          <Avatar img={img} />
+          {edit && (
+            <Button size="small" onClick={newAvatar}>
+              Change one
+            </Button>
+          )}
         </div>
         <div className="bg-green-300 flex-1 w-full flex flex-col justify-center items-center">
           {/* {Object.keys(data).map((key, index) => (
