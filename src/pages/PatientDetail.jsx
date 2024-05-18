@@ -24,10 +24,12 @@ export default function PatientDetail() {
               {key}: {data[key]}
             </p>
           ))} */}
-          <PatientForm info={data} edit={edit} setEdit={setEdit}/>
-          {!edit && <Button type="primary" onClick={handleEdit}>
-            Edit Profile
-          </Button>}
+          <PatientForm info={data} edit={edit} setEdit={setEdit} />
+          {!edit && (
+            <Button type="primary" onClick={handleEdit}>
+              Edit Profile
+            </Button>
+          )}
         </div>
       </div>
     </>

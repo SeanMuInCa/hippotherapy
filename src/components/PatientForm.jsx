@@ -1,10 +1,10 @@
 import { Form, Input, Button, Select } from "antd";
 const { Option } = Select;
 const PatientForm = (props) => {
-    const handleSave = ()=>{
-        props.setEdit(false);
-    };
-    console.log(props);
+  const handleSave = () => {
+    props.setEdit(false);
+  };
+  console.log(props);
   return (
     <Form
       labelCol={{
@@ -13,7 +13,7 @@ const PatientForm = (props) => {
       className="flex flex-col items-center my-10"
       // form={form}
       name="profile"
-    //   onFinish={onFinish}
+      //   onFinish={onFinish}
     >
       <Form.Item
         className="w-9/12 flex flex-row"
@@ -26,7 +26,11 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input disabled={!props.edit} defaultValue={props.info.fName} value={props.info.fName}/>
+        <Input
+          disabled={!props.edit}
+          defaultValue={props.info.fName}
+          value={props.info.fName}
+        />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -39,7 +43,7 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input disabled={!props.edit} defaultValue={props.info.lName}/>
+        <Input disabled={!props.edit} defaultValue={props.info.lName} />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -52,7 +56,11 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input placeholder="123-123-1234" disabled={!props.edit} defaultValue={props.info.number}/>
+        <Input
+          placeholder="123-123-1234"
+          disabled={!props.edit}
+          defaultValue={props.info.number}
+        />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -65,7 +73,11 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input placeholder="yyyy/mm/dd" disabled={!props.edit} defaultValue={props.info.birth}/>
+        <Input
+          placeholder="yyyy/mm/dd"
+          disabled={!props.edit}
+          defaultValue={props.info.birth}
+        />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -78,7 +90,7 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input disabled={!props.edit} defaultValue={props.info.parent}/>
+        <Input disabled={!props.edit} defaultValue={props.info.parent} />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -95,7 +107,7 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input disabled={!props.edit} defaultValue={props.info.email}/>
+        <Input disabled={!props.edit} defaultValue={props.info.email} />
       </Form.Item>
       <Form.Item
         className="w-9/12"
@@ -103,14 +115,18 @@ const PatientForm = (props) => {
         label="Gender"
         rules={[{ required: true, message: "Please select gender!" }]}
       >
-        <Select placeholder="select your gender" disabled={!props.edit} defaultValue={props.info.gender}>
+        <Select
+          placeholder="select your gender"
+          disabled={!props.edit}
+          defaultValue={props.info.gender}
+        >
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
         </Select>
       </Form.Item>
       <Form.Item
-      className="w-9/12"
+        className="w-9/12"
         name="intro"
         label="Intro"
         rules={[
@@ -120,13 +136,20 @@ const PatientForm = (props) => {
           },
         ]}
       >
-        <Input.TextArea showCount maxLength={500} disabled={!props.edit} defaultValue={props.info.history}/>
+        <Input.TextArea
+          showCount
+          maxLength={500}
+          disabled={!props.edit}
+          defaultValue={props.info.history}
+        />
       </Form.Item>
-      {props.edit && <Form.Item className="w-6/12 flex justify-center">
-        <Button type="primary" htmlType="submit" onClick={handleSave}>
-          Save
-        </Button>
-      </Form.Item>}
+      {props.edit && (
+        <Form.Item className="w-6/12 flex justify-center">
+          <Button type="primary" htmlType="submit" onClick={handleSave}>
+            Save
+          </Button>
+        </Form.Item>
+      )}
     </Form>
   );
 };
