@@ -17,7 +17,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
           birth: "2022-01-01",
           parent: "parent.name",
-          avatar:avatar()
+          avatar: avatar(),
         },
         {
           id: 1,
@@ -32,7 +32,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
           birth: "2022-02-01",
           parent: "parent.name",
-          avatar:avatar()
+          avatar: avatar(),
         },
         {
           id: 2,
@@ -47,7 +47,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
           birth: "2022-03-01",
           parent: "parent.name",
-          avatar:avatar()
+          avatar: avatar(),
         },
         {
           id: 3,
@@ -62,7 +62,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
           birth: "2022-04-01",
           parent: "parent.name",
-          avatar:avatar()
+          avatar: avatar(),
         },
       ],
       selected: "",

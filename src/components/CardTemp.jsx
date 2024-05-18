@@ -15,7 +15,6 @@ export default function CardTemp(props) {
     console.log(patientStore[0].selected);
   };
 
-
   return (
     <>
       <Card

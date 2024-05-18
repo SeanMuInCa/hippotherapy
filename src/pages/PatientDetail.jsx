@@ -8,7 +8,7 @@ import avatar from "../utils/getAvatar";
 
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
-  
+
   const { id } = useParams();
   const patientStore = usePatientStore();
   const data = patientStore[0].data[id];
