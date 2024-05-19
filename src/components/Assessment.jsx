@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Table, Button, Image, notification } from "antd";
-import head1 from '@/assets/assessment/head1.png';
-import head2 from '@/assets/assessment/head2.png';
-import head3 from '@/assets/assessment/head3.png';
-import head4 from '@/assets/assessment/head4.png';
-import head5 from '@/assets/assessment/head5.png';
+import head1 from "@/assets/assessment/head1.png";
+import head2 from "@/assets/assessment/head2.png";
+import head3 from "@/assets/assessment/head3.png";
+import head4 from "@/assets/assessment/head4.png";
+import head5 from "@/assets/assessment/head5.png";
 import AssessmentImages from "./AssessmentImages";
 const Assessment = () => {
-  const headArr = [head1,head2,head3,head4,head5];
+  const headArr = [head1, head2, head3, head4, head5];
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
     console.log(`Button ${buttonId} clicked in row:`, record);
@@ -58,8 +58,8 @@ const Assessment = () => {
         return 1;
     }
   };
-  const handleResult = (index,score)=>{
-    console.log('@',index,score);
+  const handleResult = (index, score) => {
+    console.log("@", index, score);
     setResult((prevState) => {
       // 创建副本
       const newState = [...prevState];
@@ -152,9 +152,7 @@ const Assessment = () => {
     {
       key: "0",
       part: "Head Later Tilt",
-      img: (
-        <AssessmentImages num={0} imgs={headArr} setResult={handleResult}/>
-      ),
+      img: <AssessmentImages num={0} imgs={headArr} setResult={handleResult} />,
       score: getScore(result[0]),
     },
     {
