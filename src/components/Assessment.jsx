@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Table, Button, Image, notification } from "antd";
+import head1 from '@/assets/assessment/head1.png';
+import head2 from '@/assets/assessment/head2.png';
+import head3 from '@/assets/assessment/head3.png';
+import head4 from '@/assets/assessment/head4.png';
+import head5 from '@/assets/assessment/head5.png';
+import AssessmentImages from "./AssessmentImages";
 const Assessment = () => {
+  const headArr = [head1,head2,head3,head4,head5];
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
     console.log(`Button ${buttonId} clicked in row:`, record);
@@ -51,6 +58,17 @@ const Assessment = () => {
         return 1;
     }
   };
+  const handleResult = (index,score)=>{
+    console.log('@',index,score);
+    setResult((prevState) => {
+      // 创建副本
+      const newState = [...prevState];
+      // 修改副本中对应位置的值
+      newState[index] = score;
+      // 返回新的状态
+      return newState;
+    });
+  };
   const columns = [
     {
       title: "Part",
@@ -71,59 +89,59 @@ const Assessment = () => {
       // 	</>
       // ),
     },
-    {
-      title: "Action",
-      key: "action",
-      render: (text, record) => (
-        <span>
-          <Button
-            onClick={() => handleButtonClick(record, 1)}
-            style={{
-              background:
-                clickedButtons[record.key] === 1 ? "#1677FF" : "inherit",
-            }}
-          >
-            1
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(record, 2)}
-            style={{
-              background:
-                clickedButtons[record.key] === 2 ? "#1677FF" : "inherit",
-            }}
-          >
-            2
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(record, 3)}
-            style={{
-              background:
-                clickedButtons[record.key] === 3 ? "#1677FF" : "inherit",
-            }}
-          >
-            3
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(record, 4)}
-            style={{
-              background:
-                clickedButtons[record.key] === 4 ? "#1677FF" : "inherit",
-            }}
-          >
-            2
-          </Button>
-          <Button
-            onClick={() => handleButtonClick(record, 5)}
-            style={{
-              background:
-                clickedButtons[record.key] === 5 ? "#1677FF" : "inherit",
-            }}
-          >
-            1
-          </Button>
-        </span>
-      ),
-    },
+    // {
+    //   title: "Action",
+    //   key: "action",
+    //   render: (text, record) => (
+    //     <span>
+    //       <Button
+    //         onClick={() => handleButtonClick(record, 1)}
+    //         style={{
+    //           background:
+    //             clickedButtons[record.key] === 1 ? "#1677FF" : "inherit",
+    //         }}
+    //       >
+    //         1
+    //       </Button>
+    //       <Button
+    //         onClick={() => handleButtonClick(record, 2)}
+    //         style={{
+    //           background:
+    //             clickedButtons[record.key] === 2 ? "#1677FF" : "inherit",
+    //         }}
+    //       >
+    //         2
+    //       </Button>
+    //       <Button
+    //         onClick={() => handleButtonClick(record, 3)}
+    //         style={{
+    //           background:
+    //             clickedButtons[record.key] === 3 ? "#1677FF" : "inherit",
+    //         }}
+    //       >
+    //         3
+    //       </Button>
+    //       <Button
+    //         onClick={() => handleButtonClick(record, 4)}
+    //         style={{
+    //           background:
+    //             clickedButtons[record.key] === 4 ? "#1677FF" : "inherit",
+    //         }}
+    //       >
+    //         2
+    //       </Button>
+    //       <Button
+    //         onClick={() => handleButtonClick(record, 5)}
+    //         style={{
+    //           background:
+    //             clickedButtons[record.key] === 5 ? "#1677FF" : "inherit",
+    //         }}
+    //       >
+    //         1
+    //       </Button>
+    //     </span>
+    //   ),
+    // },
     {
       title: "Score",
       dataIndex: "score",
@@ -135,7 +153,7 @@ const Assessment = () => {
       key: "0",
       part: "Head Later Tilt",
       img: (
-        <Image src="/images/head1.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={0} imgs={headArr} setResult={handleResult}/>
       ),
       score: getScore(result[0]),
     },
