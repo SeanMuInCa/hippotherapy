@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Table, Button, Image, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 
-import { headArr, trunkArr } from "@/utils/assessmentHelper";
+import { headArr, trunkArr,pelvicArr,headAntArr,thoracicArr,lumbarArr,trunkInclinationArr,pelvicTiltArr,hipArr,kneeArr,elbowArr } from "@/utils/assessmentHelper";
 const Assessment = () => {
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
@@ -163,7 +163,7 @@ const Assessment = () => {
       key: "2",
       part: "Pelvic Obliquity",
       img: (
-        <Image src="/images/pelvic1.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={2} imgs={pelvicArr} setResult={handleResult} />
       ),
       score: getScore(result[2]),
     },
@@ -171,7 +171,7 @@ const Assessment = () => {
       key: "3",
       part: "Head Ant/Post Tilt",
       img: (
-        <Image src="/images/head2.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={3} imgs={headAntArr} setResult={handleResult} />
       ),
       score: getScore(result[3]),
     },
@@ -179,7 +179,7 @@ const Assessment = () => {
       key: "4",
       part: "Thoracic curve",
       img: (
-        <Image src="/images/thoracic.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={4} imgs={thoracicArr} setResult={handleResult} />
       ),
       score: getScore(result[4]),
     },
@@ -187,7 +187,7 @@ const Assessment = () => {
       key: "5",
       part: "Lumbar curve",
       img: (
-        <Image src="/images/lumbar.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={5} imgs={lumbarArr} setResult={handleResult} />
       ),
       score: getScore(result[5]),
     },
@@ -195,7 +195,7 @@ const Assessment = () => {
       key: "6",
       part: "Trunk Inclination",
       img: (
-        <Image src="/images/trunk2.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={6} imgs={trunkInclinationArr} setResult={handleResult} />
       ),
       score: getScore(result[6]),
     },
@@ -203,27 +203,27 @@ const Assessment = () => {
       key: "7",
       part: "Pelvic Tilt",
       img: (
-        <Image src="/images/pelvic2.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={7} imgs={pelvicTiltArr} setResult={handleResult} />
       ),
       score: getScore(result[7]),
     },
     {
       key: "8",
       part: "Hip Flex",
-      img: <Image src="/images/hip.png" style={{ width: 500, height: 100 }} />,
+      img: <AssessmentImages num={8} imgs={hipArr} setResult={handleResult} />,
       score: getScore(result[8]),
     },
     {
       key: "9",
       part: "Knee Ext/Flex",
-      img: <Image src="/images/knee.png" style={{ width: 500, height: 100 }} />,
+      img: <AssessmentImages num={9} imgs={kneeArr} setResult={handleResult} />,
       score: getScore(result[9]),
     },
     {
       key: "10",
       part: "Elbow Flexion/Extension",
       img: (
-        <Image src="/images/elbow.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={10} imgs={elbowArr} setResult={handleResult} />
       ),
       score: getScore(result[10]),
     },
