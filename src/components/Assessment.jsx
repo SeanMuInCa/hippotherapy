@@ -2,7 +2,19 @@ import { useState } from "react";
 import { Table, Button, Image, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 
-import { headArr, trunkArr,pelvicArr,headAntArr,thoracicArr,lumbarArr,trunkInclinationArr,pelvicTiltArr,hipArr,kneeArr,elbowArr } from "@/utils/assessmentHelper";
+import {
+  headArr,
+  trunkArr,
+  pelvicArr,
+  headAntArr,
+  thoracicArr,
+  lumbarArr,
+  trunkInclinationArr,
+  pelvicTiltArr,
+  hipArr,
+  kneeArr,
+  elbowArr,
+} from "@/utils/assessmentHelper";
 const Assessment = () => {
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
@@ -195,7 +207,11 @@ const Assessment = () => {
       key: "6",
       part: "Trunk Inclination",
       img: (
-        <AssessmentImages num={6} imgs={trunkInclinationArr} setResult={handleResult} />
+        <AssessmentImages
+          num={6}
+          imgs={trunkInclinationArr}
+          setResult={handleResult}
+        />
       ),
       score: getScore(result[6]),
     },
@@ -203,7 +219,11 @@ const Assessment = () => {
       key: "7",
       part: "Pelvic Tilt",
       img: (
-        <AssessmentImages num={7} imgs={pelvicTiltArr} setResult={handleResult} />
+        <AssessmentImages
+          num={7}
+          imgs={pelvicTiltArr}
+          setResult={handleResult}
+        />
       ),
       score: getScore(result[7]),
     },

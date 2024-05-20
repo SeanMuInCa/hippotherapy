@@ -50,35 +50,32 @@ import elbow2 from "@/assets/assessment/elbow2.png";
 import elbow3 from "@/assets/assessment/elbow3.png";
 import elbow4 from "@/assets/assessment/elbow4.png";
 
-
-
-
 export const headArr = [head1, head2, head3, head4, head5];
 export const trunkArr = [trunk1, trunk2, trunk3, trunk4, trunk5];
 export const pelvicArr = [pelvic1, pelvic2, pelvic3, pelvic4, pelvic5];
 export const headAntArr = [headAnt1, headAnt2, headAnt3, headAnt4, headAnt5];
 export const thoracicArr = [
-    thoracic1,
-    thoracic2,
-    thoracic3,
-    thoracic4,
-    thoracic5,
-  ];
-  export const lumbarArr = [lumbar1, lumbar2, lumbar3, lumbar4, lumbar5];
-  export const trunkInclinationArr = [
-    trunkInclination1,
-    trunkInclination2,
-    trunkInclination3,
-    trunkInclination4,
-    trunkInclination5,
-  ];
-  export const pelvicTiltArr = [
-    pelvicTilt1,
-    pelvicTilt2,
-    pelvicTilt3,
-    pelvicTilt4,
-    pelvicTilt5,
-  ];
-  export const hipArr = [hip1, hip2, hip3];
-  export const kneeArr = [knee1, knee2, knee3, knee4, knee5];
-  export const elbowArr = [elbow2, elbow3, elbow4];
+  thoracic1,
+  thoracic2,
+  thoracic3,
+  thoracic4,
+  thoracic5,
+];
+export const lumbarArr = [lumbar1, lumbar2, lumbar3, lumbar4, lumbar5];
+export const trunkInclinationArr = [
+  trunkInclination1,
+  trunkInclination2,
+  trunkInclination3,
+  trunkInclination4,
+  trunkInclination5,
+];
+export const pelvicTiltArr = [
+  pelvicTilt1,
+  pelvicTilt2,
+  pelvicTilt3,
+  pelvicTilt4,
+  pelvicTilt5,
+];
+export const hipArr = [hip1, hip2, hip3];
+export const kneeArr = [knee1, knee2, knee3, knee4, knee5];
+export const elbowArr = [elbow2, elbow3, elbow4];
