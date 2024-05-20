@@ -3,7 +3,7 @@ import { useState } from "react";
 import Avatar from "./Avatar";
 import avatar from "../utils/getAvatar";
 const NewPatient = () => {
-  const [newPatient,setNewPatient] = useState({
+  const [newPatient, setNewPatient] = useState({
     fName: "",
     lName: "",
     number: "",
@@ -12,16 +12,16 @@ const NewPatient = () => {
     email: "",
     gender: "",
     history: "",
-    avatar:avatar()
+    avatar: avatar(),
   });
   const [img, setImg] = useState(newPatient.avatar);
   return (
     <>
-    <p className="text-center mb-5">Add a new patient</p>
-    <div className="flex justify-center flex-col items-center">
-    <Avatar img={img} edit={true} setImg={setImg}/>
-    </div>
-    <PatientForm info={newPatient} edit={true} type='add' img={img}/>
+      <p className="text-center mb-5">Add a new patient</p>
+      <div className="flex justify-center flex-col items-center">
+        <Avatar img={img} edit={true} setImg={setImg} />
+      </div>
+      <PatientForm info={newPatient} edit={true} type="add" img={img} />
     </>
   );
 };

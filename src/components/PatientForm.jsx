@@ -7,14 +7,14 @@ const PatientForm = (props) => {
   const nav = useNavigate();
   const patientStore = usePatientStore();
   const onFinish = (values) => {
-    console.log('value',values);
-    if(props.type === 'add'){
-      console.log('value',values);
+    console.log("value", values);
+    if (props.type === "add") {
+      console.log("value", values);
       values.avatar = props.img;
       patientStore[0].data.push(values);
-      nav('/patient');
+      nav("/patient");
       return;
-    }else{
+    } else {
       props.handleChage(values);
     }
     props.setEdit(false);
@@ -161,7 +161,7 @@ const PatientForm = (props) => {
       </Form.Item>
       {props.edit && (
         <Form.Item className="w-6/12 flex justify-center">
-          <Button type="primary" htmlType="submit" >
+          <Button type="primary" htmlType="submit">
             Save
           </Button>
         </Form.Item>
