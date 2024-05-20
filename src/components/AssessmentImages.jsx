@@ -24,7 +24,7 @@ const AssessmentImages = ({ imgs, setResult, num }) => {
     <Carousel infinite={false}>
       {imgs.map((item, index) => {
         return (
-          <>
+          <div key={index} className="text-center">
             <Image
               key={item}
               src={item}
@@ -35,7 +35,7 @@ const AssessmentImages = ({ imgs, setResult, num }) => {
             <p className="text-black text-2xl text-center" key={index}>
               {getScore(index)}
             </p>
-          </>
+          </div>
         );
       })}
     </Carousel>

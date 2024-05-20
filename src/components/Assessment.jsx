@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Table, Button, Image, notification } from "antd";
-import head1 from "@/assets/assessment/head1.png";
-import head2 from "@/assets/assessment/head2.png";
-import head3 from "@/assets/assessment/head3.png";
-import head4 from "@/assets/assessment/head4.png";
-import head5 from "@/assets/assessment/head5.png";
 import AssessmentImages from "./AssessmentImages";
+
+import { headArr, trunkArr } from "@/utils/assessmentHelper";
 const Assessment = () => {
-  const headArr = [head1, head2, head3, head4, head5];
+
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
     console.log(`Button ${buttonId} clicked in row:`, record);
@@ -159,7 +156,7 @@ const Assessment = () => {
       key: "1",
       part: "Trunk Lateral Shift",
       img: (
-        <Image src="/images/trunk1.png" style={{ width: 500, height: 100 }} />
+        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult}/>
       ),
       score: getScore(result[1]),
     },
