@@ -4,30 +4,31 @@ import { useNavigate } from "react-router-dom";
 
 const Navgator = () => {
   const nav = useNavigate();
-  const onChange = (key) => {
-    console.log(key);
-    nav("/home");
-  };
-  const handleTabClick = (key, e) => {
-    console.log(key);
-    console.log(e);
+  // const onChange = (key) => {
+  //   console.log(key);
+  //   nav("/home");
+  // };
+  const handleTabClick = (key) => {
+    console.log('key==',key);
+    if (key == 1) nav('/profile');
     if (key == 2) nav("/patient");
+    if (key == 3) nav("/newPatient");
   };
   const items = [
     {
       key: "1",
       label: "Profile",
-      children: 1,
+      // children: 1,
     },
     {
       key: "2",
       label: "Patient List",
-      children: 2,
+      // children: 2,
     },
     {
       key: "3",
       label: "New Patient",
-      children: "Content of Tab Pane 3",
+      // children: "Content of Tab Pane 3",
     },
   ];
   return (
@@ -35,7 +36,7 @@ const Navgator = () => {
       <Tabs
         defaultActiveKey="2"
         items={items}
-        onChange={onChange}
+        // onChange={onChange}
         onTabClick={handleTabClick}
       />
     </div>
