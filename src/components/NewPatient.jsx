@@ -1,7 +1,29 @@
-import React from "react";
-
+import PatientForm from "./PatientForm";
+import { useState } from "react";
+import Avatar from "./Avatar";
+import avatar from "../utils/getAvatar";
 const NewPatient = () => {
-  return <div>NewPatient</div>;
+  const [newPatient,setNewPatient] = useState({
+    fName: "",
+    lName: "",
+    number: "",
+    birth: "",
+    parent: "",
+    email: "",
+    gender: "",
+    history: "",
+    avatar:avatar()
+  });
+  const [img, setImg] = useState(newPatient.avatar);
+  return (
+    <>
+    <p className="text-center mb-5">Add a new patient</p>
+    <div className="flex justify-center flex-col items-center">
+    <Avatar img={img} edit={true} setImg={setImg}/>
+    </div>
+    <PatientForm info={newPatient} edit={true} type='add' img={img}/>
+    </>
+  );
 };
 
 export default NewPatient;
