@@ -4,7 +4,6 @@ import AssessmentImages from "./AssessmentImages";
 
 import { headArr, trunkArr } from "@/utils/assessmentHelper";
 const Assessment = () => {
-
   const [clickedButtons, setClickedButtons] = useState({});
   const handleButtonClick = (record, buttonId) => {
     console.log(`Button ${buttonId} clicked in row:`, record);
@@ -156,7 +155,7 @@ const Assessment = () => {
       key: "1",
       part: "Trunk Lateral Shift",
       img: (
-        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult}/>
+        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult} />
       ),
       score: getScore(result[1]),
     },
