@@ -9,8 +9,8 @@ const Navgator = () => {
   //   nav("/home");
   // };
   const handleTabClick = (key) => {
-    console.log('key==',key);
-    if (key == 1) nav('/profile');
+    console.log("key==", key);
+    if (key == 1) nav("/profile");
     if (key == 2) nav("/patient");
     if (key == 3) nav("/newPatient");
   };

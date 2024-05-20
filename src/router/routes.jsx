@@ -8,8 +8,8 @@ import PatientDetail from "@/pages/PatientDetail.jsx";
 import Register from "@/pages/Register.jsx";
 import Assessment from "../components/Assessment.jsx";
 import ResearcherLogin from "../pages/ResearcherLogin.jsx";
-import Profile from '@/components/Profile.jsx';
-import NewPatient from '@/components/NewPatient.jsx';
+import Profile from "@/components/Profile.jsx";
+import NewPatient from "@/components/NewPatient.jsx";
 // 定义路由数组
 const globalRouters = [
   {
