@@ -1,5 +1,4 @@
 import { Tabs } from "antd";
-import Patient from "../pages/Patient";
 import { useNavigate } from "react-router-dom";
 
 const Navgator = () => {

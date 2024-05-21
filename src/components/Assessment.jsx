@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Button, Image, notification } from "antd";
+import { Table, Button, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 
 import {
@@ -16,22 +16,22 @@ import {
   elbowArr,
 } from "@/utils/assessmentHelper";
 const Assessment = () => {
-  const [clickedButtons, setClickedButtons] = useState({});
-  const handleButtonClick = (record, buttonId) => {
-    console.log(`Button ${buttonId} clicked in row:`, record);
-    setClickedButtons((prevState) => ({
-      ...prevState,
-      [record.key]: buttonId,
-    }));
-    setResult((prevState) => {
-      // 创建副本
-      const newState = [...prevState];
-      // 修改副本中对应位置的值
-      newState[record.key] = buttonId;
-      // 返回新的状态
-      return newState;
-    });
-  };
+  // const [clickedButtons, setClickedButtons] = useState({});
+  // const handleButtonClick = (record, buttonId) => {
+  //   console.log(`Button ${buttonId} clicked in row:`, record);
+  //   setClickedButtons((prevState) => ({
+  //     ...prevState,
+  //     [record.key]: buttonId,
+  //   }));
+  //   setResult((prevState) => {
+  //     // 创建副本
+  //     const newState = [...prevState];
+  //     // 修改副本中对应位置的值
+  //     newState[record.key] = buttonId;
+  //     // 返回新的状态
+  //     return newState;
+  //   });
+  // };
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
