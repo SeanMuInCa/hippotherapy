@@ -9,6 +9,7 @@ import Assessment from "../components/Assessment.jsx";
 import ResearcherLogin from "../pages/ResearcherLogin.jsx";
 import Profile from "@/components/Profile.jsx";
 import NewPatient from "@/components/NewPatient.jsx";
+import ResearcherHome from "../pages/ResearcherPage.jsx";
 // 定义路由数组
 const globalRouters = [
   {
@@ -18,6 +19,10 @@ const globalRouters = [
   {
     path: "/researcherlogin",
     element: <ResearcherLogin />,
+  },
+  {
+    path: "/researcherhome",
+    element: <ResearcherHome />,
   },
   {
     path: "/home",

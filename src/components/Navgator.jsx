@@ -1,7 +1,8 @@
 import { Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
-
+import useUserStore from "../store/userStore";
 const Navgator = () => {
+  const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
   // const onChange = (key) => {
   //   console.log(key);
@@ -9,19 +10,20 @@ const Navgator = () => {
   // };
   const handleTabClick = (key) => {
     console.log("key==", key);
-    if (key == 1) nav("/profile");
-    if (key == 2) nav("/patient");
+    if (key == 1) nav("/patient");
+    if (key == 2) nav("/profile");
     if (key == 3) nav("/newPatient");
   };
+  console.log("state==", state);
   const items = [
     {
       key: "1",
-      label: "Profile",
+      label: "Patient List",
       // children: 1,
     },
     {
       key: "2",
-      label: "Patient List",
+      label: "Profile",
       // children: 2,
     },
     {
@@ -30,38 +32,22 @@ const Navgator = () => {
       // children: "Content of Tab Pane 3",
     },
   ];
+  const researcherItem = [
+    {
+      key: "1",
+      label: "Researcher",
+      // children: 1,
+    },
+  ];
   return (
     <div className="px-5">
       <Tabs
-        defaultActiveKey="2"
-        items={items}
+        defaultActiveKey="1"
+        items={state.role ? researcherItem : items}
         // onChange={onChange}
         onTabClick={handleTabClick}
       />
     </div>
-    // <div className="px-5 bg-gray-100 pt-5 pb-1 flex flex-wrap ">
-    // 	<ul className="flex leading-9">
-    // 		<li className="mr-5">
-    // 			<Link>Profile</Link>
-    // 		</li>
-    // 		<li className="mr-5">
-    // 			<Link>Patient List</Link>
-    // 		</li>
-    // 		<li className="mr-5">
-    // 			<Link>New Patient</Link>
-    // 		</li>
-    // 	</ul>
-    // 	<div>
-    // 		<Search
-    // 			placeholder="input patient id"
-
-    // 			//   onSearch={onSearch}
-    // 			style={{
-    // 				width: 200,
-    // 			}}
-    // 		/>
-    // 	</div>
-    // </div>
   );
 };
 
