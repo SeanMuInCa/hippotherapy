@@ -1,13 +1,27 @@
 import { Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../store/userStore";
+import { useEffect,useState } from "react";
 const Navgator = () => {
   const [state, actions] = useUserStore.useStore();
+  
   const nav = useNavigate();
   // const onChange = (key) => {
   //   console.log(key);
   //   nav("/home");
   // };
+  useEffect(() => {
+    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+    if (!hasRefreshed) {
+      sessionStorage.setItem('hasRefreshed', 'true');
+      nav(0); // 刷新当前页面，或者使用 window.location.reload();
+    }
+  }, [nav]);
+
+  const handleReset = () => {
+    sessionStorage.removeItem('hasRefreshed');
+    // 其他重置逻辑...
+  };
   const handleTabClick = (key) => {
     console.log("key==", key);
     if (key == 1) nav("/patient");
@@ -47,6 +61,7 @@ const Navgator = () => {
         // onChange={onChange}
         onTabClick={handleTabClick}
       />
+      {handleReset}
     </div>
   );
 };
