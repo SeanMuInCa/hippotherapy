@@ -5,9 +5,9 @@ const useUserStore = defineStore({
     return {
       username: "",
       password: "",
-      role: localStorage.getItem("role") || '',
+      role: localStorage.getItem("role") || "",
       isLogin: localStorage.getItem("isLogin") || false,
-      shouldRefresh:true,
+      shouldRefresh: true,
     };
   },
   actions: {

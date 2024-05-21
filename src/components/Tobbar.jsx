@@ -11,7 +11,7 @@ export default function Tobbar() {
     actions.setLoginStatus(false);
     localStorage.removeItem("isLogin");
     localStorage.removeItem("role");
-    sessionStorage.removeItem('hasRefreshed');
+    sessionStorage.removeItem("hasRefreshed");
   };
   const goReg = () => {
     nav("/register");

@@ -12,7 +12,7 @@ export default function ResearcherLogin() {
     state.role = "researcher";
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
-    localStorage.setItem("role", 'researcher');
+    localStorage.setItem("role", "researcher");
     nav("/researcherhome");
   };
 
