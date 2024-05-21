@@ -21,7 +21,14 @@ export default function CardTemp(props) {
         title={data.fName + " " + data.lName}
         className="w-full h-full mb-2"
         size="small"
-        extra={<a className="text-sky-600 underline font-bold" href={"/session/" + data.id}>Assessment</a>}
+        extra={
+          <a
+            className="text-sky-600 underline font-bold"
+            href={"/session/" + data.id}
+          >
+            Assessment
+          </a>
+        }
       >
         <div
           className="flex justify-evenly cursor-pointer"

@@ -1,9 +1,5 @@
-
-
 const Session = () => {
-  return (
-    <div>Session</div>
-  )
-}
+  return <div>Session</div>;
+};
 
-export default Session
+export default Session;
