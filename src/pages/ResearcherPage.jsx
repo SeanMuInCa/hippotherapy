@@ -1,9 +1,5 @@
-
-
 const ResearcherPage = () => {
-  return (
-    <div>ResearcherPage</div>
-  )
-}
+  return <div>ResearcherPage</div>;
+};
 
-export default ResearcherPage
+export default ResearcherPage;

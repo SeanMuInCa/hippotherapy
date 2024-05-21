@@ -10,7 +10,7 @@ export default function ResearcherLogin() {
   const onFinish = (values) => {
     console.log(values);
     nav("/researcherhome");
-    state.role = 'researcher';
+    state.role = "researcher";
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
   };
