@@ -10,6 +10,7 @@ import ResearcherLogin from "../pages/ResearcherLogin.jsx";
 import Profile from "@/components/Profile.jsx";
 import NewPatient from "@/components/NewPatient.jsx";
 import ResearcherHome from "../pages/ResearcherPage.jsx";
+import Session from '@/pages/Session.jsx';
 // 定义路由数组
 const globalRouters = [
   {
@@ -45,7 +46,11 @@ const globalRouters = [
     element: <Register />,
   },
   {
-    path: "/assessment",
+    path: "/session/:id",
+    element: <Session />,
+  },
+  {
+    path: "/assessment/:id",
     element: <Assessment />,
   },
   {
