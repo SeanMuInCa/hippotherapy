@@ -1,5 +1,5 @@
 import Logo from "../components/Logo";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input,InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
 const App = () => {
   const [form] = Form.useForm();
@@ -152,7 +152,7 @@ const App = () => {
             },
           ]}
         >
-          <Input />
+          <InputNumber />
         </Form.Item>
         <Form.Item
           className="w-6/12"
