@@ -1,5 +1,5 @@
 import Logo from "../components/Logo";
-import { Button, Form, Input,InputNumber } from "antd";
+import { Button, Form, Input, InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
 const App = () => {
   const [form] = Form.useForm();
