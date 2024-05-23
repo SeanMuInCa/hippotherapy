@@ -15,8 +15,6 @@ const Register = () => {
     email: "",
     password: "",
   });
-  return (
-    <TherapyForm data={newUser} type='register'/>
-  );
+  return <TherapyForm data={newUser} type="register" />;
 };
 export default Register;
