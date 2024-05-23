@@ -1,4 +1,4 @@
-import {registerApi} from '@/api/user.js';
+import { registerApi } from "@/api/user.js";
 import { Button, Form, Input, InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
 const App = () => {
@@ -7,11 +7,10 @@ const App = () => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     // nav("/login");
-    registerApi(values).then(res=>{
+    registerApi(values).then((res) => {
       console.log(res);
       // nav("/login");
     });
-
   };
 
   return (

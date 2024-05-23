@@ -1,8 +1,8 @@
-import request from '@/utils/request.js';
+import request from "@/utils/request.js";
 
 const API = {
-    REG : '/register',
-    LOGIN: '/login'
+  REG: "/register",
+  LOGIN: "/login",
 };
-export const registerApi = (userData)=> request.post(API.REG, userData);
-export const loginApi = (userData)=> request.post(API.LOGIN, userData);
+export const registerApi = (userData) => request.post(API.REG, userData);
+export const loginApi = (userData) => request.post(API.LOGIN, userData);

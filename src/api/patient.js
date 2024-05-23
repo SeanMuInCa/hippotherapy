@@ -1,7 +1,7 @@
-import request from '@/utils/request.js';
+import request from "@/utils/request.js";
 
 const API = {
-    ADD : '/newPatient',
-    
+  ADD: "/newPatient",
 };
-export const addNewPatient = (patientInfo)=> request.post(API.ADD, patientInfo);
+export const addNewPatient = (patientInfo) =>
+  request.post(API.ADD, patientInfo);

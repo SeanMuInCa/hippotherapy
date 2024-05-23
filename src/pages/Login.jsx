@@ -4,20 +4,19 @@ import { useNavigate, Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
 import { useEffect } from "react";
-import {loginApi} from '@/api/user.js';
+import { loginApi } from "@/api/user.js";
 export default function Login() {
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log(values);
-    loginApi(values).then(res=>{
+    loginApi(values).then((res) => {
       console.log(res);
       // nav("/home");
     });
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
-    
   };
   useEffect(() => {
     localStorage.removeItem("isLogin");
