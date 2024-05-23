@@ -11,10 +11,11 @@ export default function Login() {
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log(values);
-    loginApi(values).then((res) => {
-      console.log(res);
-      // nav("/home");
-    });
+    // loginApi(values).then((res) => {
+    //   console.log(res);
+    //   nav("/home");
+    // });
+    nav("/home");
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
   };

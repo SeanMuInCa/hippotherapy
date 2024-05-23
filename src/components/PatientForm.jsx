@@ -33,7 +33,7 @@ const PatientForm = (props) => {
     >
       <Form.Item
         className="w-9/12 flex flex-row"
-        name="fName"
+        name="firstName"
         label="First Name"
         rules={[
           {
@@ -50,7 +50,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="lName"
+        name="lastName"
         label="Last Name"
         rules={[
           {
@@ -63,7 +63,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="number"
+        name="contactNumber"
         label="Contact Number"
         rules={[
           {
@@ -80,7 +80,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="birth"
+        name="dateOfBirth"
         label="Date of Birth"
         rules={[
           {
@@ -97,7 +97,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="parent"
+        name="guardianFirstName"
         label="Parent Name"
         rules={[
           {
@@ -110,7 +110,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="email"
+        name="emailId"
         label="E-mail"
         rules={[
           {
@@ -143,7 +143,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="history"
+        name="medicalHistory"
         label="Intro"
         rules={[
           {

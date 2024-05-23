@@ -18,7 +18,7 @@ export default function CardTemp(props) {
   return (
     <>
       <Card
-        title={data.fName + " " + data.lName}
+        title={data.firstName + " " + data.lastName}
         className="w-full h-full mb-2"
         size="small"
         extra={
@@ -38,9 +38,10 @@ export default function CardTemp(props) {
             <Avatar img={data.avatar}></Avatar>
           </div>
           <div className=" flex-1 px-5 py-2">
-            <p>{data.email}</p>
-            <p>{data.number}</p>
-            <p>{data.birth}</p>
+            <p>{data.emailId}</p>
+            <p>{data.contactNumber}</p>
+            <p>{data.dateOfBirth}</p>
+            <p>{data.guardianFirstName}</p>
           </div>
         </div>
       </Card>

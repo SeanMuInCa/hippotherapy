@@ -33,7 +33,7 @@ export default function Tobbar() {
               shape="circle"
               size="large"
             >
-              MZH
+              {state.data.lastName}
             </Button>
           ) : (
             <>
