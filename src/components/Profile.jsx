@@ -1,7 +1,11 @@
-import React from "react";
+import TherapyForm from "./TherapyForm";
+import useUserStore from "../store/userStore";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  const [state, actions] = useUserStore.useStore();
+  return (
+    <TherapyForm data={state.data} type='edit'/>
+  );
 };
 
 export default Profile;
