@@ -18,7 +18,7 @@ const usePatientStore = defineStore({
           dateOfBirth: "2022-01-01",
           guardianFirstName: "guardianFirstName.name",
           avatar: avatar(),
-          therapistId:1,
+          therapistId: 1,
         },
         {
           id: 1,
@@ -33,7 +33,7 @@ const usePatientStore = defineStore({
           diagnosis: "diagnosis",
           dateOfBirth: "2022-02-01",
           guardianFirstName: "guardianFirstName.name",
-          therapistId:1,
+          therapistId: 1,
           avatar: avatar(),
         },
         {
@@ -50,7 +50,7 @@ const usePatientStore = defineStore({
           dateOfBirth: "2022-03-01",
           guardianFirstName: "guardianFirstName.name",
           avatar: avatar(),
-          therapistId:1,
+          therapistId: 1,
         },
         {
           id: 3,
@@ -66,7 +66,7 @@ const usePatientStore = defineStore({
           dateOfBirth: "2022-04-01",
           guardianFirstName: "guardianFirstName.name",
           avatar: avatar(),
-          therapistId:1,
+          therapistId: 1,
         },
       ],
       selected: "",
