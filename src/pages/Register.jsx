@@ -1,4 +1,4 @@
-import Logo from "../components/Logo";
+import {registerApi} from '@/api/user.js';
 import { Button, Form, Input, InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
 const App = () => {
@@ -6,7 +6,12 @@ const App = () => {
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    nav("/login");
+    // nav("/login");
+    registerApi(values).then(res=>{
+      console.log(res);
+      // nav("/login");
+    });
+
   };
 
   return (
@@ -26,7 +31,7 @@ const App = () => {
       >
         <Form.Item
           className="w-6/12"
-          name="fName"
+          name="firstName"
           label="First Name"
           rules={[
             {
@@ -39,7 +44,7 @@ const App = () => {
         </Form.Item>
         <Form.Item
           className="w-6/12"
-          name="lName"
+          name="lastName"
           label="Last Name"
           rules={[
             {
@@ -52,7 +57,7 @@ const App = () => {
         </Form.Item>
         <Form.Item
           className="w-6/12"
-          name="phone"
+          name="contactNumber"
           label="Contact Number"
           rules={[
             {
@@ -91,7 +96,7 @@ const App = () => {
         </Form.Item>
         <Form.Item
           className="w-6/12"
-          name="edu"
+          name="education"
           label="Education"
           rules={[
             {
@@ -117,7 +122,7 @@ const App = () => {
         </Form.Item>
         <Form.Item
           className="w-6/12"
-          name="train"
+          name="training"
           label="Training"
           rules={[
             {
@@ -143,7 +148,7 @@ const App = () => {
         </Form.Item>
         <Form.Item
           className="w-6/12"
-          name="experience"
+          name="yearsOfExperience"
           label="Years of Experience"
           rules={[
             {
