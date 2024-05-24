@@ -42,20 +42,41 @@ const Session = () => {
       type: "line",
     },
   ];
+  const chartData3 = [
+    {
+      name: "assessment1",
+      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
+      type: "line",
+    },
+    {
+      name: "assessment2",
+      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
+    },
+    {
+      name: "assessment3",
+      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
+    },
+    {
+      name: "assessment4",
+      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
+    },
+  ];
   const [chartData, setCharData] = useState(null);
-  const chooseSession = (id) => {
+  const [mapping, setMapping] = useState({
+    1: chartData1,
+    2: chartData2,
+    3: chartData3,
+  });
+  const chooseSession = (id,end) => {
     console.log(id);
-    switch (id) {
-      case "1":
-        setCharData(chartData1);
-        break;
-      case "2":
-        setCharData(chartData2);
-        break;
-      default:
-        setCharData(null);
+    if(end){
+      setCharData(mapping[id]);
+    }else{
+      goAssessment();
     }
-    console.log(chartData);
   };
   return (
     <>
