@@ -1,4 +1,4 @@
-import { Input, Button, Form,message } from "antd";
+import { Input, Button, Form, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
@@ -13,20 +13,21 @@ export default function Login() {
   const error = () => {
     console.log(1);
     messageApi.open({
-      type: 'error',
-      content: 'wrong username or password',
+      type: "error",
+      content: "wrong username or password",
     });
   };
   const onFinish = (values) => {
     error();
     console.log(values);
-    loginApi(values).then((res) => {
-      
-      console.log(res);
-      nav("/home");
-    }).catch(()=>{
-      error();
-    });
+    loginApi(values)
+      .then((res) => {
+        console.log(res);
+        nav("/home");
+      })
+      .catch(() => {
+        error();
+      });
     // nav("/home");
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
