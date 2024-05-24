@@ -15,41 +15,41 @@ const Session = () => {
   };
   const chartData1 = [
     {
-      name: 'assessment1',
-      data: [1, 2, 4, 2, 3, 1, 2,1,3,2,5],
-      type: 'line'
+      name: "assessment1",
+      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
+      type: "line",
     },
     {
-      name: 'assessment2',
-      data: [2, 3, 3, 2, 3, 2, 2,2,3,4,3],
-      type: 'line'
-    }
+      name: "assessment2",
+      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
+    },
   ];
   const chartData2 = [
     {
-      name: 'assessment1',
-      data: [1, 2, 4, 2, 3, 1, 2,1,3,2,5],
-      type: 'line'
+      name: "assessment1",
+      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
+      type: "line",
     },
     {
-      name: 'assessment2',
-      data: [2, 3, 3, 2, 3, 2, 2,2,3,4,3],
-      type: 'line'
+      name: "assessment2",
+      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
     },
     {
-      name: 'assessment3',
-      data: [2, 3, 4, 4, 3, 2, 2,2,3,4,3],
-      type: 'line'
-    }
+      name: "assessment3",
+      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
+      type: "line",
+    },
   ];
-  const [chartData,setCharData] = useState(null);
-  const chooseSession = (id) =>{
+  const [chartData, setCharData] = useState(null);
+  const chooseSession = (id) => {
     console.log(id);
-    switch(id){
-      case '1':
+    switch (id) {
+      case "1":
         setCharData(chartData1);
         break;
-      case '2':
+      case "2":
         setCharData(chartData2);
         break;
       default:
@@ -70,12 +70,12 @@ const Session = () => {
         <p className="mb-1">Contact Number: {patient.contactNumber}</p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
-      <SessionList chooseSession={chooseSession}/>
-      {chartData &&<Chart chartData={chartData}/>}
+      <SessionList chooseSession={chooseSession} />
+      {chartData && <Chart chartData={chartData} />}
       <div className="flex justify-center my-2">
-      <Button type="primary" onClick={goAssessment} >
-        new session
-      </Button>
+        <Button type="primary" onClick={goAssessment}>
+          new session
+        </Button>
       </div>
     </>
   );

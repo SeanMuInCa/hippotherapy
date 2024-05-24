@@ -57,9 +57,10 @@ const SessionList = (props) => {
               <List.Item.Meta
                 title={"Session id: " + item.sessionId}
                 description={item.date}
-                
               />
-              <div onClick={()=>props.chooseSession(item.sessionId)}>Detail</div>
+              <div onClick={() => props.chooseSession(item.sessionId)}>
+                Detail
+              </div>
             </List.Item>
           )}
         />
