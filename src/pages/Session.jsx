@@ -70,11 +70,11 @@ const Session = () => {
     2: chartData2,
     3: chartData3,
   });
-  const chooseSession = (id,end) => {
+  const chooseSession = (id, end) => {
     console.log(id);
-    if(end){
+    if (end) {
       setCharData(mapping[id]);
-    }else{
+    } else {
       goAssessment();
     }
   };

@@ -8,22 +8,22 @@ const SessionList = (props) => {
     {
       sessionId: "1",
       date: "2024-05-22",
-      end:true
+      end: true,
     },
     {
       sessionId: "2",
       date: "2024-05-23",
-      end:true
+      end: true,
     },
     {
       sessionId: "3",
       date: "2024-05-24",
-      end:true
+      end: true,
     },
     {
       sessionId: "4",
       date: "2024-05-25",
-      end:false
+      end: false,
     },
   ];
 
@@ -62,11 +62,11 @@ const SessionList = (props) => {
                 title={"Session id: " + item.sessionId}
                 description={item.date}
               />
-              <div >
-                {item.length}
-              </div>
-              <div onClick={() => props.chooseSession(item.sessionId, item.end)}>
-                {item.end ? "Detail" : 'Continue'}
+              <div>{item.length}</div>
+              <div
+                onClick={() => props.chooseSession(item.sessionId, item.end)}
+              >
+                {item.end ? "Detail" : "Continue"}
               </div>
             </List.Item>
           )}
