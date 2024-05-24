@@ -63,11 +63,11 @@ const Session = () => {
         <p className="text-2xl mb-1">
           {patient.firstName} - {patient.lastName}
         </p>
-        <p className="mb-1">Date of Birth: {patient.dateOfBirth}</p>
-        <p className="mb-1">Gender: {patient.gender}</p>
-        <p className="mb-1">Email: {patient.emailId}</p>
-        <p className="mb-1">Guardian: {patient.guardianFirstName}</p>
-        <p className="mb-1">Contact Number: {patient.contactNumber}</p>
+        <p className="mb-1 flex"><span className="min-w-44">Date of Birth:</span> <span>{patient.dateOfBirth}</span></p>
+        <p className="mb-1 flex"><span className="min-w-44">Gender:</span> <span>{patient.gender}</span></p>
+        <p className="mb-1 flex"><span className="min-w-44">Email:</span> {patient.emailId}</p>
+        <p className="mb-1 flex"><span className="min-w-44">Guardian: </span>{patient.guardianFirstName}</p>
+        <p className="mb-1 flex"><span className="min-w-44">Contact Number:</span> {patient.contactNumber}</p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
       <SessionList chooseSession={chooseSession} />

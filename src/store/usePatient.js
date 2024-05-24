@@ -6,8 +6,8 @@ const usePatientStore = defineStore({
       data: [
         {
           id: 0,
-          firstName: "aaa0",
-          lastName: "bbb",
+          firstName: "John",
+          lastName: "Doe",
           emailId: "abc@abc.com",
           language: "english",
           contactNumber: "1231234567",
@@ -22,8 +22,8 @@ const usePatientStore = defineStore({
         },
         {
           id: 1,
-          firstName: "ccc",
-          lastName: "ddd",
+          firstName: "Jane",
+          lastName: "Doe",
           emailId: "abc@abc.com",
           language: "english",
           contactNumber: "1231234567",
@@ -38,8 +38,8 @@ const usePatientStore = defineStore({
         },
         {
           id: 2,
-          firstName: "eee",
-          lastName: "fff",
+          firstName: "Zhenghua",
+          lastName: "Mu",
           emailId: "abc@abc.com",
           language: "english",
           contactNumber: "1231234567",
@@ -54,8 +54,8 @@ const usePatientStore = defineStore({
         },
         {
           id: 3,
-          firstName: "ggg",
-          lastName: "hhh",
+          firstName: "Dipti",
+          lastName: "Rani",
           emailId: "abc@abc.com",
           language: "english",
           contactNumber: "1231234567",
