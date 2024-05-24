@@ -1,6 +1,7 @@
-import { Button, List } from "antd";
+import { Button } from "antd";
 import { useParams } from "react-router-dom";
 import usePatientStore from "@/store/usePatient.js";
+import SessionList from "../components/SessionList";
 const Session = () => {
   const [state, action] = usePatientStore.useStore();
   const { id } = useParams();
@@ -21,6 +22,8 @@ const Session = () => {
         <p className="mb-1">Guardian: {patient.guardianFirstName}</p>
         <p className="mb-1">Contact Number: {patient.contactNumber}</p>
       </div>
+      <p className="my-2 mx-auto text-center">Session List</p>
+      <SessionList />
       <Button type="primary" onClick={goAssessment}>
         new assessment
       </Button>
