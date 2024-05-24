@@ -1,27 +1,28 @@
 import { List } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-const SessionList = () => {
+const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
   // const [data, setData] = useState([]);
   const data = [
     {
-      sessionId: "01",
+      sessionId: "1",
       date: "2024-05-22",
     },
     {
-      sessionId: "02",
+      sessionId: "2",
       date: "2024-05-23",
     },
     {
-      sessionId: "03",
+      sessionId: "3",
       date: "2024-05-24",
     },
     {
-      sessionId: "04",
+      sessionId: "4",
       date: "2024-05-25",
     },
   ];
+
   const loadMoreData = () => {
     if (loading) {
       return;
@@ -32,6 +33,7 @@ const SessionList = () => {
   useEffect(() => {
     loadMoreData();
   }, []);
+
   return (
     <div
       id="scrollableDiv"
@@ -55,8 +57,9 @@ const SessionList = () => {
               <List.Item.Meta
                 title={"Session id: " + item.sessionId}
                 description={item.date}
+                
               />
-              <div>Detail</div>
+              <div onClick={()=>props.chooseSession(item.sessionId)}>Detail</div>
             </List.Item>
           )}
         />
