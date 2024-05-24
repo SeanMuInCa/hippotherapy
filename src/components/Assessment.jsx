@@ -86,7 +86,6 @@ const Assessment = () => {
       dataIndex: "img",
       key: "img",
       width: "50%",
-      
     },
     {
       title: "Score",
@@ -98,14 +97,26 @@ const Assessment = () => {
     {
       key: "0",
       part: "Head Later Tilt",
-      img: <AssessmentImages num={0} imgs={headArr} setResult={handleResult} setValue={handleValue}/>,
+      img: (
+        <AssessmentImages
+          num={0}
+          imgs={headArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
+      ),
       score: getScore(result[0]),
     },
     {
       key: "1",
       part: "Trunk Lateral Shift",
       img: (
-        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={1}
+          imgs={trunkArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[1]),
     },
@@ -113,7 +124,12 @@ const Assessment = () => {
       key: "2",
       part: "Pelvic Obliquity",
       img: (
-        <AssessmentImages num={2} imgs={pelvicArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={2}
+          imgs={pelvicArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[2]),
     },
@@ -121,7 +137,12 @@ const Assessment = () => {
       key: "3",
       part: "Head Ant/Post Tilt",
       img: (
-        <AssessmentImages num={3} imgs={headAntArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={3}
+          imgs={headAntArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[3]),
     },
@@ -129,7 +150,12 @@ const Assessment = () => {
       key: "4",
       part: "Thoracic curve",
       img: (
-        <AssessmentImages num={4} imgs={thoracicArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={4}
+          imgs={thoracicArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[4]),
     },
@@ -137,7 +163,12 @@ const Assessment = () => {
       key: "5",
       part: "Lumbar curve",
       img: (
-        <AssessmentImages num={5} imgs={lumbarArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={5}
+          imgs={lumbarArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[5]),
     },
@@ -170,20 +201,39 @@ const Assessment = () => {
     {
       key: "8",
       part: "Hip Flex",
-      img: <AssessmentImages num={8} imgs={hipArr} setResult={handleResult} setValue={handleValue}/>,
+      img: (
+        <AssessmentImages
+          num={8}
+          imgs={hipArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
+      ),
       score: getScore(result[8]),
     },
     {
       key: "9",
       part: "Knee Ext/Flex",
-      img: <AssessmentImages num={9} imgs={kneeArr} setResult={handleResult} setValue={handleValue}/>,
+      img: (
+        <AssessmentImages
+          num={9}
+          imgs={kneeArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
+      ),
       score: getScore(result[9]),
     },
     {
       key: "10",
       part: "Elbow Flexion/Extension",
       img: (
-        <AssessmentImages num={10} imgs={elbowArr} setResult={handleResult} setValue={handleValue}/>
+        <AssessmentImages
+          num={10}
+          imgs={elbowArr}
+          setResult={handleResult}
+          setValue={handleValue}
+        />
       ),
       score: getScore(result[10]),
     },

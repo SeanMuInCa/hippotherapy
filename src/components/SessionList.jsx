@@ -6,7 +6,7 @@ const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
   const [state, action] = useSessionStore.useStore();
   // const [data, setData] = useState([]);
-const data = state.sessionList;
+  const data = state.sessionList;
 
   const loadMoreData = () => {
     if (loading) {

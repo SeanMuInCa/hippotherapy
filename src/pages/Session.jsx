@@ -1,4 +1,4 @@
-import { Button,message } from "antd";
+import { Button, message } from "antd";
 import { useParams } from "react-router-dom";
 import usePatientStore from "@/store/usePatient.js";
 import SessionList from "../components/SessionList";
@@ -11,8 +11,8 @@ const Session = () => {
   const { id } = useParams();
   console.log(state.data[id]);
   const patient = state.data[id];
-  const handleMessage =()=>{
-    message.info('you have unfinished session');
+  const handleMessage = () => {
+    message.info("you have unfinished session");
   };
   const goAssessment = () => {
     window.location.href = "/assessment/" + id;
@@ -82,12 +82,13 @@ const Session = () => {
       goAssessment();
     }
   };
-  const startNewSession = ()=>{
-    let unfinished = sessionState.sessionList.find(item=>item.end === false);
-    if(unfinished){
+  const startNewSession = () => {
+    let unfinished = sessionState.sessionList.find(
+      (item) => item.end === false,
+    );
+    if (unfinished) {
       handleMessage();
-    }else{
-      
+    } else {
     }
   };
   return (
