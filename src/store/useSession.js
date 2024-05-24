@@ -33,8 +33,8 @@ const useSessionStore = defineStore({
       state.sessionList.find((session) => session.sessionId === sessionId).end =
         true;
 
-        console.log(state.sessionList);
-    }
+      console.log(state.sessionList);
+    },
   },
 });
 
