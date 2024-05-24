@@ -1,4 +1,4 @@
-import { List } from "antd";
+import { List,Button } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import useSessionStore from "../store/useSession";
@@ -6,7 +6,7 @@ const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
   const [state, action] = useSessionStore.useStore();
   // const [data, setData] = useState([]);
-  const data = state.sessionList;
+  
 
   const loadMoreData = () => {
     if (loading) {
@@ -18,7 +18,13 @@ const SessionList = (props) => {
   useEffect(() => {
     loadMoreData();
   }, []);
-
+  let data = state.sessionList;
+  useEffect(()=>{
+    data = state.sessionList;
+  },[state.sessionList]);
+  const endSession =(id)=>{
+    action.endSession(id);
+  };
   return (
     <div
       id="scrollableDiv"
@@ -48,7 +54,9 @@ const SessionList = (props) => {
                 onClick={() => props.chooseSession(item.sessionId, item.end)}
               >
                 {item.end ? "Detail" : "Continue"}
+                
               </div>
+              {!item.end && <Button className="ml-2" onClick={()=>endSession(item.sessionId)}>end session</Button>}
             </List.Item>
           )}
         />

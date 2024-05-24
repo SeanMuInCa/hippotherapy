@@ -27,7 +27,15 @@ const useSessionStore = defineStore({
       ],
     };
   },
-  actions() {},
+  actions: {
+    endSession(sessionId) {
+      const state = this.$getState();
+      state.sessionList.find((session) => session.sessionId === sessionId).end =
+        true;
+
+        console.log(state.sessionList);
+    }
+  },
 });
 
 export default useSessionStore;
