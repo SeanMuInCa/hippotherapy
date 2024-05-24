@@ -10,7 +10,7 @@ const TherapyForm = (props) => {
     if (props.type === "register") {
       registerApi(values).then((res) => {
         console.log(res);
-        // nav("/login");
+        nav("/login");
       });
     } else {
       console.log("edit");
