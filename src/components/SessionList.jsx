@@ -1,31 +1,12 @@
 import { List } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import useSessionStore from "../store/useSession";
 const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
+  const [state, action] = useSessionStore.useStore();
   // const [data, setData] = useState([]);
-  const data = [
-    {
-      sessionId: "1",
-      date: "2024-05-22",
-      end: true,
-    },
-    {
-      sessionId: "2",
-      date: "2024-05-23",
-      end: true,
-    },
-    {
-      sessionId: "3",
-      date: "2024-05-24",
-      end: true,
-    },
-    {
-      sessionId: "4",
-      date: "2024-05-25",
-      end: false,
-    },
-  ];
+const data = state.sessionList;
 
   const loadMoreData = () => {
     if (loading) {

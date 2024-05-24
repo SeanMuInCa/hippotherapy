@@ -1,7 +1,8 @@
 import { Carousel, Image } from "antd";
 
-const AssessmentImages = ({ imgs, setResult, num }) => {
+const AssessmentImages = ({ imgs, setResult, num,setValue }) => {
   const handleClick = (index) => {
+    setValue(num, index + 1);
     let score = getScore(index);
     console.log(score);
     setResult(num, score);

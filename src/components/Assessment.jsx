@@ -16,22 +16,6 @@ import {
   elbowArr,
 } from "@/utils/assessmentHelper";
 const Assessment = () => {
-  // const [clickedButtons, setClickedButtons] = useState({});
-  // const handleButtonClick = (record, buttonId) => {
-  //   console.log(`Button ${buttonId} clicked in row:`, record);
-  //   setClickedButtons((prevState) => ({
-  //     ...prevState,
-  //     [record.key]: buttonId,
-  //   }));
-  //   setResult((prevState) => {
-  //     // 创建副本
-  //     const newState = [...prevState];
-  //     // 修改副本中对应位置的值
-  //     newState[record.key] = buttonId;
-  //     // 返回新的状态
-  //     return newState;
-  //   });
-  // };
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
@@ -41,7 +25,10 @@ const Assessment = () => {
       message: `${title}`,
     });
   };
+  //show score
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  //actual score
+  const [value, setValue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const submit = () => {
     let res = checkAll();
     console.log(typeof res);
@@ -77,6 +64,17 @@ const Assessment = () => {
       return newState;
     });
   };
+  const handleValue = (index, score) => {
+    console.log("@", index, score);
+    setValue((prevState) => {
+      // 创建副本
+      const newState = [...prevState];
+      // 修改副本中对应位置的值
+      newState[index] = score;
+      // 返回新的状态
+      return newState;
+    });
+  };
   const columns = [
     {
       title: "Part",
@@ -88,68 +86,8 @@ const Assessment = () => {
       dataIndex: "img",
       key: "img",
       width: "50%",
-      // render: () => (
-      // 	<>
-      // 		<Image
-      // 			src={img}
-      // 			style={{ width: 500, height:100 }}
-      // 		/>
-      // 	</>
-      // ),
+      
     },
-    // {
-    //   title: "Action",
-    //   key: "action",
-    //   render: (text, record) => (
-    //     <span>
-    //       <Button
-    //         onClick={() => handleButtonClick(record, 1)}
-    //         style={{
-    //           background:
-    //             clickedButtons[record.key] === 1 ? "#1677FF" : "inherit",
-    //         }}
-    //       >
-    //         1
-    //       </Button>
-    //       <Button
-    //         onClick={() => handleButtonClick(record, 2)}
-    //         style={{
-    //           background:
-    //             clickedButtons[record.key] === 2 ? "#1677FF" : "inherit",
-    //         }}
-    //       >
-    //         2
-    //       </Button>
-    //       <Button
-    //         onClick={() => handleButtonClick(record, 3)}
-    //         style={{
-    //           background:
-    //             clickedButtons[record.key] === 3 ? "#1677FF" : "inherit",
-    //         }}
-    //       >
-    //         3
-    //       </Button>
-    //       <Button
-    //         onClick={() => handleButtonClick(record, 4)}
-    //         style={{
-    //           background:
-    //             clickedButtons[record.key] === 4 ? "#1677FF" : "inherit",
-    //         }}
-    //       >
-    //         2
-    //       </Button>
-    //       <Button
-    //         onClick={() => handleButtonClick(record, 5)}
-    //         style={{
-    //           background:
-    //             clickedButtons[record.key] === 5 ? "#1677FF" : "inherit",
-    //         }}
-    //       >
-    //         1
-    //       </Button>
-    //     </span>
-    //   ),
-    // },
     {
       title: "Score",
       dataIndex: "score",
@@ -160,14 +98,14 @@ const Assessment = () => {
     {
       key: "0",
       part: "Head Later Tilt",
-      img: <AssessmentImages num={0} imgs={headArr} setResult={handleResult} />,
+      img: <AssessmentImages num={0} imgs={headArr} setResult={handleResult} setValue={handleValue}/>,
       score: getScore(result[0]),
     },
     {
       key: "1",
       part: "Trunk Lateral Shift",
       img: (
-        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult} />
+        <AssessmentImages num={1} imgs={trunkArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[1]),
     },
@@ -175,7 +113,7 @@ const Assessment = () => {
       key: "2",
       part: "Pelvic Obliquity",
       img: (
-        <AssessmentImages num={2} imgs={pelvicArr} setResult={handleResult} />
+        <AssessmentImages num={2} imgs={pelvicArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[2]),
     },
@@ -183,7 +121,7 @@ const Assessment = () => {
       key: "3",
       part: "Head Ant/Post Tilt",
       img: (
-        <AssessmentImages num={3} imgs={headAntArr} setResult={handleResult} />
+        <AssessmentImages num={3} imgs={headAntArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[3]),
     },
@@ -191,7 +129,7 @@ const Assessment = () => {
       key: "4",
       part: "Thoracic curve",
       img: (
-        <AssessmentImages num={4} imgs={thoracicArr} setResult={handleResult} />
+        <AssessmentImages num={4} imgs={thoracicArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[4]),
     },
@@ -199,7 +137,7 @@ const Assessment = () => {
       key: "5",
       part: "Lumbar curve",
       img: (
-        <AssessmentImages num={5} imgs={lumbarArr} setResult={handleResult} />
+        <AssessmentImages num={5} imgs={lumbarArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[5]),
     },
@@ -211,6 +149,7 @@ const Assessment = () => {
           num={6}
           imgs={trunkInclinationArr}
           setResult={handleResult}
+          setValue={handleValue}
         />
       ),
       score: getScore(result[6]),
@@ -223,6 +162,7 @@ const Assessment = () => {
           num={7}
           imgs={pelvicTiltArr}
           setResult={handleResult}
+          setValue={handleValue}
         />
       ),
       score: getScore(result[7]),
@@ -230,20 +170,20 @@ const Assessment = () => {
     {
       key: "8",
       part: "Hip Flex",
-      img: <AssessmentImages num={8} imgs={hipArr} setResult={handleResult} />,
+      img: <AssessmentImages num={8} imgs={hipArr} setResult={handleResult} setValue={handleValue}/>,
       score: getScore(result[8]),
     },
     {
       key: "9",
       part: "Knee Ext/Flex",
-      img: <AssessmentImages num={9} imgs={kneeArr} setResult={handleResult} />,
+      img: <AssessmentImages num={9} imgs={kneeArr} setResult={handleResult} setValue={handleValue}/>,
       score: getScore(result[9]),
     },
     {
       key: "10",
       part: "Elbow Flexion/Extension",
       img: (
-        <AssessmentImages num={10} imgs={elbowArr} setResult={handleResult} />
+        <AssessmentImages num={10} imgs={elbowArr} setResult={handleResult} setValue={handleValue}/>
       ),
       score: getScore(result[10]),
     },
