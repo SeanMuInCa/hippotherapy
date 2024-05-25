@@ -1,5 +1,5 @@
 import { Button, message } from "antd";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import usePatientStore from "@/store/usePatient.js";
 import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
@@ -14,7 +14,7 @@ const Session = () => {
   const data = sessionState.sessionList[patientId];
   console.log("@", data);
   const [sessionData, setSessionData] = useState(data);
-
+  const nav = useNavigate();
   console.log("id", state.data[patientId]);
   const patient = state.data[patientId];
   const handleMessage = () => {
@@ -22,7 +22,7 @@ const Session = () => {
   };
   const goAssessment = (sessionId) => {
     console.log(sessionId);
-    window.location.href = "/assessment/" + patientId + "/" + sessionId;
+    nav("/assessment/" + patientId + "/" + sessionId);
   };
 
   const [chartData, setCharData] = useState(null);
@@ -48,6 +48,7 @@ const Session = () => {
       let newSession = sessionActions.startNewSession(patientId);
       console.log("newSession", newSession);
       setSessionData(newSession);
+      sessionActions.updateSession(patientId, newSession.sessionId, newSession);
       console.log(sessionState);
       setKey((prevKey) => prevKey + 1);
     }

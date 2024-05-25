@@ -9,6 +9,10 @@ const AssessmentResult = () => {
     action.endSession(patientId, sessionId);
     navigate(`/session/${patientId}`);
   };
+  const goAssessment = () => {
+    console.log(sessionId);
+    navigate("/assessment/" + patientId + "/" + sessionId);
+  };
   return (
     <Result
       status="success"
@@ -17,7 +21,7 @@ const AssessmentResult = () => {
         <Button type="primary" key="console" onClick={handleEnd}>
           End Session
         </Button>,
-        <Button key="buy">New Assessment</Button>,
+        <Button key="buy" onClick={goAssessment}>New Assessment</Button>,
       ]}
     />
   );
