@@ -6,91 +6,54 @@ import Chart from "../components/Chart";
 import { useState } from "react";
 import useSessionStore from "../store/useSession";
 const Session = () => {
-  const [sessionState] = useSessionStore.useStore();
+  const [sessionState, sessionActions] = useSessionStore.useStore();
   const [state, action] = usePatientStore.useStore();
+  const [key, setKey] = useState(0);//子组件加载
   const { id } = useParams();
-  console.log(state.data[id]);
-  const patient = state.data[id];
+  const patientId = id;
+  const data = sessionState.sessionList[patientId];
+  console.log('@',data);
+  const [sessionData, setSessionData] = useState(data);
+  
+  console.log('id',state.data[patientId]);
+  const patient = state.data[patientId];
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
-  const goAssessment = () => {
-    window.location.href = "/assessment/" + id;
+  const goAssessment = (patientId) => {
+    window.location.href = "/assessment/" + patientId;
   };
-  const chartData1 = [
-    {
-      name: "assessment1",
-      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
-      type: "line",
-    },
-    {
-      name: "assessment2",
-      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-  ];
-  const chartData2 = [
-    {
-      name: "assessment1",
-      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
-      type: "line",
-    },
-    {
-      name: "assessment2",
-      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-    {
-      name: "assessment3",
-      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-  ];
-  const chartData3 = [
-    {
-      name: "assessment1",
-      data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
-      type: "line",
-    },
-    {
-      name: "assessment2",
-      data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-    {
-      name: "assessment3",
-      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-    {
-      name: "assessment4",
-      data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
-      type: "line",
-    },
-  ];
+
   const [chartData, setCharData] = useState(null);
   const [mapping, setMapping] = useState({
-    1: chartData1,
-    2: chartData2,
-    3: chartData3,
+    1: sessionState.chartData.chartData1,
+    2: sessionState.chartData.chartData2,
+    3: sessionState.chartData.chartData3,
   });
-  const chooseSession = (id, end) => {
-    console.log(id);
+  const chooseSession = (sessionId, end) => {
+    console.log(sessionId);
     if (end) {
-      setCharData(mapping[id]);
+      setCharData(mapping[sessionId]);
     } else {
-      goAssessment();
+      goAssessment(sessionId);
     }
   };
   const startNewSession = () => {
-    let unfinished = sessionState.sessionList.find(
+    let unfinished = sessionState.sessionList[patientId].find(
       (item) => item.end === false,
     );
     if (unfinished) {
       handleMessage();
     } else {
+      //start a new session
+      console.log('i can start');
+      let newSession = sessionActions.startNewSession(patientId);
+      console.log('newSession', newSession);
+      setSessionData(newSession);
+      setKey(prevKey => prevKey + 1); 
     }
   };
+  
   return (
     <>
       <div className="flex justify-start mb-5 p-5 flex-col bg-slate-200">
@@ -118,11 +81,11 @@ const Session = () => {
         </p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
-      <SessionList chooseSession={chooseSession} />
+      <SessionList key={key} chooseSession={chooseSession} patientId={patientId} sessionData={sessionData}/>
       {chartData && <Chart chartData={chartData} />}
       <div className="flex justify-center my-2">
         <Button type="primary" onClick={startNewSession}>
-          new session
+          New Session
         </Button>
       </div>
     </>

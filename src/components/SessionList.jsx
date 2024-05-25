@@ -17,13 +17,8 @@ const SessionList = (props) => {
   useEffect(() => {
     loadMoreData();
   }, []);
-  let data = state.sessionList;
-  useEffect(() => {
-    data = state.sessionList;
-  }, [state.sessionList]);
-  const endSession = (id) => {
-    action.endSession(id);
-  };
+//   let data = state.sessionList[props.patientId];
+//   const [props.sessionData, setprops.sessionData] = useState(state.sessionList[props.patientId]);
   return (
     <div
       id="scrollableDiv"
@@ -35,13 +30,13 @@ const SessionList = (props) => {
       }}
     >
       <InfiniteScroll
-        dataLength={data.length}
+        dataLength={props.sessionData.length}
         next={loadMoreData}
-        hasMore={data.length < 50}
+        hasMore={props.sessionData.length < 50}
         scrollableTarget="scrollableDiv"
       >
         <List
-          dataSource={data}
+          dataSource={props.sessionData}
           renderItem={(item) => (
             <List.Item key={item.id}>
               <List.Item.Meta
@@ -54,14 +49,14 @@ const SessionList = (props) => {
               >
                 {item.end ? "Detail" : "Continue"}
               </div>
-              {!item.end && (
+              {/* {!item.end && (
                 <Button
                   className="ml-2"
                   onClick={() => endSession(item.sessionId)}
                 >
                   end session
                 </Button>
-              )}
+              )} */}
             </List.Item>
           )}
         />

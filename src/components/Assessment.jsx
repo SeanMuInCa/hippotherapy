@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useParams } from 'react-router-dom';
 import { Table, Button, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
-
 import {
   headArr,
   trunkArr,
@@ -19,6 +19,7 @@ const Assessment = () => {
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
+  const {id} = useParams();
   const [api, contextHolder] = notification.useNotification();
   const openNotification = (title) => {
     api.info({
@@ -34,6 +35,7 @@ const Assessment = () => {
     console.log(typeof res);
     if (typeof res == "undefined") {
       console.log("done"); //submit here
+      console.log(id);
       return;
     }
     console.log("has 0");
