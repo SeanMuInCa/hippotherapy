@@ -17,8 +17,8 @@ const SessionList = (props) => {
   useEffect(() => {
     loadMoreData();
   }, []);
-//   let data = state.sessionList[props.patientId];
-//   const [props.sessionData, setprops.sessionData] = useState(state.sessionList[props.patientId]);
+  //   let data = state.sessionList[props.patientId];
+  //   const [props.sessionData, setprops.sessionData] = useState(state.sessionList[props.patientId]);
   return (
     <div
       id="scrollableDiv"

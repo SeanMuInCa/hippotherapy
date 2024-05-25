@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { Table, Button, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 import {
@@ -19,7 +19,7 @@ const Assessment = () => {
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
-  const {id} = useParams();
+  const { id } = useParams();
   const [api, contextHolder] = notification.useNotification();
   const openNotification = (title) => {
     api.info({

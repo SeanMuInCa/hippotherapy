@@ -1,30 +1,32 @@
 import { defineStore } from "pinia-for-react";
-import dateFormater from '@/utils/dateFormater.js';
+import dateFormater from "@/utils/dateFormater.js";
 const useSessionStore = defineStore({
   state() {
     return {
       sessionList: {
-        0:[{
-          sessionId: "1",
-          date: "2024-05-22",
-          end: true,
-        },
-        {
-          sessionId: "2",
-          date: "2024-05-23",
-          end: true,
-        },
-        {
-          sessionId: "3",
-          date: "2024-05-24",
-          end: true,
-        },
-        {
-          sessionId: "4",
-          date: "2024-05-25",
-          end: false,
-        },],
-        1:[
+        0: [
+          {
+            sessionId: "1",
+            date: "2024-05-22",
+            end: true,
+          },
+          {
+            sessionId: "2",
+            date: "2024-05-23",
+            end: true,
+          },
+          {
+            sessionId: "3",
+            date: "2024-05-24",
+            end: true,
+          },
+          {
+            sessionId: "4",
+            date: "2024-05-25",
+            end: false,
+          },
+        ],
+        1: [
           {
             sessionId: "1",
             date: "2024-05-22",
@@ -41,27 +43,28 @@ const useSessionStore = defineStore({
             end: true,
           },
         ],
-        2:[{
-          sessionId: "1",
-          date: "2024-05-22",
-          end: true,
-        },
-        {
-          sessionId: "2",
-          date: "2024-05-23",
-          end: true,
-        },
-        ],
-        3:[
+        2: [
           {
             sessionId: "1",
             date: "2024-05-22",
             end: true,
           },
-        ]
+          {
+            sessionId: "2",
+            date: "2024-05-23",
+            end: true,
+          },
+        ],
+        3: [
+          {
+            sessionId: "1",
+            date: "2024-05-22",
+            end: true,
+          },
+        ],
       },
-      chartData:{
-        chartData1 : [
+      chartData: {
+        chartData1: [
           {
             name: "assessment1",
             data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
@@ -73,7 +76,7 @@ const useSessionStore = defineStore({
             type: "line",
           },
         ],
-        chartData2 : [
+        chartData2: [
           {
             name: "assessment1",
             data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
@@ -90,7 +93,7 @@ const useSessionStore = defineStore({
             type: "line",
           },
         ],
-        chartData3 : [
+        chartData3: [
           {
             name: "assessment1",
             data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
@@ -112,7 +115,7 @@ const useSessionStore = defineStore({
             type: "line",
           },
         ],
-      }
+      },
     };
   },
   actions: {
@@ -126,16 +129,16 @@ const useSessionStore = defineStore({
     startNewSession(patientId) {
       const state = this.$getState();
       state.sessionList[patientId].push({
-          sessionId: (state.sessionList[patientId].length + 1) + '',
-          date: dateFormater(new Date()),
-          end: false,
+        sessionId: state.sessionList[patientId].length + 1 + "",
+        date: dateFormater(new Date()),
+        end: false,
       });
       return state.sessionList[patientId];
     },
-    updateChartData(data){
+    updateChartData(data) {
       const state = this.$getState();
-      state.chartData['chartData' + state.chartData.length + 1] = data;
-    }
+      state.chartData["chartData" + state.chartData.length + 1] = data;
+    },
   },
 });
 

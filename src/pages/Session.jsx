@@ -8,14 +8,14 @@ import useSessionStore from "../store/useSession";
 const Session = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
   const [state, action] = usePatientStore.useStore();
-  const [key, setKey] = useState(0);//子组件加载
+  const [key, setKey] = useState(0); //子组件加载
   const { id } = useParams();
   const patientId = id;
   const data = sessionState.sessionList[patientId];
-  console.log('@',data);
+  console.log("@", data);
   const [sessionData, setSessionData] = useState(data);
-  
-  console.log('id',state.data[patientId]);
+
+  console.log("id", state.data[patientId]);
   const patient = state.data[patientId];
   const handleMessage = () => {
     message.info("you have unfinished session");
@@ -46,14 +46,14 @@ const Session = () => {
       handleMessage();
     } else {
       //start a new session
-      console.log('i can start');
+      console.log("i can start");
       let newSession = sessionActions.startNewSession(patientId);
-      console.log('newSession', newSession);
+      console.log("newSession", newSession);
       setSessionData(newSession);
-      setKey(prevKey => prevKey + 1); 
+      setKey((prevKey) => prevKey + 1);
     }
   };
-  
+
   return (
     <>
       <div className="flex justify-start mb-5 p-5 flex-col bg-slate-200">
@@ -81,7 +81,12 @@ const Session = () => {
         </p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
-      <SessionList key={key} chooseSession={chooseSession} patientId={patientId} sessionData={sessionData}/>
+      <SessionList
+        key={key}
+        chooseSession={chooseSession}
+        patientId={patientId}
+        sessionData={sessionData}
+      />
       {chartData && <Chart chartData={chartData} />}
       <div className="flex justify-center my-2">
         <Button type="primary" onClick={startNewSession}>
