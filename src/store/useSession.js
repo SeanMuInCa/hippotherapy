@@ -285,14 +285,14 @@ const useSessionStore = defineStore({
       });
       return state.sessionList[patientId];
     },
-    updateSession(patientId, sessionId, data){
+    updateSession(patientId, sessionId, data) {
       const state = this.$getState();
       state.sessionList[patientId].forEach((session) => {
         if (session.sessionId === sessionId) {
           session.data.push(data);
         }
       });
-    }
+    },
   },
 });
 

@@ -1,5 +1,5 @@
 import { Button, message } from "antd";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import usePatientStore from "@/store/usePatient.js";
 import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";

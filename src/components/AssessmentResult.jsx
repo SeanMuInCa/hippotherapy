@@ -21,7 +21,9 @@ const AssessmentResult = () => {
         <Button type="primary" key="console" onClick={handleEnd}>
           End Session
         </Button>,
-        <Button key="buy" onClick={goAssessment}>New Assessment</Button>,
+        <Button key="buy" onClick={goAssessment}>
+          New Assessment
+        </Button>,
       ]}
     />
   );
