@@ -20,20 +20,18 @@ const Session = () => {
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
-  const goAssessment = (patientId) => {
-    window.location.href = "/assessment/" + patientId;
+  const goAssessment = (sessionId) => {
+    console.log(sessionId);
+    window.location.href = "/assessment/" + patientId + '/' + sessionId;
   };
 
   const [chartData, setCharData] = useState(null);
-  const [mapping, setMapping] = useState({
-    1: sessionState.chartData.chartData1,
-    2: sessionState.chartData.chartData2,
-    3: sessionState.chartData.chartData3,
-  });
+
   const chooseSession = (sessionId, end) => {
     console.log(sessionId);
     if (end) {
-      setCharData(mapping[sessionId]);
+      console.log(sessionState.sessionList[patientId][sessionId - 1]);
+      setCharData(sessionState.sessionList[patientId][sessionId - 1].data);
     } else {
       goAssessment(sessionId);
     }
@@ -50,6 +48,7 @@ const Session = () => {
       let newSession = sessionActions.startNewSession(patientId);
       console.log("newSession", newSession);
       setSessionData(newSession);
+      console.log(sessionState);
       setKey((prevKey) => prevKey + 1);
     }
   };

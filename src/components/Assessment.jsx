@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { Table, Button, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 import {
@@ -15,11 +15,16 @@ import {
   kneeArr,
   elbowArr,
 } from "@/utils/assessmentHelper";
+import useSessionStore from "../store/useSession";
 const Assessment = () => {
+  const [sessionState, sessionActions] = useSessionStore.useStore();
+  const nav = useNavigate();
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
-  const { id } = useParams();
+  const par = useParams();
+  const patientId = par.patientId;
+  const sessionId = par.id;
   const [api, contextHolder] = notification.useNotification();
   const openNotification = (title) => {
     api.info({
@@ -30,12 +35,21 @@ const Assessment = () => {
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   //actual score
   const [value, setValue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  console.log(sessionState);
   const submit = () => {
     let res = checkAll();
     console.log(typeof res);
     if (typeof res == "undefined") {
       console.log("done"); //submit here
-      console.log(id);
+      console.log(sessionState);
+      console.log(sessionState.sessionList[patientId][sessionId - 1], '@@');
+      sessionState.sessionList[patientId][sessionId - 1].data.push({
+        name: "assessment" + (sessionState.sessionList[patientId][sessionId - 1].data.length + 1),
+            data: value,
+            type: "line",
+      });
+      nav('/assessmentresult/'+patientId+'/'+sessionId);
+      console.log(sessionState.sessionList[patientId][sessionId - 1], '@@');
       return;
     }
     console.log("has 0");

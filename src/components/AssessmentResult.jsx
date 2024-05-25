@@ -1,10 +1,13 @@
 import { Button, Result } from "antd";
 import useSessionStore from "../store/useSession";
-
-const AssessmentResult = (props) => {
+import { useParams,useNavigate } from "react-router-dom";
+const AssessmentResult = () => {
   const [state, action] = useSessionStore.useStore();
+  const {patientId, sessionId} = useParams();
+  const navigate = useNavigate();
   const handleEnd = () => {
-    action.endSession(props.id);
+    action.endSession(patientId,sessionId);
+    navigate(`/session/${patientId}`);
   };
   return (
     <Result

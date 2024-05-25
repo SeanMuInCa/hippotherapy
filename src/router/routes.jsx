@@ -11,6 +11,7 @@ import Profile from "@/components/Profile.jsx";
 import NewPatient from "@/components/NewPatient.jsx";
 import ResearcherHome from "../pages/ResearcherPage.jsx";
 import Session from "@/pages/Session.jsx";
+import AssessmentResult from '@/components/AssessmentResult.jsx';
 // 定义路由数组
 const globalRouters = [
   {
@@ -50,7 +51,7 @@ const globalRouters = [
     element: <Session />,
   },
   {
-    path: "/assessment/:id",
+    path: "/assessment/:patientId/:id",
     element: <Assessment />,
   },
   {
@@ -68,6 +69,10 @@ const globalRouters = [
   {
     path: "/newpatient",
     element: <NewPatient />,
+  },
+  {
+    path: "/assessmentresult/:patientId/:sessionId",
+    element: <AssessmentResult />,
   },
 ];
 
