@@ -22,7 +22,7 @@ const Session = () => {
   };
   const goAssessment = (sessionId) => {
     console.log(sessionId);
-    window.location.href = "/assessment/" + patientId + '/' + sessionId;
+    window.location.href = "/assessment/" + patientId + "/" + sessionId;
   };
 
   const [chartData, setCharData] = useState(null);

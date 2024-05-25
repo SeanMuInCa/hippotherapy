@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Table, Button, notification } from "antd";
 import AssessmentImages from "./AssessmentImages";
 import {
@@ -42,14 +42,16 @@ const Assessment = () => {
     if (typeof res == "undefined") {
       console.log("done"); //submit here
       console.log(sessionState);
-      console.log(sessionState.sessionList[patientId][sessionId - 1], '@@');
+      console.log(sessionState.sessionList[patientId][sessionId - 1], "@@");
       sessionState.sessionList[patientId][sessionId - 1].data.push({
-        name: "assessment" + (sessionState.sessionList[patientId][sessionId - 1].data.length + 1),
-            data: value,
-            type: "line",
+        name:
+          "assessment" +
+          (sessionState.sessionList[patientId][sessionId - 1].data.length + 1),
+        data: value,
+        type: "line",
       });
-      nav('/assessmentresult/'+patientId+'/'+sessionId);
-      console.log(sessionState.sessionList[patientId][sessionId - 1], '@@');
+      nav("/assessmentresult/" + patientId + "/" + sessionId);
+      console.log(sessionState.sessionList[patientId][sessionId - 1], "@@");
       return;
     }
     console.log("has 0");
