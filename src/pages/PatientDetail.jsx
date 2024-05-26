@@ -27,11 +27,6 @@ export default function PatientDetail() {
           <Avatar img={img} setImg={setImg} edit={edit} />
         </div>
         <div className="bg-green-300 flex-1 w-full flex flex-col justify-center items-center">
-          {/* {Object.keys(data).map((key, index) => (
-            <p className="p-2" key={index}>
-              {key}: {data[key]}
-            </p>
-          ))} */}
           <PatientForm
             info={patientData}
             edit={edit}

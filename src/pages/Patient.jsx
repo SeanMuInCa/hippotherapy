@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardTemp from "../components/CardTemp";
 import usePatientStore from "../store/usePatient";
-import PatientDetail from "./PatientDetail";
+
 export default function Patient() {
   const patientStore = usePatientStore();
   console.log(patientStore);

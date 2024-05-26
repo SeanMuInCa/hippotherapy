@@ -1,8 +1,7 @@
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "@/store/userStore";
-import Navgator from "../components/Navgator";
-import Patient from "./Patient";
+
 function Home() {
   const [{ isLogin }] = useUserStore();
   console.log(isLogin);

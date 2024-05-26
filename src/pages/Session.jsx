@@ -8,7 +8,7 @@ import useSessionStore from "../store/useSession";
 const Session = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
   const [state, action] = usePatientStore.useStore();
-  const [key, setKey] = useState(0); //子组件加载
+  const [key, setKey] = useState(0); //sub components refresh by force
   const { id } = useParams();
   const patientId = id;
   const data = sessionState.sessionList[patientId];
@@ -44,7 +44,6 @@ const Session = () => {
       handleMessage();
     } else {
       //start a new session
-      console.log("i can start");
       let newSession = sessionActions.startNewSession(patientId);
       console.log("newSession", newSession);
       setSessionData(newSession);
