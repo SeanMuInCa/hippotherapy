@@ -10,7 +10,7 @@ export default function CardTemp(props) {
   const handleClick = (data) => {
     props.setChoose(true);
     console.log(data);
-    nav(`/patient/${data.id}`);
+    nav(`/session/${data.id}`);
     patientStore[0].selected = data.id;
     console.log(patientStore[0].selected);
   };
@@ -24,9 +24,9 @@ export default function CardTemp(props) {
         extra={
           <a
             className="text-sky-600 underline font-bold"
-            href={"/session/" + data.id}
+            href={"/patient/" + data.id}
           >
-            Assessment
+            Edit Profile
           </a>
         }
       >

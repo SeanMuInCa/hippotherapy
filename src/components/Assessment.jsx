@@ -74,22 +74,22 @@ const Assessment = () => {
   const handleResult = (index, score) => {
     console.log("@", index, score);
     setResult((prevState) => {
-      // 创建副本
+      
       const newState = [...prevState];
-      // 修改副本中对应位置的值
+      
       newState[index] = score;
-      // 返回新的状态
+      
       return newState;
     });
   };
   const handleValue = (index, score) => {
     console.log("@", index, score);
     setValue((prevState) => {
-      // 创建副本
+      
       const newState = [...prevState];
-      // 修改副本中对应位置的值
+      
       newState[index] = score;
-      // 返回新的状态
+      
       return newState;
     });
   };
@@ -119,6 +119,7 @@ const Assessment = () => {
         <AssessmentImages
           num={0}
           imgs={headArr}
+          defaultIndex={2}//default image index
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -132,6 +133,7 @@ const Assessment = () => {
         <AssessmentImages
           num={1}
           imgs={trunkArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -145,6 +147,7 @@ const Assessment = () => {
         <AssessmentImages
           num={2}
           imgs={pelvicArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -158,6 +161,7 @@ const Assessment = () => {
         <AssessmentImages
           num={3}
           imgs={headAntArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -171,6 +175,7 @@ const Assessment = () => {
         <AssessmentImages
           num={4}
           imgs={thoracicArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -184,6 +189,7 @@ const Assessment = () => {
         <AssessmentImages
           num={5}
           imgs={lumbarArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -197,6 +203,7 @@ const Assessment = () => {
         <AssessmentImages
           num={6}
           imgs={trunkInclinationArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -210,6 +217,7 @@ const Assessment = () => {
         <AssessmentImages
           num={7}
           imgs={pelvicTiltArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -223,6 +231,7 @@ const Assessment = () => {
         <AssessmentImages
           num={8}
           imgs={hipArr}
+          defaultIndex={1}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -236,6 +245,7 @@ const Assessment = () => {
         <AssessmentImages
           num={9}
           imgs={kneeArr}
+          defaultIndex={2}
           setResult={handleResult}
           setValue={handleValue}
         />
@@ -249,6 +259,7 @@ const Assessment = () => {
         <AssessmentImages
           num={10}
           imgs={elbowArr}
+          defaultIndex={1}
           setResult={handleResult}
           setValue={handleValue}
         />

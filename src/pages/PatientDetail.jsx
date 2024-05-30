@@ -3,14 +3,19 @@ import usePatientStore from "../store/usePatient";
 import { Button } from "antd";
 import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import {getPatientInfo} from '@/api/patient.js';
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
 
   const { id } = useParams();
   const patientStore = usePatientStore();
   const data = patientStore[0].data[id];
+  useEffect(()=>{
+    getPatientInfo(id, parseInt(localStorage.getItem('therapistId'))).then((res)=>{
+      console.log(res);
+    });
+  },[]);
   const [patientData, setPatientData] = useState(data);
   const [img, setImg] = useState(data.avatar);
   const handleEdit = () => {

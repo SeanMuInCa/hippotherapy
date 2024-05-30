@@ -11,6 +11,7 @@ export default function Tobbar() {
     actions.setLoginStatus(false);
     localStorage.removeItem("isLogin");
     localStorage.removeItem("role");
+    localStorage.removeItem("therapistId");
     sessionStorage.removeItem("hasRefreshed");
   };
   const goReg = () => {
@@ -22,7 +23,7 @@ export default function Tobbar() {
         <div className="font-bold flex mx-5">
           <Logo></Logo>
           <span className="m-2 text-sm md:text-lg lg:text-xl xl:text-2xl leading-8">
-            Hippotherapy
+          SPCM in Hippotherapy
           </span>
         </div>
         <div>
@@ -55,13 +56,6 @@ export default function Tobbar() {
           )}
         </div>
       </div>
-      {/* <div className="bg-gray-100">
-        <ul className="flex">
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-        </ul>
-      </div> */}
     </>
   );
 }

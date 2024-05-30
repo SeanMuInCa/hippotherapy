@@ -6,35 +6,39 @@ import useUserStore from "../store/userStore";
 import { useEffect } from "react";
 import { loginApi } from "@/api/user.js";
 export default function Login() {
-  const [messageApi, contextHolder] = message.useMessage();
+
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
-  const error = () => {
-    console.log(1);
-    messageApi.open({
-      type: "error",
-      content: "wrong username or password",
-    });
-  };
+
   const onFinish = (values) => {
-    error();
     console.log(values);
     loginApi(values)
       .then((res) => {
         console.log(res);
-        nav("/home");
+        if(res.data.success){
+          message.success('Welcome Back Dr.');
+          state.userId = res.data.userId;
+          localStorage.setItem('therapistId', res.data.userId);
+          nav("/home");
+        }else{
+          message.error('Invalid email or password');
+        }
+        
       })
       .catch(() => {
-        error();
+        message.error('Invalid email or password');
       });
-    // nav("/home");
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
   };
   useEffect(() => {
     localStorage.removeItem("isLogin");
   }, []);
+  const forgotPwd = ()=>{
+    //call reset api
+    message.info('your password has been reset');
+  };
   return (
     <>
       <div className="mx-auto my-10 flex justify-center w-50 h-50 flex-col items-center text-2xl">
@@ -52,8 +56,8 @@ export default function Login() {
       >
         <Form.Item
           className="w-6/12"
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           rules={[
             {
               required: true,
@@ -84,10 +88,11 @@ export default function Login() {
           />
         </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
+        <Form.Item className="flex flex-col justify-center items-center">
+          <Button type="primary" htmlType="submit" className="mx-4">
             Login
           </Button>
+          <a className="underline block text-blue-500 text-center mt-2" onClick={forgotPwd}>forgot password</a>
         </Form.Item>
       </Form>
       <div className="mx-auto my-5 text-center">

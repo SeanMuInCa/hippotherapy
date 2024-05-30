@@ -18,8 +18,6 @@ function Home() {
 
   return (
     <>
-      {/* <Navgator></Navgator> */}
-      {/* <Patient /> */}
       <div className="my-20">
         <h1 className="text-center">Home Page</h1>
         <div className="flex justify-center mt-10">

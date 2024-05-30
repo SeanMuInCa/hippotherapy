@@ -5,8 +5,6 @@ import useSessionStore from "../store/useSession";
 const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
   const [state, action] = useSessionStore.useStore();
-  // const [data, setData] = useState([]);
-
   const loadMoreData = () => {
     if (loading) {
       return;
@@ -17,8 +15,6 @@ const SessionList = (props) => {
   useEffect(() => {
     loadMoreData();
   }, []);
-  //   let data = state.sessionList[props.patientId];
-  //   const [props.sessionData, setprops.sessionData] = useState(state.sessionList[props.patientId]);
   return (
     <div
       id="scrollableDiv"
@@ -38,25 +34,17 @@ const SessionList = (props) => {
         <List
           dataSource={props.sessionData}
           renderItem={(item) => (
-            <List.Item key={item.id}>
+            <List.Item key={item.id} onClick={() => props.chooseSession(item.sessionId, item.end)}>
               <List.Item.Meta
                 title={"Session id: " + item.sessionId}
                 description={item.date}
               />
               <div>{item.length}</div>
               <div
-                onClick={() => props.chooseSession(item.sessionId, item.end)}
+                
               >
                 {item.end ? "Detail" : "Continue"}
               </div>
-              {/* {!item.end && (
-                <Button
-                  className="ml-2"
-                  onClick={() => endSession(item.sessionId)}
-                >
-                  end session
-                </Button>
-              )} */}
             </List.Item>
           )}
         />
