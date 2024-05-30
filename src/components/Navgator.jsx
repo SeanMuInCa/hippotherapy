@@ -15,7 +15,7 @@ const Navgator = () => {
 
   const handleReset = () => {
     sessionStorage.removeItem("hasRefreshed");
-    // 
+    //
   };
   const handleTabClick = (key) => {
     console.log("key==", key);
@@ -28,36 +28,32 @@ const Navgator = () => {
     {
       key: "1",
       label: "Patient List",
-     
     },
     {
       key: "2",
       label: "New Patient",
-     
     },
     {
-      key:'4',
+      key: "4",
     },
     {
-      key:'5',
+      key: "5",
     },
     {
-      key:'6',
+      key: "6",
     },
     {
-      key:'7',
+      key: "7",
     },
     {
       key: "3",
       label: "My Profile",
-     
     },
   ];
   const researcherItem = [
     {
       key: "1",
       label: "Researcher",
-      
     },
   ];
   return (

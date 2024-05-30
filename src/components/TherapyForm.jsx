@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber,message } from "antd";
+import { Button, Form, Input, InputNumber, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { registerApi } from "@/api/user.js";
 const TherapyForm = (props) => {
@@ -6,26 +6,27 @@ const TherapyForm = (props) => {
   const nav = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    
+
     if (props.type === "register") {
-      registerApi(values).then((res) => {
-        console.log(res);
-        if(res.data.success){
-          nav("/login");
-          message.success('register successfully');
-        }else{
-          message.error('something went wrong');
-        }
-        
-      }).catch((err)=>{
-        console.log(err);
-        message.error('something went wrong');
-      });
+      registerApi(values)
+        .then((res) => {
+          console.log(res);
+          if (res.data.success) {
+            nav("/login");
+            message.success("register successfully");
+          } else {
+            message.error("something went wrong");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          message.error("something went wrong");
+        });
     } else {
       //Todo: update profile
       console.log("edit");
       nav("/patient");
-    message.success('updated successfully');
+      message.success("updated successfully");
     }
   };
   return (

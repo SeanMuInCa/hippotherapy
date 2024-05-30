@@ -23,7 +23,7 @@ export default function Tobbar() {
         <div className="font-bold flex mx-5">
           <Logo></Logo>
           <span className="m-2 text-sm md:text-lg lg:text-xl xl:text-2xl leading-8">
-          SPCM in Hippotherapy
+            SPCM in Hippotherapy
           </span>
         </div>
         <div>

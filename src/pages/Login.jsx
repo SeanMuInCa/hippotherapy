@@ -6,7 +6,6 @@ import useUserStore from "../store/userStore";
 import { useEffect } from "react";
 import { loginApi } from "@/api/user.js";
 export default function Login() {
-
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
@@ -16,18 +15,17 @@ export default function Login() {
     loginApi(values)
       .then((res) => {
         console.log(res);
-        if(res.data.success){
-          message.success('Welcome Back Dr.');
+        if (res.data.success) {
+          message.success("Welcome Back Dr.");
           state.userId = res.data.userId;
-          localStorage.setItem('therapistId', res.data.userId);
+          localStorage.setItem("therapistId", res.data.userId);
           nav("/home");
-        }else{
-          message.error('Invalid email or password');
+        } else {
+          message.error("Invalid email or password");
         }
-        
       })
       .catch(() => {
-        message.error('Invalid email or password');
+        message.error("Invalid email or password");
       });
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
@@ -35,9 +33,9 @@ export default function Login() {
   useEffect(() => {
     localStorage.removeItem("isLogin");
   }, []);
-  const forgotPwd = ()=>{
+  const forgotPwd = () => {
     //call reset api
-    message.info('your password has been reset');
+    message.info("your password has been reset");
   };
   return (
     <>
@@ -92,7 +90,12 @@ export default function Login() {
           <Button type="primary" htmlType="submit" className="mx-4">
             Login
           </Button>
-          <a className="underline block text-blue-500 text-center mt-2" onClick={forgotPwd}>forgot password</a>
+          <a
+            className="underline block text-blue-500 text-center mt-2"
+            onClick={forgotPwd}
+          >
+            forgot password
+          </a>
         </Form.Item>
       </Form>
       <div className="mx-auto my-5 text-center">

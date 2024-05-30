@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import TherapyForm from "../components/TherapyForm";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Register = () => {
   const [newUser, setNewUser] = useState({
     firstName: "",
@@ -19,13 +18,12 @@ const Register = () => {
   });
   return (
     <>
-    <TherapyForm data={newUser} type="register" />
-    <div className="mx-auto text-center">
+      <TherapyForm data={newUser} type="register" />
+      <div className="mx-auto text-center">
         Already have an account?
         <Link to={"/login"} className="underline ml-4 text-blue-400">
           Login
         </Link>{" "}
-        
       </div>
     </>
   );

@@ -4,4 +4,4 @@ const API = {
   ADD: "/newSession",
 };
 
-export const startNewSession = (data)=> request.post(API.ADD, data);
+export const startNewSession = (data) => request.post(API.ADD, data);
