@@ -3,7 +3,7 @@ import TherapyForm from "../components/TherapyForm";
 import { Link } from "react-router-dom";
 /**
  * register page
- * @returns 
+ * @returns
  */
 const Register = () => {
   const [newUser, setNewUser] = useState({

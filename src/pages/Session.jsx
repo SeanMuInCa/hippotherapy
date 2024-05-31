@@ -7,7 +7,7 @@ import { useState } from "react";
 import useSessionStore from "../store/useSession";
 /**
  * patient's detail with session list
- * @returns 
+ * @returns
  */
 const Session = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
@@ -26,7 +26,7 @@ const Session = () => {
   };
   /**
    * start a new assessment in specific session
-   * @param {number} sessionId 
+   * @param {number} sessionId
    */
   const goAssessment = (sessionId) => {
     console.log(sessionId);
@@ -34,11 +34,11 @@ const Session = () => {
   };
 
   const [chartData, setCharData] = useState(null);
-/**
- * callback of select a session
- * @param {number} sessionId 
- * @param {boolean} end end flag
- */
+  /**
+   * callback of select a session
+   * @param {number} sessionId
+   * @param {boolean} end end flag
+   */
   const chooseSession = (sessionId, end) => {
     console.log(sessionId);
     if (end) {

@@ -3,7 +3,7 @@ import CardTemp from "../components/CardTemp";
 import usePatientStore from "../store/usePatient";
 /**
  * landing page for therapist
- * @returns 
+ * @returns
  */
 export default function Patient() {
   const patientStore = usePatientStore();

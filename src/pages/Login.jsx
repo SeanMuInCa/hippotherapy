@@ -7,16 +7,16 @@ import { useEffect } from "react";
 import { loginApi } from "@/api/user.js";
 /**
  * login page
- * @returns 
+ * @returns
  */
 export default function Login() {
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
-/**
- * submit login data
- * @param {object} values login form data 
- */
+  /**
+   * submit login data
+   * @param {object} values login form data
+   */
   const onFinish = (values) => {
     console.log(values);
     loginApi(values)

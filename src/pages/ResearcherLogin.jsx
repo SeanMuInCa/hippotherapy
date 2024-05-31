@@ -5,7 +5,7 @@ import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
 /**
  * login page for researcher
- * @returns 
+ * @returns
  */
 export default function ResearcherLogin() {
   const [state, actions] = useUserStore.useStore();

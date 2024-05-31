@@ -1,7 +1,7 @@
 import { Button, message } from "antd";
 /**
  * researcher landing page
- * @returns 
+ * @returns
  */
 const ResearcherPage = () => {
   const handleDownload = () => {
