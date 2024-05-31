@@ -16,6 +16,10 @@ import {
   elbowArr,
 } from "@/utils/assessmentHelper";
 import useSessionStore from "../store/useSession";
+/**
+ * this component is about assessment 
+ * @returns 
+ */
 const Assessment = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
   const nav = useNavigate();
@@ -74,20 +78,22 @@ const Assessment = () => {
   const handleResult = (index, score) => {
     console.log("@", index, score);
     setResult((prevState) => {
+      
       const newState = [...prevState];
-
+      
       newState[index] = score;
-
+      
       return newState;
     });
   };
   const handleValue = (index, score) => {
     console.log("@", index, score);
     setValue((prevState) => {
+      
       const newState = [...prevState];
-
+      
       newState[index] = score;
-
+      
       return newState;
     });
   };
@@ -117,7 +123,7 @@ const Assessment = () => {
         <AssessmentImages
           num={0}
           imgs={headArr}
-          defaultIndex={2} //default image index
+          defaultIndex={2}//default image index
           setResult={handleResult}
           setValue={handleValue}
         />
