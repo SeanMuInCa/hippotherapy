@@ -3,6 +3,10 @@ import "../index.css";
 import Logo from "@/components/Logo";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "@/store/userStore";
+/**
+ * this is the top bar contains logo and therapy's logout button
+ * @returns 
+ */
 export default function Tobbar() {
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();

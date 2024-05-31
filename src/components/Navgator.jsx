@@ -2,6 +2,11 @@ import { Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../store/userStore";
 import { useEffect } from "react";
+
+/**
+ * this component is the navigator, it contains three tabs, patient list, new patient, my profile
+ * @returns 
+ */
 const Navgator = () => {
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();

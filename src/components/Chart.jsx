@@ -1,6 +1,10 @@
 import * as echarts from "echarts";
 import { useEffect } from "react";
-
+/**
+ * a echart component
+ * @param {props}  -the data that the chart required
+ * @returns 
+ */
 const Chart = (props) => {
   const getAssessmentNum = () => {
     let arr = [];

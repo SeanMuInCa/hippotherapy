@@ -1,6 +1,11 @@
 import { Button, Form, Input, InputNumber, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { registerApi } from "@/api/user.js";
+/**
+ * this is the therapy's profile form
+ * @param {props} - if the type is register the form is used in register page else it is used in edit profile page 
+ * @returns 
+ */
 const TherapyForm = (props) => {
   const [form] = Form.useForm();
   const nav = useNavigate();

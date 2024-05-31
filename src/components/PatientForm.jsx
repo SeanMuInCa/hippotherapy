@@ -5,6 +5,12 @@ import useUserStore from "../store/userStore.js";
 import { addNewPatient } from "@/api/patient.js";
 import dateFormater from "@/utils/dateFormater.js";
 const { Option } = Select;
+
+/**
+ * this is the patient form component
+ * @param {props } - if type is add means add new patient else means edit patient 
+ * @returns 
+ */
 const PatientForm = (props) => {
   const [userState, userAction] = useUserStore.useStore();
   const nav = useNavigate();

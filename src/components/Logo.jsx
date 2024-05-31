@@ -1,4 +1,9 @@
 import logo from "@/assets/logo.png";
+/**
+ * logo component
+ * @param {props} -size can be large or default as small 
+ * @returns 
+ */
 export default function Logo(props) {
   let style = "";
   if (props.size === "large") {

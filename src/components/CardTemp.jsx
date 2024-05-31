@@ -2,6 +2,11 @@ import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import usePatientStore from "../store/usePatient";
 import Avatar from "./Avatar";
+/**
+ * this component is a card template of a patient's information
+ * @param {props} -data contains specific patient's information 
+ * @returns 
+ */
 export default function CardTemp(props) {
   const patientStore = usePatientStore();
   const nav = useNavigate();
