@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 /**
  * this component is the navigator, it contains three tabs, patient list, new patient, my profile
- * @returns 
+ * @returns
  */
 const Navgator = () => {
   const [state, actions] = useUserStore.useStore();

@@ -4,8 +4,8 @@ import usePatientStore from "../store/usePatient";
 import Avatar from "./Avatar";
 /**
  * this component is a card template of a patient's information
- * @param {props} -data contains specific patient's information 
- * @returns 
+ * @param {props} -data contains specific patient's information
+ * @returns
  */
 export default function CardTemp(props) {
   const patientStore = usePatientStore();

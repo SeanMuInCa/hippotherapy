@@ -3,7 +3,7 @@ import { useEffect } from "react";
 /**
  * a echart component
  * @param {props}  -the data that the chart required
- * @returns 
+ * @returns
  */
 const Chart = (props) => {
   const getAssessmentNum = () => {

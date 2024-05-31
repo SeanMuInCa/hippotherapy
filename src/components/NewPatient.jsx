@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 import avatar from "../utils/getAvatar";
 /**
  * this component is the new patient, it contains a form sub component
- * @returns 
+ * @returns
  */
 const NewPatient = () => {
   const [newPatient, setNewPatient] = useState({

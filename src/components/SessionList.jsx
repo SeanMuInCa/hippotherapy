@@ -5,7 +5,7 @@ import useSessionStore from "../store/useSession";
 /**
  * this is the session list component
  * @param {props} - data of the session detail
- * @returns 
+ * @returns
  */
 const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
