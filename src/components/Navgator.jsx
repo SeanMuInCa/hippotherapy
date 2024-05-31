@@ -33,7 +33,7 @@ const Navgator = () => {
     if (key == 3) nav("/profile");
   };
   console.log("state==", state);
-    /**
+  /**
    * navigator label data for therapist landing page
    */
   const items = [

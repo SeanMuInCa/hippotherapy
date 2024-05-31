@@ -25,7 +25,7 @@ const Assessment = () => {
   const nav = useNavigate();
   /**
    * check if user clicked all items
-   * @returns 
+   * @returns
    */
   const checkAll = () => {
     return result.find((item) => item === 0);
@@ -67,7 +67,7 @@ const Assessment = () => {
   };
   /**
    * transfer actual score to present score
-   * @param {int} score - actual score 
+   * @param {int} score - actual score
    * @returns show score
    */
   const getScore = (score) => {

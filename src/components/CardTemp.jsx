@@ -14,7 +14,7 @@ export default function CardTemp(props) {
   console.log(props);
   /**
    * callback of click the card
-   * @param {object} data patient information from back-end 
+   * @param {object} data patient information from back-end
    */
   const handleClick = (data) => {
     props.setChoose(true);

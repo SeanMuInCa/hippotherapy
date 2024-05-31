@@ -11,7 +11,7 @@ const TherapyForm = (props) => {
   const nav = useNavigate();
   /**
    * submit form function
-   * @param {obj} values form data 
+   * @param {obj} values form data
    */
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
