@@ -5,6 +5,10 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useState } from "react";
 import useSessionStore from "../store/useSession";
+/**
+ * patient's detail with session list
+ * @returns 
+ */
 const Session = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
   const [state, action] = usePatientStore.useStore();
@@ -20,22 +24,33 @@ const Session = () => {
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
+  /**
+   * start a new assessment in specific session
+   * @param {number} sessionId 
+   */
   const goAssessment = (sessionId) => {
     console.log(sessionId);
     nav("/assessment/" + patientId + "/" + sessionId);
   };
 
   const [chartData, setCharData] = useState(null);
-
+/**
+ * callback of select a session
+ * @param {number} sessionId 
+ * @param {boolean} end end flag
+ */
   const chooseSession = (sessionId, end) => {
     console.log(sessionId);
     if (end) {
-      console.log(sessionState.sessionList[patientId][sessionId - 1]);
       setCharData(sessionState.sessionList[patientId][sessionId - 1].data);
     } else {
       goAssessment(sessionId);
     }
   };
+  /**
+   * callback of click start new session
+   * if there is no unfinished session then can start a new one
+   */
   const startNewSession = () => {
     let unfinished = sessionState.sessionList[patientId].find(
       (item) => item.end === false,

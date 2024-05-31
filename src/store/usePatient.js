@@ -1,5 +1,8 @@
 import { defineStore } from "pinia-for-react";
 import avatar from "../utils/getAvatar";
+/**
+ * patients' store
+ */
 const usePatientStore = defineStore({
   state() {
     return {

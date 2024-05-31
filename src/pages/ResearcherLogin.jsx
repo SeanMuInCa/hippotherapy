@@ -3,10 +3,18 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
+/**
+ * login page for researcher
+ * @returns 
+ */
 export default function ResearcherLogin() {
   const [state, actions] = useUserStore.useStore();
   console.log(state, actions);
   const nav = useNavigate();
+  /**
+   * submit callback of login
+   * @param {object} values email&password
+   */
   const onFinish = (values) => {
     console.log(values);
     state.role = "researcher";

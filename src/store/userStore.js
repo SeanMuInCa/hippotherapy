@@ -1,5 +1,7 @@
 import { defineStore } from "pinia-for-react";
-
+/**
+ * store of user's data
+ */
 const useUserStore = defineStore({
   state() {
     return {

@@ -1,6 +1,10 @@
 import { useState } from "react";
 import TherapyForm from "../components/TherapyForm";
 import { Link } from "react-router-dom";
+/**
+ * register page
+ * @returns 
+ */
 const Register = () => {
   const [newUser, setNewUser] = useState({
     firstName: "",

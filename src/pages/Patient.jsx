@@ -1,7 +1,10 @@
 import { useState } from "react";
 import CardTemp from "../components/CardTemp";
 import usePatientStore from "../store/usePatient";
-import PatientDetail from "./PatientDetail";
+/**
+ * landing page for therapist
+ * @returns 
+ */
 export default function Patient() {
   const patientStore = usePatientStore();
   console.log(patientStore);

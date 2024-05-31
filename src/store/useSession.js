@@ -1,5 +1,8 @@
 import { defineStore } from "pinia-for-react";
 import dateFormater from "@/utils/dateFormater.js";
+/**
+ * store of session's data
+ */
 const useSessionStore = defineStore({
   state() {
     return {

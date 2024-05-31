@@ -1,4 +1,8 @@
 import { Button, message } from "antd";
+/**
+ * researcher landing page
+ * @returns 
+ */
 const ResearcherPage = () => {
   const handleDownload = () => {
     message.error("coming soon");

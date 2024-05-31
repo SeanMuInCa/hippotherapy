@@ -5,6 +5,10 @@ import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
 import { useEffect, useState } from "react";
 import { getPatientInfo } from "@/api/patient.js";
+/**
+ * patient details form page
+ * @returns 
+ */
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
 
@@ -20,9 +24,16 @@ export default function PatientDetail() {
   }, []);
   const [patientData, setPatientData] = useState(data);
   const [img, setImg] = useState(data.avatar);
+  /**
+   * edit profile callback
+   */
   const handleEdit = () => {
     setEdit(true);
   };
+  /**
+   * modify patient data callback
+   * @param {e} value 
+   */
   const handleChage = (value) => {
     setPatientData(value);
   };
