@@ -1,7 +1,5 @@
 import { Form, Input, Button, Select, message, DatePicker } from "antd";
-import usePatientStore from "../store/usePatient.js";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "../store/userStore.js";
 import { addNewPatient } from "@/api/patient.js";
 import dateFormater from "@/utils/dateFormater.js";
 const { Option } = Select;
@@ -12,9 +10,7 @@ const { Option } = Select;
  * @returns
  */
 const PatientForm = (props) => {
-  const [userState, userAction] = useUserStore.useStore();
   const nav = useNavigate();
-  const patientStore = usePatientStore();
   const onFinish = (values) => {
     console.log("value", values);
     if (props.type === "add") {

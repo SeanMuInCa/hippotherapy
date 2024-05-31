@@ -1,7 +1,6 @@
-import { List, Button } from "antd";
+import { List } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useSessionStore from "../store/useSession";
 /**
  * this is the session list component
  * @param {props} - data of the session detail
@@ -9,7 +8,6 @@ import useSessionStore from "../store/useSession";
  */
 const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
-  const [state, action] = useSessionStore.useStore();
   const loadMoreData = () => {
     if (loading) {
       return;

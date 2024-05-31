@@ -23,6 +23,10 @@ import useSessionStore from "../store/useSession";
 const Assessment = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
   const nav = useNavigate();
+  /**
+   * check if user clicked all items
+   * @returns 
+   */
   const checkAll = () => {
     return result.find((item) => item === 0);
   };
@@ -61,6 +65,11 @@ const Assessment = () => {
     console.log("has 0");
     openNotification("you have to finish all the steps");
   };
+  /**
+   * transfer actual score to present score
+   * @param {int} score - actual score 
+   * @returns show score
+   */
   const getScore = (score) => {
     switch (score) {
       case 1:
@@ -75,6 +84,11 @@ const Assessment = () => {
         return 1;
     }
   };
+  /**
+   * save scores
+   * @param {int} index score at the position
+   * @param {int} score score
+   */
   const handleResult = (index, score) => {
     console.log("@", index, score);
     setResult((prevState) => {
@@ -85,6 +99,11 @@ const Assessment = () => {
       return newState;
     });
   };
+  /**
+   * save actual scores
+   * @param {int} index score at the position
+   * @param {int} score score
+   */
   const handleValue = (index, score) => {
     console.log("@", index, score);
     setValue((prevState) => {
@@ -95,6 +114,9 @@ const Assessment = () => {
       return newState;
     });
   };
+  /**
+   * table structure
+   */
   const columns = [
     {
       title: "Part",
@@ -113,6 +135,9 @@ const Assessment = () => {
       key: "score",
     },
   ];
+  /**
+   * table data
+   */
   const data = [
     {
       key: "0",

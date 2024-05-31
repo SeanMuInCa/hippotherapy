@@ -9,9 +9,12 @@ import { registerApi } from "@/api/user.js";
 const TherapyForm = (props) => {
   const [form] = Form.useForm();
   const nav = useNavigate();
+  /**
+   * submit form function
+   * @param {obj} values form data 
+   */
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-
     if (props.type === "register") {
       registerApi(values)
         .then((res) => {

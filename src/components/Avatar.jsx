@@ -8,6 +8,9 @@ import { Button } from "antd";
  * @returns
  */
 const Avatar = ({ img, edit, setImg }) => {
+  /**
+   * callback of change avatar button
+   */
   const newAvatar = () => {
     const newImg = avatar();
     setImg(newImg);

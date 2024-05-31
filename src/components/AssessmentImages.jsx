@@ -13,7 +13,6 @@ const AssessmentImages = ({ imgs, setResult, num, setValue, defaultIndex }) => {
   const handleClick = (index) => {
     setValue(num, index + 1);
     let score = getScore(index);
-    console.log(score);
     setResult(num, score);
   };
   const getScore = (score) => {
@@ -31,11 +30,11 @@ const AssessmentImages = ({ imgs, setResult, num, setValue, defaultIndex }) => {
     }
   };
   const carouselRef = useRef(null);
+  /**
+   * goto default image
+   */
   useEffect(() => {
     if (carouselRef.current) {
-      console.log(carouselRef, "@@");
-      // carouselRef.current.next();
-      // carouselRef.current.next();
       carouselRef.current.goTo(defaultIndex);
     }
   }, []);

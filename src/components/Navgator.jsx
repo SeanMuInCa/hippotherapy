@@ -22,6 +22,10 @@ const Navgator = () => {
     sessionStorage.removeItem("hasRefreshed");
     //
   };
+  /**
+   * callback of user's click tab
+   * @param {int} key label key
+   */
   const handleTabClick = (key) => {
     console.log("key==", key);
     if (key == 1) nav("/patient");
@@ -29,6 +33,9 @@ const Navgator = () => {
     if (key == 3) nav("/profile");
   };
   console.log("state==", state);
+    /**
+   * navigator label data for therapist landing page
+   */
   const items = [
     {
       key: "1",
@@ -55,6 +62,9 @@ const Navgator = () => {
       label: "My Profile",
     },
   ];
+  /**
+   * navigator label data for researcher landing page
+   */
   const researcherItem = [
     {
       key: "1",
