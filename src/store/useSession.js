@@ -236,37 +236,6 @@ const useSessionStore = defineStore({
           },
         ],
       },
-      // chartData: {
-      //   chartData1: [
-      //     {
-      //       name: "assessment1",
-      //       data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
-      //       type: "line",
-      //     },
-      //     {
-      //       name: "assessment2",
-      //       data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
-      //       type: "line",
-      //     },
-      //   ],
-      //   chartData2: [
-      //     {
-      //       name: "assessment1",
-      //       data: [1, 2, 4, 2, 3, 1, 2, 1, 3, 2, 5],
-      //       type: "line",
-      //     },
-      //     {
-      //       name: "assessment2",
-      //       data: [2, 3, 3, 2, 3, 2, 2, 2, 3, 4, 3],
-      //       type: "line",
-      //     },
-      //     {
-      //       name: "assessment3",
-      //       data: [2, 3, 4, 4, 3, 2, 2, 2, 3, 4, 3],
-      //       type: "line",
-      //     },
-      //   ],
-      // },
     };
   },
   actions: {
