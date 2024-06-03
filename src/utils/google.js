@@ -2,6 +2,9 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
+/**
+ * immediate function for google translation
+ */
 (function () {
   var gtConstEvalStartTime = new Date();
   var h = this || self,
