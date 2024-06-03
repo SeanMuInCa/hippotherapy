@@ -23,6 +23,7 @@ const PatientForm = (props) => {
         if (res.data.success) {
           message.success("added successfully");
           nav("/patient");
+          nav(0);
         }
       });
       // patientStore[0].data.push(values);
