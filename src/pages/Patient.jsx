@@ -8,7 +8,7 @@ import usePatientStore from "../store/usePatient";
 export default function Patient() {
   const [patientState, patientAction] = usePatientStore.useStore();
   useEffect(() => {
-    localStorage.removeItem('list');
+    localStorage.removeItem("list");
     patientAction.getList(parseInt(localStorage.getItem("therapistId")));
   }, []);
   // const patientStore = usePatientStore();

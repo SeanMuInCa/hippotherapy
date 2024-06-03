@@ -17,7 +17,7 @@ export default function Tobbar() {
     localStorage.removeItem("role");
     localStorage.removeItem("therapistId");
     sessionStorage.removeItem("hasRefreshed");
-    localStorage.removeItem('list');
+    localStorage.removeItem("list");
   };
   const goReg = () => {
     nav("/register");
