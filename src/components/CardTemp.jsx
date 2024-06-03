@@ -19,21 +19,21 @@ export default function CardTemp(props) {
   const handleClick = (data) => {
     props.setChoose(true);
     console.log(data);
-    nav(`/session/${data.id}`);
-    patientStore[0].selected = data.id;
+    nav(`/session/${data.patient_id}`);
+    patientStore[0].selected = data.patient_id;
     console.log(patientStore[0].selected);
   };
 
   return (
     <>
       <Card
-        title={data.firstName + " " + data.lastName}
+        title={data.first_name + " " + data.last_name}
         className="w-full h-full mb-2"
         size="small"
         extra={
           <a
             className="text-sky-600 underline font-bold"
-            href={"/patient/" + data.id}
+            href={"/patient/" + data.patient_id}
           >
             Edit Profile
           </a>
@@ -47,10 +47,10 @@ export default function CardTemp(props) {
             <Avatar img={data.avatar}></Avatar>
           </div>
           <div className=" flex-1 px-5 py-2">
-            <p>{data.emailId}</p>
-            <p>{data.contactNumber}</p>
-            <p>{data.dateOfBirth}</p>
-            <p>{data.guardianFirstName}</p>
+            <p>{data.email_id}</p>
+            <p>{data.contact_number}</p>
+            <p>{data.date_of_birth}</p>
+            <p>{data.guardian_first_name}</p>
           </div>
         </div>
       </Card>
