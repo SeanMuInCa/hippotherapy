@@ -1,6 +1,6 @@
 import { defineStore } from "pinia-for-react";
 import avatar from "../utils/getAvatar";
-import { getPatientList} from '@/api/patient.js';
+import { getPatientList } from "@/api/patient.js";
 /**
  * patients' store
  * patients' data
@@ -75,19 +75,19 @@ const usePatientStore = defineStore({
       //   },
       // ],
       selected: "",
-      data:[],
+      data: [],
     };
   },
   actions: {
-    async getList(therapistId){
-      getPatientList(therapistId).then((res)=>{
-        console.log('res',res);
-        if(res.data.success){
+    async getList(therapistId) {
+      getPatientList(therapistId).then((res) => {
+        console.log("res", res);
+        if (res.data.success) {
           this.data = res.data.patientList;
-          localStorage.setItem('list',JSON.stringify(res.data.patientList));
+          localStorage.setItem("list", JSON.stringify(res.data.patientList));
         }
       });
-    }
+    },
   },
 });
 

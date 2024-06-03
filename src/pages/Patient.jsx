@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import CardTemp from "../components/CardTemp";
 import usePatientStore from "../store/usePatient";
 /**
@@ -8,13 +8,13 @@ import usePatientStore from "../store/usePatient";
 export default function Patient() {
   const [patientState, patientAction] = usePatientStore.useStore();
   useEffect(() => {
-    patientAction.getList(parseInt(localStorage.getItem('therapistId')));
+    patientAction.getList(parseInt(localStorage.getItem("therapistId")));
   }, []);
   // const patientStore = usePatientStore();
   // const patients = patientStore[1].getList(parseInt(localStorage.getItem('therapistId')));
   // console.log(patients);
   const [choose, setChoose] = useState(false);
-  const patients = JSON.parse(localStorage.getItem('list'));
+  const patients = JSON.parse(localStorage.getItem("list"));
   if (choose)
     return <>{/* <PatientDetail data={patients}></PatientDetail> */}</>;
   else
