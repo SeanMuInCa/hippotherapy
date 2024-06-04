@@ -17,6 +17,7 @@
   "dependencies": {
     "antd": "^5.17.0",
     "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
     "echarts": "^5.5.0",
     "pinia-for-react": "^0.0.24",
     "react": "^18.2.0",

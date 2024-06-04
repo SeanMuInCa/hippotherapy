@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import usePatientStore from "@/store/usePatient.js";
 import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
+import {getSessionByPatientAndTherapist} from "../api/session";
 /**
  * patient's detail with session list
  * @returns
@@ -16,11 +17,24 @@ const Session = () => {
   const { id } = useParams();
   const patientId = id;
   const data = sessionState.sessionList[patientId];
-  console.log("@", data);
-  const [sessionData, setSessionData] = useState(data);
+  const [isLoading, setIsLoading] = useState(true);
+  const [sessionData, setSessionData] = useState();
   const nav = useNavigate();
-  console.log("id", state.data[patientId]);
-  const patient = state.data[patientId];
+  // console.log("id", state.data[patientId]);
+  // const patient = state.data[patientId];
+  const [patient, setPatient] = useState();
+  const getSessionInfo = async () => {
+    const res = await getSessionByPatientAndTherapist(patientId, JSON.parse(localStorage.getItem('therapistId')));
+    console.log("res", res);
+    if(res.status == 200){
+      setPatient(res.data.patientData[0]);
+      setSessionData(res.data.sessionData[0]);
+      setIsLoading(false);
+    }
+  };
+  useEffect(()=>{
+    getSessionInfo();
+  },[]);
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
@@ -67,46 +81,44 @@ const Session = () => {
       setKey((prevKey) => prevKey + 1);
     }
   };
-
+  if (isLoading) {
+    return <div>Loading...</div>; 
+  }
   return (
     <>
       <div className="flex justify-start mb-5 p-5 flex-col bg-slate-200">
         <p className="text-2xl mb-1">
-          {patient.firstName} - {patient.lastName}
-        </p>
-        <p className="mb-1 flex">
-          <span className="min-w-44">Date of Birth:</span>{" "}
-          <span>{patient.dateOfBirth}</span>
+          {patient.first_name} - {patient.last_name}
         </p>
         <p className="mb-1 flex">
           <span className="min-w-44">Gender:</span>{" "}
           <span>{patient.gender}</span>
         </p>
         <p className="mb-1 flex">
-          <span className="min-w-44">Email:</span> {patient.emailId}
+          <span className="min-w-44">Email:</span> {patient.email_id}
         </p>
         <p className="mb-1 flex">
           <span className="min-w-44">Guardian: </span>
-          {patient.guardianFirstName}
+          {patient.guardian_first_name}
         </p>
         <p className="mb-1 flex">
           <span className="min-w-44">Contact Number:</span>{" "}
-          {patient.contactNumber}
+          {patient.contact_number}
         </p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
-      <SessionList
+       <SessionList
         key={key}
         chooseSession={chooseSession}
         patientId={patientId}
         sessionData={sessionData}
       />
-      {chartData && <Chart chartData={chartData} />}
+      {/* {chartData && <Chart chartData={chartData} />}
       <div className="flex justify-center my-2">
         <Button type="primary" onClick={startNewSession}>
           New Session
         </Button>
-      </div>
+      </div>  */}
     </>
   );
 };

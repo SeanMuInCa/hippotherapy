@@ -2,6 +2,7 @@ import { Form, Input, Button, Select, message, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
 import { addNewPatient } from "@/api/patient.js";
 import dateFormater from "@/utils/dateFormater.js";
+import dayjs from 'dayjs';
 const { Option } = Select;
 
 /**
@@ -11,6 +12,7 @@ const { Option } = Select;
  */
 const PatientForm = (props) => {
   const nav = useNavigate();
+  const dateFormat = 'YYYY-MM-DD';
   const onFinish = (values) => {
     console.log("value", values);
     if (props.type === "add") {
@@ -48,7 +50,7 @@ const PatientForm = (props) => {
     >
       <Form.Item
         className="w-9/12 flex flex-row"
-        name="firstName"
+        name="first_name"
         label="First Name"
         rules={[
           {
@@ -65,7 +67,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="lastName"
+        name="last_name"
         label="Last Name"
         rules={[
           {
@@ -78,7 +80,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="contactNumber"
+        name="contact_number"
         label="Contact Number"
         rules={[
           {
@@ -97,7 +99,7 @@ const PatientForm = (props) => {
         <Form.Item
           label="Date of Birth"
           className="w-9/12"
-          name="dateOfBirth"
+          name="date_of_birth"
           rules={[
             {
               required: true,
@@ -110,7 +112,7 @@ const PatientForm = (props) => {
       ) : (
         <Form.Item
           className="w-9/12"
-          name="dateOfBirth"
+          // name="date_of_birth"
           label="Date of Birth"
           rules={[
             {
@@ -119,17 +121,19 @@ const PatientForm = (props) => {
             },
           ]}
         >
-          <Input
+          {/* <Input
             placeholder="yyyy/mm/dd"
             disabled={!props.edit}
-            initialvalue={props.info.birth}
-          />
+            // initialvalue={props.info.birth}
+            value={12}
+          /> */}
+          <DatePicker defaultValue={dayjs(props.info.date_of_birth,dateFormat)} disabled={!props.edit} />
         </Form.Item>
       )}
 
       <Form.Item
         className="w-9/12"
-        name="guardianFirstName"
+        name="guardian_first_name"
         label="Parent Name"
         rules={[
           {
@@ -142,7 +146,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="emailId"
+        name="email_id"
         label="E-mail"
         rules={[
           {
@@ -175,7 +179,7 @@ const PatientForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-9/12"
-        name="medicalHistory"
+        name="medical_history"
         label="Intro"
         rules={[
           {

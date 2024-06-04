@@ -12,5 +12,5 @@ export const loginApi = (userData) => request.post(API.LOGIN, userData);
 export const getInfo = async (therapistId) =>
   request.get(API.GET_INFO + therapistId);
 
-export const updateInfo = async (therapistId, therapistInfo) =>
+export const updateInfo = async (therapistId,therapistInfo) =>
   request.put(API.UPDATE_INFO + therapistId, therapistInfo);

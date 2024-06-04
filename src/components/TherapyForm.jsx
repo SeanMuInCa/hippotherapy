@@ -32,8 +32,8 @@ const TherapyForm = (props) => {
         });
     } else {
       //Todo: update profile
-      const therapistId = localStorage.getItem("therapistId");
-      updateInfo(therapistId, values).then((res) => {
+      // const therapistId = localStorage.getItem("therapistId");
+      updateInfo( values).then((res) => {
         if (res.status == 200) {
           message.success(res.data.message);
           console.log("before edit", values);
