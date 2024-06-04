@@ -5,7 +5,7 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
-import {getSessionByPatientAndTherapist} from "../api/session";
+import { getSessionByPatientAndTherapist } from "../api/session";
 /**
  * patient's detail with session list
  * @returns
@@ -24,17 +24,20 @@ const Session = () => {
   // const patient = state.data[patientId];
   const [patient, setPatient] = useState();
   const getSessionInfo = async () => {
-    const res = await getSessionByPatientAndTherapist(patientId, JSON.parse(localStorage.getItem('therapistId')));
+    const res = await getSessionByPatientAndTherapist(
+      patientId,
+      JSON.parse(localStorage.getItem("therapistId")),
+    );
     console.log("res", res);
-    if(res.status == 200){
+    if (res.status == 200) {
       setPatient(res.data.patientData[0]);
       setSessionData(res.data.sessionData[0]);
       setIsLoading(false);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     getSessionInfo();
-  },[]);
+  }, []);
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
@@ -82,7 +85,7 @@ const Session = () => {
     }
   };
   if (isLoading) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
   return (
     <>
@@ -107,7 +110,7 @@ const Session = () => {
         </p>
       </div>
       <p className="my-2 mx-auto text-center">Session List</p>
-       <SessionList
+      <SessionList
         key={key}
         chooseSession={chooseSession}
         patientId={patientId}

@@ -2,7 +2,7 @@ import { Form, Input, Button, Select, message, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
 import { addNewPatient } from "@/api/patient.js";
 import dateFormater from "@/utils/dateFormater.js";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 const { Option } = Select;
 
 /**
@@ -12,7 +12,7 @@ const { Option } = Select;
  */
 const PatientForm = (props) => {
   const nav = useNavigate();
-  const dateFormat = 'YYYY-MM-DD';
+  const dateFormat = "YYYY-MM-DD";
   const onFinish = (values) => {
     console.log("value", values);
     if (props.type === "add") {
@@ -127,7 +127,10 @@ const PatientForm = (props) => {
             // initialvalue={props.info.birth}
             value={12}
           /> */}
-          <DatePicker defaultValue={dayjs(props.info.date_of_birth,dateFormat)} disabled={!props.edit} />
+          <DatePicker
+            defaultValue={dayjs(props.info.date_of_birth, dateFormat)}
+            disabled={!props.edit}
+          />
         </Form.Item>
       )}
 

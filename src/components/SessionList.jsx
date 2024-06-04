@@ -1,7 +1,7 @@
 import { List } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getSessionInfo } from '@/api/session.js';
+import { getSessionInfo } from "@/api/session.js";
 /**
  * this is the session list component
  * @param {props} - data of the session detail
@@ -16,11 +16,10 @@ const SessionList = (props) => {
     setLoading(true);
     //get data
     const res = await getSessionInfo(props.sessionData.session_id);
-    console.log('sessiondetail',res);
+    console.log("sessiondetail", res);
   };
   useEffect(() => {
     loadMoreData();
-    
   }, []);
   // return (
   //   <div

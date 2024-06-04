@@ -5,7 +5,7 @@ import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
 import { useEffect, useState } from "react";
 import { getPatientInfo } from "@/api/patient.js";
-import dateFormater from '@/utils/dateFormater.js';
+import dateFormater from "@/utils/dateFormater.js";
 /**
  * patient details form page
  * @returns
@@ -17,9 +17,9 @@ export default function PatientDetail() {
   // const patientStore = usePatientStore();
   // const data = patientStore[0].data[id];
   const data = JSON.parse(localStorage.getItem("list"))[id - 1];
-  console.log('data',data);
-  data.date_of_birth = data.date_of_birth.substring(0,10);
-  console.log('data',data);
+  console.log("data", data);
+  data.date_of_birth = data.date_of_birth.substring(0, 10);
+  console.log("data", data);
   useEffect(() => {
     getPatientInfo(id, parseInt(localStorage.getItem("therapistId"))).then(
       (res) => {
