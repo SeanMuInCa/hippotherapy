@@ -36,7 +36,9 @@ const TherapyForm = (props) => {
       updateInfo(therapistId, values).then((res) => {
         if (res.status == 200) {
           message.success(res.data.message);
-          nav("/patient");
+          console.log('before edit',values);
+          localStorage.setItem('therapist', JSON.stringify(values));
+          // nav("/patient");
         } else {
           message.error(res.data.message);
         }
