@@ -11,7 +11,7 @@ const useUserStore = defineStore({
       role: localStorage.getItem("role") || "",
       isLogin: localStorage.getItem("isLogin") || false,
       shouldRefresh: true,
-      data:JSON.parse(localStorage.getItem('therapist')) || {},
+      data: JSON.parse(localStorage.getItem("therapist")) || {},
     };
   },
   actions: {

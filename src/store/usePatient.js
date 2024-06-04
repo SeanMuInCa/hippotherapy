@@ -81,7 +81,7 @@ const usePatientStore = defineStore({
   actions: {
     async getList(therapistId) {
       const data = await getPatientList(therapistId);
-      console.log('data',data);
+      console.log("data", data);
     },
   },
 });

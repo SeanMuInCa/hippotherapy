@@ -32,15 +32,13 @@ export default function Login() {
       .catch(() => {
         message.error("Invalid email or password");
       });
-      
+
     actions.setLoginStatus(true);
     localStorage.setItem("isLogin", true);
-    
   };
-  
+
   useEffect(() => {
     localStorage.removeItem("isLogin");
-    
   }, []);
   const forgotPwd = () => {
     //call reset api
