@@ -1,6 +1,6 @@
 import { Button, Form, Input, InputNumber, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { registerApi } from "@/api/user.js";
+import { registerApi,updateInfo } from "@/api/user.js";
 /**
  * this is the therapy's profile form
  * @param {props} - if the type is register the form is used in register page else it is used in edit profile page
@@ -32,9 +32,15 @@ const TherapyForm = (props) => {
         });
     } else {
       //Todo: update profile
-      console.log("edit");
-      nav("/patient");
-      message.success("updated successfully");
+      const therapistId = localStorage.getItem("therapistId");
+      updateInfo(therapistId,values).then((res)=>{
+        if(res.status == 200){
+          message.success(res.data.message);
+          nav("/patient");
+        }else{
+          message.error(res.data.message);
+        }
+      });
     }
   };
   return (
@@ -50,7 +56,7 @@ const TherapyForm = (props) => {
     >
       <Form.Item
         className="w-6/12"
-        name="firstName"
+        name="first_name"
         label="First Name"
         rules={[
           {
@@ -63,7 +69,7 @@ const TherapyForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-6/12"
-        name="lastName"
+        name="last_name"
         label="Last Name"
         rules={[
           {
@@ -76,7 +82,7 @@ const TherapyForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-6/12"
-        name="contactNumber"
+        name="contact_number"
         label="Contact Number"
         rules={[
           {
@@ -167,7 +173,7 @@ const TherapyForm = (props) => {
       </Form.Item>
       <Form.Item
         className="w-6/12"
-        name="yearsOfExperience"
+        name="years_of_experience"
         label="Years of Experience"
         rules={[
           {
@@ -178,7 +184,7 @@ const TherapyForm = (props) => {
       >
         <InputNumber />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         className="w-6/12"
         name="email"
         label="E-mail"
@@ -194,7 +200,7 @@ const TherapyForm = (props) => {
         ]}
       >
         <Input />
-      </Form.Item>
+      </Form.Item> */}
 
       {props.type === "register" && (
         <>
