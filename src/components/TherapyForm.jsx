@@ -1,6 +1,6 @@
 import { Button, Form, Input, InputNumber, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { registerApi,updateInfo } from "@/api/user.js";
+import { registerApi, updateInfo } from "@/api/user.js";
 /**
  * this is the therapy's profile form
  * @param {props} - if the type is register the form is used in register page else it is used in edit profile page
@@ -33,11 +33,11 @@ const TherapyForm = (props) => {
     } else {
       //Todo: update profile
       const therapistId = localStorage.getItem("therapistId");
-      updateInfo(therapistId,values).then((res)=>{
-        if(res.status == 200){
+      updateInfo(therapistId, values).then((res) => {
+        if (res.status == 200) {
           message.success(res.data.message);
           nav("/patient");
-        }else{
+        } else {
           message.error(res.data.message);
         }
       });

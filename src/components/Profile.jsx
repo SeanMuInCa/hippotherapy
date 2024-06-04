@@ -6,7 +6,7 @@ import useUserStore from "../store/userStore";
  */
 const Profile = () => {
   const [state, actions] = useUserStore.useStore();
-  console.log('editprofile',state);
+  console.log("editprofile", state);
   return <TherapyForm data={state.data} type="edit" />;
 };
 
