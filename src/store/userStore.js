@@ -1,6 +1,6 @@
 import { defineStore } from "pinia-for-react";
 /**
- * store of user's data
+ * store of user's
  */
 const useUserStore = defineStore({
   state() {
@@ -11,19 +11,7 @@ const useUserStore = defineStore({
       role: localStorage.getItem("role") || "",
       isLogin: localStorage.getItem("isLogin") || false,
       shouldRefresh: true,
-      data: {
-        firstName: "John",
-        lastName: "Doe",
-        contactNumber: "306-123-4567",
-        city: "Saskatoon",
-        province: "SK",
-        education: "PhD in Psychology",
-        specialization: "Clinical Psychology",
-        training: "CBT Training",
-        expertise: "Anxiety",
-        yearsOfExperience: "10",
-        email: "example@example.com",
-      },
+      data:JSON.parse(localStorage.getItem('therapist')) || {},
     };
   },
   actions: {

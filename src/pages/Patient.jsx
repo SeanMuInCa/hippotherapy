@@ -1,21 +1,37 @@
 import { useState, useEffect } from "react";
 import CardTemp from "../components/CardTemp";
-import usePatientStore from "../store/usePatient";
+import {getPatientList} from '@/api/patient.js';
+import { getInfo } from "@/api/user.js";
 /**
  * landing page for therapist
  * @returns
  */
 export default function Patient() {
-  const [patientState, patientAction] = usePatientStore.useStore();
+  const [patients, setPatients] = useState([]);
+  const getList = async () => {
+    const res = await getPatientList(parseInt(localStorage.getItem("therapistId")));
+    console.log(res);
+    if (res.data.success) {
+      const patientList = res.data.patientList;
+      localStorage.setItem("list", JSON.stringify(patientList));
+      setPatients(patientList); 
+    }
+  };
+  const getTherapyInfo = async () => {
+    const res = await getInfo(localStorage.getItem('therapistId'));
+    if(res.status == 200){
+      localStorage.setItem('therapist', JSON.stringify(res.data.therapistDetails[0]));
+    }
+  };
   useEffect(() => {
-    localStorage.removeItem("list");
-    patientAction.getList(parseInt(localStorage.getItem("therapistId")));
+    getList();
+    getTherapyInfo();
   }, []);
-  // const patientStore = usePatientStore();
-  // const patients = patientStore[1].getList(parseInt(localStorage.getItem('therapistId')));
-  // console.log(patients);
+
+  useEffect(() => {
+    console.log('patient', patients);
+  }, [patients]); 
   const [choose, setChoose] = useState(false);
-  const patients = JSON.parse(localStorage.getItem("list"));
   if (choose)
     return <>{/* <PatientDetail data={patients}></PatientDetail> */}</>;
   else

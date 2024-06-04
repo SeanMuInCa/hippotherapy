@@ -22,6 +22,7 @@ export default function Tobbar() {
   const goReg = () => {
     nav("/register");
   };
+  console.log(state);
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">
@@ -39,7 +40,7 @@ export default function Tobbar() {
               shape="circle"
               size="large"
             >
-              {state.data.lastName}
+              {state.data.last_name}
             </Button>
           ) : (
             <>

@@ -80,13 +80,8 @@ const usePatientStore = defineStore({
   },
   actions: {
     async getList(therapistId) {
-      getPatientList(therapistId).then((res) => {
-        console.log("res", res);
-        if (res.data.success) {
-          this.data = res.data.patientList;
-          localStorage.setItem("list", JSON.stringify(res.data.patientList));
-        }
-      });
+      const data = await getPatientList(therapistId);
+      console.log('data',data);
     },
   },
 });
