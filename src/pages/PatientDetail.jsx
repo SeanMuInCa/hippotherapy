@@ -1,11 +1,9 @@
 import { useParams } from "react-router-dom";
-import usePatientStore from "../store/usePatient";
 import { Button } from "antd";
 import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
 import { useEffect, useState } from "react";
 import { getPatientInfo } from "@/api/patient.js";
-import dateFormater from "@/utils/dateFormater.js";
 /**
  * patient details form page
  * @returns

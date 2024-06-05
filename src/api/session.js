@@ -6,7 +6,7 @@ const API = {
   GET_SESSION_DETAIL: "/patientProfile/patient/",
 };
 
-export const startNewSession = async (data) => request.post(API.ADD, data);
+export const newSession = async (data) => request.post(API.ADD, data);
 export const getSessionByPatientAndTherapist = async (patientId, therapistId) =>
   request.get(
     API.GET_SESSION_LIST_BY_PATIENT_AND_THERAPIST +

@@ -5,18 +5,16 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
-import { getSessionByPatientAndTherapist } from "../api/session";
+import { getSessionByPatientAndTherapist,newSession } from "../api/session";
 /**
  * patient's detail with session list
  * @returns
  */
 const Session = () => {
   const [sessionState, sessionActions] = useSessionStore.useStore();
-  const [state, action] = usePatientStore.useStore();
   const [key, setKey] = useState(0); //sub components refresh by force
   const { id } = useParams();
   const patientId = id;
-  const data = sessionState.sessionList[patientId];
   const [isLoading, setIsLoading] = useState(true);
   const [sessionData, setSessionData] = useState();
   const nav = useNavigate();
@@ -31,7 +29,7 @@ const Session = () => {
     console.log("res", res);
     if (res.status == 200) {
       setPatient(res.data.patientData[0]);
-      setSessionData(res.data.sessionData[0]);
+      setSessionData(res.data.sessionData);
       setIsLoading(false);
     }
   };
@@ -68,19 +66,21 @@ const Session = () => {
    * callback of click start new session
    * if there is no unfinished session then can start a new one
    */
-  const startNewSession = () => {
-    let unfinished = sessionState.sessionList[patientId].find(
+  const sessionObj = {
+    patientId : parseInt(patientId),
+    therapistId: parseInt(localStorage.getItem('therapistId')),
+    sessionDate: new Date().toISOString().slice(0, 10),
+  };
+  console.log(sessionObj);
+  const startNewSession = async () => {
+    let unfinished = sessionData.find(
       (item) => item.end === false,
     );
     if (unfinished) {
       handleMessage();
     } else {
-      //start a new session
-      let newSession = sessionActions.startNewSession(patientId);
-      console.log("newSession", newSession);
-      setSessionData(newSession);
-      sessionActions.updateSession(patientId, newSession.sessionId, newSession);
-      console.log(sessionState);
+      const res = await newSession(sessionObj);
+      console.log('startnewsession', res);
       setKey((prevKey) => prevKey + 1);
     }
   };
@@ -116,12 +116,12 @@ const Session = () => {
         patientId={patientId}
         sessionData={sessionData}
       />
-      {/* {chartData && <Chart chartData={chartData} />}
+      {chartData && <Chart chartData={chartData} />}
       <div className="flex justify-center my-2">
         <Button type="primary" onClick={startNewSession}>
           New Session
         </Button>
-      </div>  */}
+      </div> 
     </>
   );
 };
