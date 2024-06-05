@@ -15,7 +15,8 @@ const TherapyForm = (props) => {
    */
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    values.years_of_experience = values.years_of_experience < 0 ? 0 : values.years_of_experience;
+    values.years_of_experience =
+      values.years_of_experience < 0 ? 0 : values.years_of_experience;
     if (props.type === "register") {
       registerApi(values)
         .then((res) => {

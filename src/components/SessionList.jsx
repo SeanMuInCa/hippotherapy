@@ -16,7 +16,6 @@ const SessionList = (props) => {
     }
     setLoading(true);
     //get data
-    
   };
   const getData = async () => {
     //get data
