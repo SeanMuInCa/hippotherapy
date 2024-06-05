@@ -16,7 +16,7 @@ import {
   elbowArr,
 } from "@/utils/assessmentHelper";
 import useSessionStore from "../store/useSession";
-import {newAssessment} from '@/api/session.js';
+import { newAssessment } from "@/api/session.js";
 /**
  * this component is about assessment
  * @returns
@@ -45,56 +45,56 @@ const Assessment = () => {
   //actual score
   const [value, setValue] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const titleEnum = {
-    0:'head',
-    1:'trunk',
-    2:'pelvic',
-    3:'head_ant',
-    4:'thoracic',
-    5:'lumbar',
-    6:'trunk_inclination',
-    7:'pelvic_tilt',
-    8:'hip',
-    9:'knee',
-    10:'elbow'
+    0: "head",
+    1: "trunk",
+    2: "pelvic",
+    3: "head_ant",
+    4: "thoracic",
+    5: "lumbar",
+    6: "trunk_inclination",
+    7: "pelvic_tilt",
+    8: "hip",
+    9: "knee",
+    10: "elbow",
   };
   const flagEnum = {
-    0:'head_flag',
-    1:'trunk_flag',
-    2:'pelvic_flag',
-    3:'head_ant_flag',
-    4:'thoracic_flag',
-    5:'lumbar_flag',
-    6:'trunk_inclination_flag',
-    7:'pelvic_tilt_flag',
-    8:'hip_flag',
-    9:'knee_flag',
-    10:'elbow_flag'
+    0: "head_flag",
+    1: "trunk_flag",
+    2: "pelvic_flag",
+    3: "head_ant_flag",
+    4: "thoracic_flag",
+    5: "lumbar_flag",
+    6: "trunk_inclination_flag",
+    7: "pelvic_tilt_flag",
+    8: "hip_flag",
+    9: "knee_flag",
+    10: "elbow_flag",
   };
   const valueEnum = {
-    1:'left',
-    2:'left',
-    3:'center',
-    4:'right',
-    5:'right'
+    1: "left",
+    2: "left",
+    3: "center",
+    4: "right",
+    5: "right",
   };
   const submit = async () => {
     let res = checkAll();
     if (typeof res == "undefined") {
-      console.log('done');
+      console.log("done");
       console.log(value);
       const obj = value.reduce((acc, value, index) => {
         const key = titleEnum[index];
-      const flagKey = flagEnum[index];
-      const val = valueEnum[value];
-      
-      acc[key] = value;
-      acc[flagKey] = val;
+        const flagKey = flagEnum[index];
+        const val = valueEnum[value];
+
+        acc[key] = value;
+        acc[flagKey] = val;
         return acc;
       }, {});
-      
+
       console.log(obj);
       const res = await newAssessment(obj);
-      if(res.data.success){
+      if (res.data.success) {
         message.success(res.data.message);
       }
       nav("/assessmentresult/" + patientId + "/" + sessionId);
