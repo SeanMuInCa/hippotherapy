@@ -9,17 +9,22 @@ import { getSessionInfo } from "@/api/session.js";
  */
 const SessionList = (props) => {
   const [loading, setLoading] = useState(false);
+  const [sessionData, setSessionData] = useState([]);
   const loadMoreData = async () => {
     if (loading) {
       return;
     }
     setLoading(true);
     //get data
+    
+  };
+  const getData = async () => {
+    //get data
     const res = await getSessionInfo(props.sessionData.session_id);
     console.log("sessiondetail", res);
   };
   useEffect(() => {
-    loadMoreData();
+    getData();
   }, []);
   // return (
   //   <div

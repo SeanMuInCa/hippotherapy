@@ -13,5 +13,5 @@ export const getSessionByPatientAndTherapist = async (patientId, therapistId) =>
       `${patientId}/${therapistId}`,
   );
 
-export const getSessionInfo = async (sessionId) =>
+export const getSessionInfo = (sessionId) =>
   request.get(API.GET_SESSION_DETAIL + sessionId);

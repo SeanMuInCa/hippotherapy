@@ -15,6 +15,7 @@ const TherapyForm = (props) => {
    */
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    values.years_of_experience = values.years_of_experience < 0 ? 0 : values.years_of_experience;
     if (props.type === "register") {
       registerApi(values)
         .then((res) => {
@@ -33,12 +34,13 @@ const TherapyForm = (props) => {
     } else {
       //Todo: update profile
       // const therapistId = localStorage.getItem("therapistId");
+      values.therapist_id = localStorage.getItem("therapistId");
       updateInfo(values).then((res) => {
         if (res.status == 200) {
           message.success(res.data.message);
           console.log("before edit", values);
           localStorage.setItem("therapist", JSON.stringify(values));
-          // nav("/patient");
+          nav("/patient");
         } else {
           message.error(res.data.message);
         }
