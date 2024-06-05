@@ -13,8 +13,8 @@ const SessionList = (props) => {
   const getData = async () => {
     //get data
     const res = await getSessionInfo(props.sessionData.session_id);
-    console.log('sessionlist',res);
-    if(res.status == 200){
+    console.log("sessionlist", res);
+    if (res.status == 200) {
       setSessionData(res.data.data);
     }
   };

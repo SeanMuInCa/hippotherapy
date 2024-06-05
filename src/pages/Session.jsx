@@ -5,7 +5,7 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
-import { getSessionByPatientAndTherapist,newSession } from "../api/session";
+import { getSessionByPatientAndTherapist, newSession } from "../api/session";
 /**
  * patient's detail with session list
  * @returns
@@ -67,20 +67,18 @@ const Session = () => {
    * if there is no unfinished session then can start a new one
    */
   const sessionObj = {
-    patientId : parseInt(patientId),
-    therapistId: parseInt(localStorage.getItem('therapistId')),
+    patientId: parseInt(patientId),
+    therapistId: parseInt(localStorage.getItem("therapistId")),
     sessionDate: new Date().toISOString().slice(0, 10),
   };
   console.log(sessionObj);
   const startNewSession = async () => {
-    let unfinished = sessionData.find(
-      (item) => item.end === false,
-    );
+    let unfinished = sessionData.find((item) => item.end === false);
     if (unfinished) {
       handleMessage();
     } else {
       const res = await newSession(sessionObj);
-      console.log('startnewsession', res);
+      console.log("startnewsession", res);
       setKey((prevKey) => prevKey + 1);
     }
   };
@@ -121,7 +119,7 @@ const Session = () => {
         <Button type="primary" onClick={startNewSession}>
           New Session
         </Button>
-      </div> 
+      </div>
     </>
   );
 };
