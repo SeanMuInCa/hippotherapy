@@ -1,6 +1,5 @@
 import { Button, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import usePatientStore from "@/store/usePatient.js";
 import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
@@ -35,7 +34,7 @@ const Session = () => {
   };
   useEffect(() => {
     getSessionInfo();
-  }, []);
+  }, [key]);
   const handleMessage = () => {
     message.info("you have unfinished session");
   };

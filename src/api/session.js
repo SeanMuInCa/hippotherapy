@@ -4,6 +4,7 @@ const API = {
   ADD: "/newSession",
   GET_SESSION_LIST_BY_PATIENT_AND_THERAPIST: "/patient-info/",
   GET_SESSION_DETAIL: "/patientProfile/patient/",
+  NEW_ASSESSMENT: '/addNewAssessment',
 };
 
 export const newSession = async (data) => request.post(API.ADD, data);
@@ -15,3 +16,6 @@ export const getSessionByPatientAndTherapist = async (patientId, therapistId) =>
 
 export const getSessionInfo = (sessionId) =>
   request.get(API.GET_SESSION_DETAIL + sessionId);
+
+export const newAssessment = (assessmentData) =>
+  request.post(API.NEW_ASSESSMENT,assessmentData);
