@@ -42,7 +42,6 @@ const Session = () => {
    * @param {number} sessionId
    */
   const goAssessment = (sessionId) => {
-
     nav("/assessment/" + patientId + "/" + sessionId);
   };
 
