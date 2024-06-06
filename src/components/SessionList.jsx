@@ -42,7 +42,9 @@ const SessionList = (props) => {
           renderItem={(item) => (
             <List.Item
               key={item.id}
-              onClick={() => props.chooseSession(item.session_id, item.end_session)}
+              onClick={() =>
+                props.chooseSession(item.session_id, item.end_session)
+              }
             >
               <List.Item.Meta
                 title={"Session id: " + item.session_id}

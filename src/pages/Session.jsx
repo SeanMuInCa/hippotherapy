@@ -4,7 +4,11 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
-import { getSessionByPatientAndTherapist, newSession,getSessionInfo } from "../api/session";
+import {
+  getSessionByPatientAndTherapist,
+  newSession,
+  getSessionInfo,
+} from "../api/session";
 /**
  * patient's detail with session list
  * @returns
@@ -56,9 +60,7 @@ const Session = () => {
     8: "hip",
     9: "knee",
     10: "elbow",
-};
-
-
+  };
 
   const [chartData, setCharData] = useState(null);
   /**
@@ -69,22 +71,23 @@ const Session = () => {
   const chooseSession = async (sessionId, end) => {
     const res = await getSessionInfo(sessionId);
     console.log(res);
-    
+
     const result = [];
     for (let index = 0; index < res.data.data.length; index++) {
       const targetData = {
         name: "assessment",
         data: [],
         type: "line",
-    };
+      };
       const element = res.data.data[index];
-      const resultArray = Object.keys(titleEnum).map(key => element[titleEnum[key]]);
+      const resultArray = Object.keys(titleEnum).map(
+        (key) => element[titleEnum[key]],
+      );
       console.log(resultArray);
       targetData.data = resultArray;
       targetData.name = "assessment" + (index + 1);
       result.push(targetData);
     }
-    
 
     if (end) {
       setCharData(result);
@@ -103,7 +106,6 @@ const Session = () => {
   };
   console.log(sessionObj);
   const startNewSession = async () => {
-    
     let unfinished = sessionData.find((item) => item.end_session === 0);
     if (unfinished) {
       handleMessage();
