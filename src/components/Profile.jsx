@@ -1,12 +1,10 @@
 import TherapyForm from "./TherapyForm";
-import useUserStore from "../store/userStore";
 import { useEffect, useState } from "react";
 /**
  * this is the profile of therapy component, it contains a sub-component of form
  * @returns
  */
 const Profile = () => {
-  const [state, actions] = useUserStore.useStore();
   const [therapistData, setTherapistData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {

@@ -4,7 +4,7 @@ import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
 import useSessionStore from "../store/useSession";
-import { getSessionByPatientAndTherapist, newSession } from "../api/session";
+import { getSessionByPatientAndTherapist, newSession,getSessionInfo } from "../api/session";
 /**
  * patient's detail with session list
  * @returns
@@ -19,7 +19,7 @@ const Session = () => {
   const nav = useNavigate();
 
   const [patient, setPatient] = useState();
-  const getSessionInfo = async () => {
+  const getSession = async () => {
     const res = await getSessionByPatientAndTherapist(
       patientId,
       JSON.parse(localStorage.getItem("therapistId")),
@@ -32,7 +32,7 @@ const Session = () => {
     }
   };
   useEffect(() => {
-    getSessionInfo();
+    getSession();
   }, [key]);
   const handleMessage = () => {
     message.info("you have unfinished session");
@@ -44,6 +44,21 @@ const Session = () => {
   const goAssessment = (sessionId) => {
     nav("/assessment/" + patientId + "/" + sessionId);
   };
+  const titleEnum = {
+    0: "head",
+    1: "trunk",
+    2: "pelvic",
+    3: "head_ant",
+    4: "thoracic",
+    5: "lumbar",
+    6: "trunk_inclination",
+    7: "pelvic_tilt",
+    8: "hip",
+    9: "knee",
+    10: "elbow",
+};
+
+
 
   const [chartData, setCharData] = useState(null);
   /**
@@ -51,10 +66,28 @@ const Session = () => {
    * @param {number} sessionId
    * @param {boolean} end end flag
    */
-  const chooseSession = (sessionId, end) => {
-    console.log(sessionId);
+  const chooseSession = async (sessionId, end) => {
+    const res = await getSessionInfo(sessionId);
+    console.log(res);
+    
+    const result = [];
+    for (let index = 0; index < res.data.data.length; index++) {
+      const targetData = {
+        name: "assessment",
+        data: [],
+        type: "line",
+    };
+      const element = res.data.data[index];
+      const resultArray = Object.keys(titleEnum).map(key => element[titleEnum[key]]);
+      console.log(resultArray);
+      targetData.data = resultArray;
+      targetData.name = "assessment" + (index + 1);
+      result.push(targetData);
+    }
+    
+
     if (end) {
-      setCharData(sessionState.sessionList[patientId][sessionId - 1].data);
+      setCharData(result);
     } else {
       goAssessment(sessionId);
     }
@@ -70,7 +103,8 @@ const Session = () => {
   };
   console.log(sessionObj);
   const startNewSession = async () => {
-    let unfinished = sessionData.find((item) => item.end === false);
+    
+    let unfinished = sessionData.find((item) => item.end_session === 0);
     if (unfinished) {
       handleMessage();
     } else {

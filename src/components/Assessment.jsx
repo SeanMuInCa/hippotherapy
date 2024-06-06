@@ -89,7 +89,7 @@ const Assessment = () => {
         acc[flagKey] = val;
         return acc;
       }, {});
-      obj.sessionId = sessionId;
+      obj.sessionId = parseInt(sessionId);
       console.log(obj);
       const res = await newAssessment(obj);
       if (res.data.success) {

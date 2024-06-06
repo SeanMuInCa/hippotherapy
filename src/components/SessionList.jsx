@@ -7,7 +7,6 @@ import { getSessionInfo } from "@/api/session.js";
  * @param {props} - data of the session detail
  * @returns
  */
-//todo 这里刷新有问题
 const SessionList = (props) => {
   const [sessionData, setSessionData] = useState([]);
   const getData = async () => {
@@ -43,14 +42,14 @@ const SessionList = (props) => {
           renderItem={(item) => (
             <List.Item
               key={item.id}
-              onClick={() => props.chooseSession(item.session_id, item.end)}
+              onClick={() => props.chooseSession(item.session_id, item.end_session)}
             >
               <List.Item.Meta
                 title={"Session id: " + item.session_id}
                 description={item.date}
               />
               <div>{item.length}</div>
-              <div>{item.end ? "Detail" : "Continue"}</div>
+              <div>{item.end_session ? "Detail" : "Continue"}</div>
             </List.Item>
           )}
         />

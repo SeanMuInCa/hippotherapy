@@ -1,5 +1,4 @@
 import { Button, Result, message } from "antd";
-import useSessionStore from "../store/useSession";
 import { useParams, useNavigate } from "react-router-dom";
 import { endSession } from "@/api/session.js";
 /**
@@ -8,7 +7,6 @@ import { endSession } from "@/api/session.js";
  * @returns a page with two buttons
  */
 const AssessmentResult = () => {
-  const [state, action] = useSessionStore.useStore();
   const { patientId, sessionId } = useParams();
   const navigate = useNavigate();
   /**
