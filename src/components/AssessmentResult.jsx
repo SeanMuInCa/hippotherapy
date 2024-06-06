@@ -1,7 +1,7 @@
-import { Button, Result,message } from "antd";
+import { Button, Result, message } from "antd";
 import useSessionStore from "../store/useSession";
 import { useParams, useNavigate } from "react-router-dom";
-import {endSession} from '@/api/session.js';
+import { endSession } from "@/api/session.js";
 /**
  * this component is the end page of finish an assessment
  * in this page the user can choose either to end the session or start a new assessment in this session
@@ -14,12 +14,12 @@ const AssessmentResult = () => {
   /**
    * callback of end session button
    */
-  const handleEnd = async() => {
+  const handleEnd = async () => {
     const endObj = {
-      session_id: parseInt(sessionId)
+      session_id: parseInt(sessionId),
     };
     const res = await endSession(endObj);
-    if(res.data.success){
+    if (res.data.success) {
       message.success(res.data.message);
     }
     // navigate(`/session/${patientId}`);
