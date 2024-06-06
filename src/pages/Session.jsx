@@ -71,7 +71,6 @@ const Session = () => {
   const chooseSession = async (sessionId, end) => {
     const res = await getSessionInfo(sessionId);
     console.log(res);
-
     const result = [];
     for (let index = 0; index < res.data.data.length; index++) {
       const targetData = {
@@ -83,7 +82,6 @@ const Session = () => {
       const resultArray = Object.keys(titleEnum).map(
         (key) => element[titleEnum[key]],
       );
-      console.log(resultArray);
       targetData.data = resultArray;
       targetData.name = "assessment" + (index + 1);
       result.push(targetData);
