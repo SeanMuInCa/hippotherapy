@@ -48,27 +48,27 @@ const Assessment = () => {
     0: "head",
     1: "trunk",
     2: "pelvic",
-    3: "head_ant",
+    3: "headAnt",
     4: "thoracic",
     5: "lumbar",
-    6: "trunk_inclination",
-    7: "pelvic_tilt",
+    6: "trunkInclination",
+    7: "pelvicTilt",
     8: "hip",
     9: "knee",
     10: "elbow",
   };
   const flagEnum = {
-    0: "head_flag",
-    1: "trunk_flag",
-    2: "pelvic_flag",
-    3: "head_ant_flag",
-    4: "thoracic_flag",
-    5: "lumbar_flag",
-    6: "trunk_inclination_flag",
-    7: "pelvic_tilt_flag",
-    8: "hip_flag",
-    9: "knee_flag",
-    10: "elbow_flag",
+    0: "headFlag",
+    1: "trunkFlag",
+    2: "pelvicFlag",
+    3: "headAntFlag",
+    4: "thoracicFlag",
+    5: "lumbarFlag",
+    6: "trunkInclinationFlag",
+    7: "pelvicTiltFlag",
+    8: "hipFlag",
+    9: "kneeFlag",
+    10: "elbowFlag",
   };
   const valueEnum = {
     1: "left",
@@ -91,7 +91,7 @@ const Assessment = () => {
         acc[flagKey] = val;
         return acc;
       }, {});
-
+      obj.sessionId = sessionId;
       console.log(obj);
       const res = await newAssessment(obj);
       if (res.data.success) {
