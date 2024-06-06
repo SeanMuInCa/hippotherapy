@@ -17,15 +17,14 @@ const Session = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [sessionData, setSessionData] = useState();
   const nav = useNavigate();
-  // console.log("id", state.data[patientId]);
-  // const patient = state.data[patientId];
+
   const [patient, setPatient] = useState();
   const getSessionInfo = async () => {
     const res = await getSessionByPatientAndTherapist(
       patientId,
       JSON.parse(localStorage.getItem("therapistId")),
     );
-    console.log("res", res);
+
     if (res.status == 200) {
       setPatient(res.data.patientData[0]);
       setSessionData(res.data.sessionData);
@@ -43,7 +42,7 @@ const Session = () => {
    * @param {number} sessionId
    */
   const goAssessment = (sessionId) => {
-    console.log(sessionId);
+
     nav("/assessment/" + patientId + "/" + sessionId);
   };
 

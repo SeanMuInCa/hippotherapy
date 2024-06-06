@@ -21,8 +21,8 @@ const AssessmentResult = () => {
     const res = await endSession(endObj);
     if (res.data.success) {
       message.success(res.data.message);
+      navigate(`/session/${patientId}`);
     }
-    // navigate(`/session/${patientId}`);
   };
   /**
    * callback of new assessment button

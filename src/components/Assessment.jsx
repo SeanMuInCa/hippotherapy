@@ -15,14 +15,12 @@ import {
   kneeArr,
   elbowArr,
 } from "@/utils/assessmentHelper";
-import useSessionStore from "../store/useSession";
 import { newAssessment } from "@/api/session.js";
 /**
  * this component is about assessment
  * @returns
  */
 const Assessment = () => {
-  const [sessionState, sessionActions] = useSessionStore.useStore();
   const nav = useNavigate();
   /**
    * check if user clicked all items
@@ -128,7 +126,6 @@ const Assessment = () => {
    * @param {int} score score
    */
   const handleResult = (index, score) => {
-    console.log("@", index, score);
     setResult((prevState) => {
       const newState = [...prevState];
 
@@ -143,7 +140,6 @@ const Assessment = () => {
    * @param {int} score score
    */
   const handleValue = (index, score) => {
-    console.log("@", index, score);
     setValue((prevState) => {
       const newState = [...prevState];
 
