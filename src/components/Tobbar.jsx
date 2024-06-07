@@ -3,6 +3,7 @@ import "../index.css";
 import Logo from "@/components/Logo";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "@/store/userStore";
+import { useEffect, useState } from "react";
 /**
  * this is the top bar contains logo and therapy's logout button
  * @returns
@@ -18,11 +19,23 @@ export default function Tobbar() {
     localStorage.removeItem("therapistId");
     sessionStorage.removeItem("hasRefreshed");
     localStorage.removeItem("list");
+    localStorage.removeItem("therapist");
   };
   const goReg = () => {
     nav("/register");
   };
-  console.log(state);
+  const [role, setRole] = useState('');
+  const [roleData, setRoleData] = useState();
+  useEffect(()=>{
+    setRole(localStorage.getItem("role"));
+    if(role==="researcher"){
+      setRoleData({last_name:'medeiros'});
+    }else{
+      localStorage.getItem('therapist') && setRoleData({last_name : JSON.parse(localStorage.getItem('therapist')).last_name});
+    }
+    console.log(role);
+    console.log(roleData);
+  },[]);
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">
@@ -40,7 +53,7 @@ export default function Tobbar() {
               shape="circle"
               size="large"
             >
-              {state.data.last_name}
+              {roleData ? roleData.last_name.substring(0, 2) : state.data.last_name}
             </Button>
           ) : (
             <>
