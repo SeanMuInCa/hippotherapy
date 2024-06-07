@@ -19,7 +19,7 @@ export default function Tobbar() {
     localStorage.removeItem("role");
     localStorage.removeItem("therapistId");
     localStorage.removeItem("last_name");
-    
+
     localStorage.removeItem("list");
     localStorage.removeItem("therapist");
     sessionStorage.removeItem("hasRefreshed");
@@ -30,11 +30,11 @@ export default function Tobbar() {
   };
   const [role, setRole] = useState("");
   const [roleData, setRoleData] = useState();
-  useEffect(()=>{
-    const a = localStorage.getItem('last_name') || '';
+  useEffect(() => {
+    const a = localStorage.getItem("last_name") || "";
     console.log(a);
-    a && setRoleData({last_name: a});
-  },[state.isLogin]);
+    a && setRoleData({ last_name: a });
+  }, [state.isLogin]);
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">
@@ -53,7 +53,7 @@ export default function Tobbar() {
               size="large"
             >
               {roleData
-                ? roleData.last_name.substring(0,3)
+                ? roleData.last_name.substring(0, 3)
                 : state.data.last_name}
             </Button>
           ) : (

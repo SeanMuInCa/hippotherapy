@@ -24,7 +24,7 @@ export default function Login() {
           state.userId = res.data.userId;
           console.log(res);
           localStorage.setItem("therapistId", res.data.userId);
-          localStorage.setItem('last_name', res.data.last_name);
+          localStorage.setItem("last_name", res.data.last_name);
           nav("/home");
         } else {
           message.error("Invalid email or password");
