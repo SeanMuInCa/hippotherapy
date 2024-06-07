@@ -14,12 +14,13 @@ const PatientForm = (props) => {
   const nav = useNavigate();
   const dateFormat = "YYYY-MM-DD";
   const onFinish = (values) => {
-    console.log("value", values);
     if (props.type === "add") {
-      console.log("value", values);
+      console.log("value", dateFormater(values.date_of_birth.$d));
+      const date = dateFormater(values.date_of_birth.$d);
       values.avatar = props.img;
-      values.therapistId = parseInt(localStorage.getItem("userId"));
-      values.dateOfBirth = dateFormater(values.dateOfBirth.$d);
+      values.therapist_id = parseInt(localStorage.getItem("therapistId"));
+      values.date_of_birth = date;
+      console.log(values);
       addNewPatient(values).then((res) => {
         console.log(res);
         if (res.data.success) {
@@ -28,8 +29,6 @@ const PatientForm = (props) => {
           nav(0);
         }
       });
-      // patientStore[0].data.push(values);
-      // nav("/patient");
       return;
     } else {
       props.handleChage(values);

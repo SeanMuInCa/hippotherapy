@@ -189,9 +189,9 @@ const TherapyForm = (props) => {
       >
         <InputNumber />
       </Form.Item>
-      {/* <Form.Item
+      {(props.type === "register") && <Form.Item
         className="w-6/12"
-        name="email"
+        name="email_id"
         label="E-mail"
         rules={[
           {
@@ -205,7 +205,8 @@ const TherapyForm = (props) => {
         ]}
       >
         <Input />
-      </Form.Item> */}
+      </Form.Item>}
+      
 
       {props.type === "register" && (
         <>
