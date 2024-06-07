@@ -39,7 +39,7 @@ const TherapyForm = (props) => {
       updateInfo(values).then((res) => {
         if (res.status == 200) {
           message.success(res.data.message);
-          localStorage.setItem('last_name', values.last_name);
+          localStorage.setItem("last_name", values.last_name);
           localStorage.setItem("therapist", JSON.stringify(values));
           nav("/patient");
         } else {

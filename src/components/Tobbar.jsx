@@ -31,7 +31,7 @@ export default function Tobbar() {
   useEffect(() => {
     const a = localStorage.getItem("last_name") || "";
     a && setRoleData({ last_name: a });
-  }, [localStorage.getItem('last_name')]);
+  }, [localStorage.getItem("last_name")]);
 
   return (
     <>
