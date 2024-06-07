@@ -21,7 +21,7 @@ export default function ResearcherLogin() {
     if (res.status == 200) {
       actions.setLoginStatus(true);
       localStorage.setItem("isLogin", true);
-      localStorage.setItem("role", "researcher");
+      localStorage.setItem("last_name", "Mylena");
       message.success("Welcome Back Mylena");
       nav("/researcherhome");
     }

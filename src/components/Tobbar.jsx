@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
  */
 export default function Tobbar() {
   const [state, actions] = useUserStore.useStore();
+  const [initialName, setInitialName] = useState();
   const nav = useNavigate();
   const handleClick = () => {
     nav("/login");
@@ -17,28 +18,23 @@ export default function Tobbar() {
     localStorage.removeItem("isLogin");
     localStorage.removeItem("role");
     localStorage.removeItem("therapistId");
-    sessionStorage.removeItem("hasRefreshed");
+    localStorage.removeItem("last_name");
+    
     localStorage.removeItem("list");
     localStorage.removeItem("therapist");
+    sessionStorage.removeItem("hasRefreshed");
+    sessionStorage.removeItem("Refreshed");
   };
   const goReg = () => {
     nav("/register");
   };
   const [role, setRole] = useState("");
   const [roleData, setRoleData] = useState();
-  useEffect(() => {
-    setRole(localStorage.getItem("role"));
-    if (role === "researcher") {
-      setRoleData({ last_name: "medeiros" });
-    } else {
-      localStorage.getItem("therapist") &&
-        setRoleData({
-          last_name: JSON.parse(localStorage.getItem("therapist")).last_name,
-        });
-    }
-    console.log(role);
-    console.log(roleData);
-  }, []);
+  useEffect(()=>{
+    const a = localStorage.getItem('last_name') || '';
+    console.log(a);
+    a && setRoleData({last_name: a});
+  },[state.isLogin]);
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">
@@ -57,7 +53,7 @@ export default function Tobbar() {
               size="large"
             >
               {roleData
-                ? roleData.last_name.substring(0, 2)
+                ? roleData.last_name.substring(0,3)
                 : state.data.last_name}
             </Button>
           ) : (

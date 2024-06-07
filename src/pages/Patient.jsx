@@ -23,6 +23,8 @@ export default function Patient() {
   const getTherapyInfo = async () => {
     const res = await getInfo(localStorage.getItem("therapistId"));
     if (res.status == 200) {
+      console.log(res);
+      localStorage.setItem('last_name', res.data.therapistDetails[0].last_name);
       localStorage.setItem(
         "therapist",
         JSON.stringify(res.data.therapistDetails[0]),

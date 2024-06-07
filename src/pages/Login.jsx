@@ -11,7 +11,6 @@ import { loginApi } from "@/api/user.js";
  */
 export default function Login() {
   const [state, actions] = useUserStore.useStore();
-  console.log(state, actions);
   const nav = useNavigate();
   /**
    * submit login data
@@ -23,7 +22,9 @@ export default function Login() {
         if (res.data.success) {
           message.success("Welcome Back Dr.");
           state.userId = res.data.userId;
+          console.log(res);
           localStorage.setItem("therapistId", res.data.userId);
+          localStorage.setItem('last_name', res.data.last_name);
           nav("/home");
         } else {
           message.error("Invalid email or password");
