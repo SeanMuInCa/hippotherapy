@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, message,Tag } from "antd";
+import { Button, Form, Input, InputNumber, message, Tag } from "antd";
 import { useNavigate } from "react-router-dom";
 import { registerApi, updateInfo } from "@/api/user.js";
 /**
@@ -208,7 +208,7 @@ const TherapyForm = (props) => {
           <Input />
         </Form.Item>
       )}
- {props.type === "register" && (
+      {props.type === "register" && (
         <Form.Item
           className="w-6/12"
           name="answer"
@@ -221,8 +221,8 @@ const TherapyForm = (props) => {
           ]}
         >
           <div>
-          <Tag color="magenta">security question</Tag>
-          <Input />
+            <Tag color="magenta">security question</Tag>
+            <Input />
           </div>
         </Form.Item>
       )}

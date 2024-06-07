@@ -1,9 +1,9 @@
-import { Input, Button, Form, message,Modal } from "antd";
+import { Input, Button, Form, message, Modal } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import useUserStore from "../store/userStore";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { loginApi } from "@/api/user.js";
 import Security from "../components/Security";
 /**
@@ -14,8 +14,8 @@ export default function Login() {
   const [modal1Open, setModal1Open] = useState(false);
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
-  const forgetPassword = ()=>{
-    message.success('coming soon');
+  const forgetPassword = () => {
+    message.success("coming soon");
   };
   /**
    * submit login data
@@ -121,18 +121,20 @@ export default function Login() {
           Sign Up
         </Link>
       </div>
-      {modal1Open && <Modal
-        title="Forget password"
-        style={{
-          top: 50,
-        }}
-        footer={null}
-        open={modal1Open}
-        onOk={forgetPassword}
-        onCancel={() => setModal1Open(false)}
-      >
-        <Security />
-      </Modal>}
+      {modal1Open && (
+        <Modal
+          title="Forget password"
+          style={{
+            top: 50,
+          }}
+          footer={null}
+          open={modal1Open}
+          onOk={forgetPassword}
+          onCancel={() => setModal1Open(false)}
+        >
+          <Security />
+        </Modal>
+      )}
     </>
   );
 }
