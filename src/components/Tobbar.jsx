@@ -24,18 +24,21 @@ export default function Tobbar() {
   const goReg = () => {
     nav("/register");
   };
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState("");
   const [roleData, setRoleData] = useState();
-  useEffect(()=>{
+  useEffect(() => {
     setRole(localStorage.getItem("role"));
-    if(role==="researcher"){
-      setRoleData({last_name:'medeiros'});
-    }else{
-      localStorage.getItem('therapist') && setRoleData({last_name : JSON.parse(localStorage.getItem('therapist')).last_name});
+    if (role === "researcher") {
+      setRoleData({ last_name: "medeiros" });
+    } else {
+      localStorage.getItem("therapist") &&
+        setRoleData({
+          last_name: JSON.parse(localStorage.getItem("therapist")).last_name,
+        });
     }
     console.log(role);
     console.log(roleData);
-  },[]);
+  }, []);
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">
@@ -53,7 +56,9 @@ export default function Tobbar() {
               shape="circle"
               size="large"
             >
-              {roleData ? roleData.last_name.substring(0, 2) : state.data.last_name}
+              {roleData
+                ? roleData.last_name.substring(0, 2)
+                : state.data.last_name}
             </Button>
           ) : (
             <>
