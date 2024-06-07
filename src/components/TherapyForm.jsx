@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, message } from "antd";
+import { Button, Form, Input, InputNumber, message,Tag } from "antd";
 import { useNavigate } from "react-router-dom";
 import { registerApi, updateInfo } from "@/api/user.js";
 /**
@@ -9,6 +9,8 @@ import { registerApi, updateInfo } from "@/api/user.js";
 const TherapyForm = (props) => {
   const [form] = Form.useForm();
   const nav = useNavigate();
+  let question = "What is your mother's maiden name?";
+
   /**
    * submit form function
    * @param {obj} values form data
@@ -33,8 +35,6 @@ const TherapyForm = (props) => {
           message.error("something went wrong");
         });
     } else {
-      //Todo: update profile
-      // const therapistId = localStorage.getItem("therapistId");
       values.therapist_id = localStorage.getItem("therapistId");
       updateInfo(values).then((res) => {
         if (res.status == 200) {
@@ -208,7 +208,24 @@ const TherapyForm = (props) => {
           <Input />
         </Form.Item>
       )}
-
+ {props.type === "register" && (
+        <Form.Item
+          className="w-6/12"
+          name="answer"
+          label={question}
+          rules={[
+            {
+              required: true,
+              message: "Please input your answer!",
+            },
+          ]}
+        >
+          <div>
+          <Tag color="magenta">security question</Tag>
+          <Input />
+          </div>
+        </Form.Item>
+      )}
       {props.type === "register" && (
         <>
           <Form.Item
