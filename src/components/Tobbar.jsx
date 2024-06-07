@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
  */
 export default function Tobbar() {
   const [state, actions] = useUserStore.useStore();
-  const [initialName, setInitialName] = useState();
   const nav = useNavigate();
   const handleClick = () => {
     nav("/login");
@@ -28,13 +27,12 @@ export default function Tobbar() {
   const goReg = () => {
     nav("/register");
   };
-  const [role, setRole] = useState("");
   const [roleData, setRoleData] = useState();
   useEffect(() => {
     const a = localStorage.getItem("last_name") || "";
-    console.log(a);
     a && setRoleData({ last_name: a });
-  }, [state.isLogin]);
+  }, [localStorage.getItem('last_name')]);
+
   return (
     <>
       <div className="flex justify-between items-center bg-gray-100">

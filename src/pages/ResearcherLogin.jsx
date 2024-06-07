@@ -1,6 +1,6 @@
 import { Input, Button, Form, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
 import { researcherLogin } from "@/api/researcher.js";
 import useUserStore from "../store/userStore";
@@ -82,6 +82,12 @@ export default function ResearcherLogin() {
           </Button>
         </Form.Item>
       </Form>
+      <div className="mx-auto my-5 text-center">
+        Login as therapist? Click{" "}
+        <Link to={"/login"} className="underline text-blue-400">
+          Here
+        </Link>{" "}
+      </div>
     </>
   );
 }

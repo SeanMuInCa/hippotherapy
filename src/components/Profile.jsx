@@ -13,7 +13,7 @@ const Profile = () => {
   }, []);
   console.log("editprofile", therapistData);
   if (isLoading) {
-    return <div>Loading...</div>; // 显示加载指示器或空内容
+    return <div>Loading...</div>; 
   }
 
   return <TherapyForm data={therapistData} type="edit" />;

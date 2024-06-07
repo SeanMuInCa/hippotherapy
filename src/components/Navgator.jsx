@@ -27,7 +27,6 @@ const Navgator = () => {
    * @param {int} key label key
    */
   const handleTabClick = (key) => {
-    console.log("key==", key);
     if (key == 1) nav("/patient");
     if (key == 2) nav("/newPatient");
     if (key == 3) nav("/profile");
