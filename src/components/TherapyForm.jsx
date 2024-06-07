@@ -189,24 +189,25 @@ const TherapyForm = (props) => {
       >
         <InputNumber />
       </Form.Item>
-      {(props.type === "register") && <Form.Item
-        className="w-6/12"
-        name="email_id"
-        label="E-mail"
-        rules={[
-          {
-            type: "email",
-            message: "The input is not valid E-mail!",
-          },
-          {
-            required: true,
-            message: "Please input your E-mail!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>}
-      
+      {props.type === "register" && (
+        <Form.Item
+          className="w-6/12"
+          name="email_id"
+          label="E-mail"
+          rules={[
+            {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+            {
+              required: true,
+              message: "Please input your E-mail!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      )}
 
       {props.type === "register" && (
         <>
