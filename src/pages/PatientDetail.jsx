@@ -3,7 +3,7 @@ import { Button } from "antd";
 import Avatar from "../components/Avatar";
 import PatientForm from "../components/PatientForm";
 import { useEffect, useState } from "react";
-import { getPatientInfo } from "@/api/patient.js";
+import { getPatientInfo } from "@/api";
 /**
  * patient details form page
  * @returns

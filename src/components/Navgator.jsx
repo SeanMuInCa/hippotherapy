@@ -8,6 +8,7 @@ import { useEffect } from "react";
  * @returns
  */
 const Navgator = () => {
+  // eslint-disable-next-line no-unused-vars
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
   useEffect(() => {

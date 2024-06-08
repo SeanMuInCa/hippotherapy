@@ -1,5 +1,5 @@
 import { Form, Input, Button, message } from "antd";
-import { forgetPassword } from "../api/user";
+import { forgetPassword } from "../api";
 import { useNavigate } from "react-router-dom";
 // 编码
 function encodeBase64(text) {

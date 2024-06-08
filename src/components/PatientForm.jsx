@@ -1,6 +1,6 @@
 import { Form, Input, Button, Select, message, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
-import { addNewPatient } from "@/api/patient.js";
+import { addNewPatient } from "@/api";
 import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
 const { Option } = Select;

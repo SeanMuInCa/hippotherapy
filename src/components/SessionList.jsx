@@ -1,13 +1,14 @@
 import { List } from "antd";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getSessionInfo } from "@/api/session.js";
+import { getSessionInfo } from "@/api";
 /**
  * this is the session list component
  * @param {props} - data of the session detail
  * @returns
  */
 const SessionList = (props) => {
+  // eslint-disable-next-line no-unused-vars
   const [sessionData, setSessionData] = useState([]);
   const getData = async () => {
     //get data

@@ -7,6 +7,7 @@ import avatar from "../utils/getAvatar";
  * @returns
  */
 const NewPatient = () => {
+  // eslint-disable-next-line no-unused-vars
   const [newPatient, setNewPatient] = useState({
     fName: "",
     lName: "",

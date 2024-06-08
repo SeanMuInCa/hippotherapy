@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import CardTemp from "../components/CardTemp";
-import { getPatientList } from "@/api/patient.js";
-import { getInfo } from "@/api/user.js";
+import { getPatientList,getInfo } from "@/api/";
 
 /**
  * landing page for therapist

@@ -3,18 +3,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import SessionList from "../components/SessionList";
 import Chart from "../components/Chart";
 import { useEffect, useState } from "react";
-import useSessionStore from "../store/useSession";
 import {
   getSessionByPatientAndTherapist,
   newSession,
   getSessionInfo,
-} from "../api/session";
+} from "../api";
 /**
  * patient's detail with session list
  * @returns
  */
 const Session = () => {
-  const [sessionState, sessionActions] = useSessionStore.useStore();
   const [key, setKey] = useState(0); //sub components refresh by force
   const { id } = useParams();
   const patientId = id;

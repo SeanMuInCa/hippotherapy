@@ -1,6 +1,6 @@
 import { Button, Result, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import { endSession } from "@/api/session.js";
+import { endSession } from "@/api";
 /**
  * this component is the end page of finish an assessment
  * in this page the user can choose either to end the session or start a new assessment in this session

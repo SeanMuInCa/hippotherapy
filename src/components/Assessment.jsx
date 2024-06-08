@@ -15,7 +15,7 @@ import {
   kneeArr,
   elbowArr,
 } from "@/utils/assessmentHelper";
-import { newAssessment } from "@/api/session.js";
+import { newAssessment } from "@/api";
 /**
  * this component is about assessment
  * @returns

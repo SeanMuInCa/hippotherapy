@@ -2,13 +2,14 @@ import { Input, Button, Form, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "@/components/Logo.jsx";
-import { researcherLogin } from "@/api/researcher.js";
+import { researcherLogin } from "@/api";
 import useUserStore from "../store/userStore";
 /**
  * login page for researcher
  * @returns
  */
 export default function ResearcherLogin() {
+  // eslint-disable-next-line no-unused-vars
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
   /**
