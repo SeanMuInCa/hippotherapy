@@ -128,7 +128,7 @@ export default function Login() {
           open={modal1Open}
           onCancel={() => setModal1Open(false)}
         >
-          <Security setModal1Open={setModal1Open}/>
+          <Security setModal1Open={setModal1Open} />
         </Modal>
       )}
     </>

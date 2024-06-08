@@ -5,7 +5,7 @@ const API = {
   LOGIN: "/login",
   GET_INFO: "/therapistDetails/",
   UPDATE_INFO: "/updatetherapist/",
-  FORGET_PASSWORD: '/forgotPassword'
+  FORGET_PASSWORD: "/forgotPassword",
 };
 export const registerApi = (userData) => request.post(API.REG, userData);
 export const loginApi = (userData) => request.post(API.LOGIN, userData);
