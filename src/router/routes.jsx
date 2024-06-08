@@ -7,7 +7,13 @@ import Register from "@/pages/Register.jsx";
 import ResearcherLogin from "../pages/ResearcherLogin.jsx";
 import ResearcherHome from "../pages/ResearcherPage.jsx";
 import Session from "@/pages/Session.jsx";
-import {Assessment, Profile, NewPatient, AssessmentResult, ResetResult} from '@/components';
+import {
+  Assessment,
+  Profile,
+  NewPatient,
+  AssessmentResult,
+  ResetResult,
+} from "@/components";
 // routers array
 const globalRouters = [
   {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {CardTemp} from "../components";
+import { CardTemp } from "../components";
 import { getPatientList, getInfo } from "@/api/";
 
 /**

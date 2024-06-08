@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {TherapyForm} from "../components";
+import { TherapyForm } from "../components";
 import { Link } from "react-router-dom";
 /**
  * register page

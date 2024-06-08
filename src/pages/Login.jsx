@@ -1,7 +1,7 @@
 import { Input, Button, Form, message, Modal } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
-import {Logo,Security} from "@/components";
+import { Logo, Security } from "@/components";
 import useUserStore from "../store/userStore";
 import { useEffect, useState } from "react";
 import { loginApi } from "@/api/";
