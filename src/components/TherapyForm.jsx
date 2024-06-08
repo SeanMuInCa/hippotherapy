@@ -221,9 +221,10 @@ const TherapyForm = (props) => {
           ]}
         >
           <div>
-          <Input />
-            <Tag className="my-1 w-full text-center" color="magenta">security question for reset password</Tag>
-            
+            <Input />
+            <Tag className="my-1 w-full text-center" color="magenta">
+              security question for reset password
+            </Tag>
           </div>
         </Form.Item>
       )}
