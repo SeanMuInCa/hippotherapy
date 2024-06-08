@@ -14,9 +14,6 @@ export default function Login() {
   const [modal1Open, setModal1Open] = useState(false);
   const [state, actions] = useUserStore.useStore();
   const nav = useNavigate();
-  const forgetPassword = () => {
-    message.success("coming soon");
-  };
   /**
    * submit login data
    * @param {object} values login form data
@@ -129,10 +126,9 @@ export default function Login() {
           }}
           footer={null}
           open={modal1Open}
-          onOk={forgetPassword}
           onCancel={() => setModal1Open(false)}
         >
-          <Security />
+          <Security setModal1Open={setModal1Open}/>
         </Modal>
       )}
     </>

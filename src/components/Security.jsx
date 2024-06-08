@@ -1,9 +1,23 @@
-import { Form, Input, Button } from "antd";
-
-const Security = () => {
+import { Form, Input, Button,message } from "antd";
+import { forgetPassword } from "../api/user";
+import { useNavigate } from "react-router-dom";
+// 编码
+function encodeBase64(text) {
+  return btoa(new TextEncoder().encode(text).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+}
+const Security = (props) => {
   let question = "What is your mother's maiden name?";
-  const onFinish = (values) => {
-    console.log(values);
+  const nav = useNavigate();
+  const onFinish = async(values) => {
+    const res = await forgetPassword(values);
+    if(res.status == 200){
+        console.log(res);
+        message.success("Password reset successfully");
+        nav(/resetresult/ + encodeBase64(res.data.password));
+    }else{
+        message.error("Something went wrong");
+    }
+    props.setModal1Open(false);
   };
   return (
     <Form onFinish={onFinish}>

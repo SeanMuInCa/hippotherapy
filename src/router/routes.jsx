@@ -11,6 +11,7 @@ import NewPatient from "@/components/NewPatient.jsx";
 import ResearcherHome from "../pages/ResearcherPage.jsx";
 import Session from "@/pages/Session.jsx";
 import AssessmentResult from "@/components/AssessmentResult.jsx";
+import ResetResult from '@/components/ResetResult.jsx';
 // routers array
 const globalRouters = [
   {
@@ -68,6 +69,10 @@ const globalRouters = [
   {
     path: "/assessmentresult/:patientId/:sessionId",
     element: <AssessmentResult />,
+  },
+  {
+    path: "/resetresult/:pwd",
+    element: <ResetResult />,
   },
 ];
 
