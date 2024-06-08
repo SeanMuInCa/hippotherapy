@@ -4,14 +4,10 @@ import Login from "@/pages/Login.jsx";
 import Patient from "@/pages/Patient.jsx";
 import PatientDetail from "@/pages/PatientDetail.jsx";
 import Register from "@/pages/Register.jsx";
-import Assessment from "../components/Assessment.jsx";
 import ResearcherLogin from "../pages/ResearcherLogin.jsx";
-import Profile from "@/components/Profile.jsx";
-import NewPatient from "@/components/NewPatient.jsx";
 import ResearcherHome from "../pages/ResearcherPage.jsx";
 import Session from "@/pages/Session.jsx";
-import AssessmentResult from "@/components/AssessmentResult.jsx";
-import ResetResult from "@/components/ResetResult.jsx";
+import {Assessment, Profile, NewPatient, AssessmentResult, ResetResult} from '@/components';
 // routers array
 const globalRouters = [
   {

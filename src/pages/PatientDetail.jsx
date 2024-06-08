@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Button } from "antd";
-import Avatar from "../components/Avatar";
-import PatientForm from "../components/PatientForm";
+import {Avatar,PatientForm} from "../components";
 import { useEffect, useState } from "react";
 import { getPatientInfo } from "@/api";
 /**

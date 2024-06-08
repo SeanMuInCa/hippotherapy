@@ -1,11 +1,12 @@
 import { useState } from "react";
-import TherapyForm from "../components/TherapyForm";
+import {TherapyForm} from "../components";
 import { Link } from "react-router-dom";
 /**
  * register page
  * @returns
  */
 const Register = () => {
+  // eslint-disable-next-line no-unused-vars
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",

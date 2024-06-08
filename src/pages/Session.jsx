@@ -1,7 +1,6 @@
 import { Button, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import SessionList from "../components/SessionList";
-import Chart from "../components/Chart";
+import {SessionList,Chart} from "../components";
 import { useEffect, useState } from "react";
 import {
   getSessionByPatientAndTherapist,

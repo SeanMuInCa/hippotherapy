@@ -1,7 +1,7 @@
 import { Input, Button, Form, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "@/components/Logo.jsx";
+import {Logo} from "@/components";
 import { researcherLogin } from "@/api";
 import useUserStore from "../store/userStore";
 /**
@@ -20,7 +20,9 @@ export default function ResearcherLogin() {
     console.log(values);
     const res = await researcherLogin(values);
     if (res.status == 200) {
+      state.role = 'researcher';
       actions.setLoginStatus(true);
+      localStorage.setItem('role', 'researcher');
       localStorage.setItem("isLogin", true);
       localStorage.setItem("last_name", "Mylena");
       message.success("Welcome Back Mylena");
