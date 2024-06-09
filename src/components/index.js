@@ -32,5 +32,5 @@ export {
   Security,
   TherapyForm,
   Assessment,
-  Loading
+  Loading,
 };

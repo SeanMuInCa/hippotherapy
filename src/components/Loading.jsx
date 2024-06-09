@@ -1,4 +1,4 @@
-import { Flex, Spin } from 'antd';
+import { Flex, Spin } from "antd";
 const Loading = () => (
   <Flex align="center" gap="middle">
     <Spin size="large" />
