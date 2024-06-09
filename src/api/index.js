@@ -13,7 +13,7 @@ import {
   endSession,
 } from "./session";
 import { addNewPatient, getPatientInfo, getPatientList } from "./patient";
-import { researcherLogin } from "./researcher";
+import { researcherLogin,getResearchData } from "./researcher";
 
 export {
   registerApi,
@@ -30,4 +30,5 @@ export {
   getPatientInfo,
   getPatientList,
   researcherLogin,
+  getResearchData
 };

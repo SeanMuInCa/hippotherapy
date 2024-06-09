@@ -14,7 +14,7 @@ import NewPatient from "./NewPatient";
 import Tobbar from "./Tobbar";
 import CardTemp from "./CardTemp";
 import Logo from "./Logo";
-
+import Loading from "./Loading";
 export {
   CardTemp,
   Logo,
@@ -32,4 +32,5 @@ export {
   Security,
   TherapyForm,
   Assessment,
+  Loading
 };
