@@ -12,7 +12,7 @@ import {
   newAssessment,
   endSession,
 } from "./session";
-import { addNewPatient, getPatientInfo, getPatientList } from "./patient";
+import { addNewPatient, getPatientInfo, getPatientList,updatePatientProfile } from "./patient";
 import { researcherLogin, getResearchData } from "./researcher";
 
 export {
@@ -31,4 +31,5 @@ export {
   getPatientList,
   researcherLogin,
   getResearchData,
+  updatePatientProfile
 };

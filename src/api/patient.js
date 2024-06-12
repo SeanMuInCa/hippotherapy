@@ -4,6 +4,7 @@ const API = {
   ADD: "/newPatient",
   INFO: "/patient-info/",
   GET_PATIENT_LIST: "/patientList/",
+  UPDATE_PATIENT_PROFILE: '/updatePatientProfile'
 };
 
 export const addNewPatient = (patientInfo) =>
@@ -13,3 +14,6 @@ export const getPatientInfo = (patientId, therapistId) =>
 
 export const getPatientList = (therapistId) =>
   request.get(API.GET_PATIENT_LIST + therapistId);
+
+export const updatePatientProfile = (patientInfo) =>
+  request.put(API.UPDATE_PATIENT_PROFILE, patientInfo);

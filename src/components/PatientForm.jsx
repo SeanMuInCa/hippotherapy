@@ -1,6 +1,6 @@
 import { Form, Input, Button, Select, message, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
-import { addNewPatient } from "@/api";
+import { addNewPatient,updatePatientProfile } from "@/api";
 import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
 const { Option } = Select;
@@ -20,7 +20,6 @@ const PatientForm = (props) => {
       values.avatar = props.img;
       values.therapist_id = parseInt(localStorage.getItem("therapistId"));
       values.date_of_birth = date;
-      console.log(values);
       addNewPatient(values).then((res) => {
         console.log(res);
         if (res.data.success) {
@@ -31,7 +30,17 @@ const PatientForm = (props) => {
       });
       return;
     } else {
-      props.handleChage(values);
+      values.avatar = props.info.avatar;
+      values.therapist_id = parseInt(localStorage.getItem("therapistId"));
+      // const date = dateFormater(values.date.$d);
+      // values.date_of_birth = date;
+      console.log('values',values);
+      console.log(props.info);
+      updatePatientProfile(values).then((res) => {
+        if(res.status == 200){
+          message.success(res.data.message);
+        }
+      });
     }
     props.setEdit(false);
   };
@@ -111,7 +120,7 @@ const PatientForm = (props) => {
       ) : (
         <Form.Item
           className="w-9/12"
-          // name="date_of_birth"
+          // name="date"
           label="Date of Birth"
           rules={[
             {
@@ -120,12 +129,6 @@ const PatientForm = (props) => {
             },
           ]}
         >
-          {/* <Input
-            placeholder="yyyy/mm/dd"
-            disabled={!props.edit}
-            // initialvalue={props.info.birth}
-            value={12}
-          /> */}
           <DatePicker
             defaultValue={dayjs(props.info.date_of_birth, dateFormat)}
             disabled={!props.edit}

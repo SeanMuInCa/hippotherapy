@@ -14,9 +14,7 @@ export default function PatientDetail() {
   // const patientStore = usePatientStore();
   // const data = patientStore[0].data[id];
   const data = JSON.parse(localStorage.getItem("list"))[id - 1];
-  console.log("data", data);
   data.date_of_birth = data.date_of_birth.substring(0, 10);
-  console.log("data", data);
   useEffect(() => {
     getPatientInfo(id, parseInt(localStorage.getItem("therapistId"))).then(
       (res) => {
@@ -36,7 +34,7 @@ export default function PatientDetail() {
    * modify patient data callback
    * @param {e} value
    */
-  const handleChage = (value) => {
+  const handleChange = (value) => {
     setPatientData(value);
   };
 
@@ -51,7 +49,7 @@ export default function PatientDetail() {
             info={patientData}
             edit={edit}
             setEdit={setEdit}
-            handleChage={handleChage}
+            handleChange={handleChange}
           />
           {!edit && (
             <Button type="primary" onClick={handleEdit}>
