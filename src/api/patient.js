@@ -4,7 +4,7 @@ const API = {
   ADD: "/newPatient",
   INFO: "/patient-info/",
   GET_PATIENT_LIST: "/patientList/",
-  UPDATE_PATIENT_PROFILE: '/updatePatientProfile'
+  UPDATE_PATIENT_PROFILE: "/updatePatientProfile",
 };
 
 export const addNewPatient = (patientInfo) =>

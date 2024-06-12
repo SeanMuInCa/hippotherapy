@@ -1,6 +1,6 @@
 import { Form, Input, Button, Select, message, DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
-import { addNewPatient,updatePatientProfile } from "@/api";
+import { addNewPatient, updatePatientProfile } from "@/api";
 import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
 const { Option } = Select;
@@ -34,10 +34,10 @@ const PatientForm = (props) => {
       values.therapist_id = parseInt(localStorage.getItem("therapistId"));
       // const date = dateFormater(values.date.$d);
       // values.date_of_birth = date;
-      console.log('values',values);
+      console.log("values", values);
       console.log(props.info);
       updatePatientProfile(values).then((res) => {
-        if(res.status == 200){
+        if (res.status == 200) {
           message.success(res.data.message);
         }
       });
