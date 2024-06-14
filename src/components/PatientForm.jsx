@@ -13,7 +13,6 @@ const { Option } = Select;
  */
 const PatientForm = (props) => {
   const params = useParams();
-  console.log(params);
   const nav = useNavigate();
   const dateFormat = "YYYY-MM-DD";
   const [dateString, setDateString] = useState("");
@@ -42,7 +41,6 @@ const PatientForm = (props) => {
       //bug
       values.patient_id = parseInt(params.id);
       updatePatientProfile(values).then((res) => {
-        console.log(values);
         if (res.status == 200) {
           message.success(res.data.message);
         }

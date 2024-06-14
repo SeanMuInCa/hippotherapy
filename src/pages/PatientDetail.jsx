@@ -11,7 +11,9 @@ import { getPatientInfo } from "@/api";
 export default function PatientDetail() {
   const [edit, setEdit] = useState(false);
   const [data, setData] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [patientData, setPatientData] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [img, setImg] = useState(null);
   const { id } = useParams();
 
