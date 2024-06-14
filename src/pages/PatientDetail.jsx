@@ -20,7 +20,10 @@ export default function PatientDetail() {
       (res) => {
         const patientData = res.data.patientData[0];
         if (patientData) {
-          patientData.date_of_birth = patientData.date_of_birth.substring(0, 10);
+          patientData.date_of_birth = patientData.date_of_birth.substring(
+            0,
+            10,
+          );
           setData(patientData);
         }
       },

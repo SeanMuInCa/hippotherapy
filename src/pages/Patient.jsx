@@ -22,7 +22,6 @@ export default function Patient() {
   const getTherapyInfo = async () => {
     const res = await getInfo(localStorage.getItem("therapistId"));
     if (res.status == 200) {
-
       localStorage.setItem("last_name", res.data.therapistDetails[0].last_name);
       localStorage.setItem(
         "therapist",
@@ -35,8 +34,7 @@ export default function Patient() {
     getTherapyInfo();
   }, []);
 
-  useEffect(() => {
-  }, [patients]);
+  useEffect(() => {}, [patients]);
   const [choose, setChoose] = useState(false);
   if (choose)
     return <>{/* <PatientDetail data={patients}></PatientDetail> */}</>;

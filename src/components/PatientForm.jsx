@@ -15,8 +15,8 @@ const PatientForm = (props) => {
   console.log(props);
   const nav = useNavigate();
   const dateFormat = "YYYY-MM-DD";
-  const [dateString, setDateString] = useState('');
-  const handleDateChange = (date)=>{
+  const [dateString, setDateString] = useState("");
+  const handleDateChange = (date) => {
     setDateString(dateFormater(date.$d));
   };
   const onFinish = (values) => {
@@ -36,7 +36,8 @@ const PatientForm = (props) => {
     } else {
       values.avatar = props.info.avatar;
       values.therapist_id = parseInt(localStorage.getItem("therapistId"));
-      values.date_of_birth = dateString.length == 0 ? props.info.date_of_birth : dateString;
+      values.date_of_birth =
+        dateString.length == 0 ? props.info.date_of_birth : dateString;
       //bug
       values.patient_id = props.info.patient_id;
       updatePatientProfile(values).then((res) => {

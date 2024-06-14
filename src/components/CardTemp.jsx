@@ -46,7 +46,7 @@ export default function CardTemp(props) {
           <div className=" flex-1 px-5 py-2">
             <p>{data.email_id}</p>
             <p>{data.contact_number}</p>
-            <p>{data.date_of_birth.substring(0,10)}</p>
+            <p>{data.date_of_birth.substring(0, 10)}</p>
             <p>{data.guardian_first_name}</p>
           </div>
         </div>
