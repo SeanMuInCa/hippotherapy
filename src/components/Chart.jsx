@@ -10,7 +10,7 @@ const Chart = (props) => {
     let arr = [];
     props.chartData.map((item, index) => {
       arr.push("assessment" + (index + 1));
-      item.data = item.data.map(i => i - 1);
+      item.data = item.data.map((i) => i - 1);
     });
     return arr;
   };
