@@ -12,7 +12,7 @@ export default function Patient() {
     const res = await getPatientList(
       parseInt(localStorage.getItem("therapistId")),
     );
-    console.log(res);
+
     if (res.data.success) {
       const patientList = res.data.patientList;
       localStorage.setItem("list", JSON.stringify(patientList));
@@ -22,7 +22,7 @@ export default function Patient() {
   const getTherapyInfo = async () => {
     const res = await getInfo(localStorage.getItem("therapistId"));
     if (res.status == 200) {
-      console.log(res);
+
       localStorage.setItem("last_name", res.data.therapistDetails[0].last_name);
       localStorage.setItem(
         "therapist",
@@ -36,7 +36,6 @@ export default function Patient() {
   }, []);
 
   useEffect(() => {
-    console.log("patient", patients);
   }, [patients]);
   const [choose, setChoose] = useState(false);
   if (choose)

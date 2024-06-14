@@ -15,7 +15,6 @@ const Chart = (props) => {
    * init the chart
    */
   useEffect(() => {
-    console.log(props);
     let chartDom = document.getElementById("main");
     let myChart = echarts.init(chartDom);
     let option;

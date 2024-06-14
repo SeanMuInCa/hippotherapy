@@ -26,7 +26,6 @@ const AssessmentResult = () => {
    * callback of new assessment button
    */
   const goAssessment = () => {
-    console.log(sessionId);
     navigate("/assessment/" + patientId + "/" + sessionId);
   };
   return (

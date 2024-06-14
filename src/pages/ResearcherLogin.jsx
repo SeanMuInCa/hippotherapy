@@ -17,7 +17,6 @@ export default function ResearcherLogin() {
    * @param {object} values email&password
    */
   const onFinish = async (values) => {
-    console.log(values);
     const res = await researcherLogin(values);
     if (res.status == 200) {
       state.role = "researcher";

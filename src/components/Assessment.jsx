@@ -78,8 +78,6 @@ const Assessment = () => {
   const submit = async () => {
     let res = checkAll();
     if (typeof res == "undefined") {
-      console.log("done");
-      console.log(value);
       const obj = value.reduce((acc, value, index) => {
         const key = titleEnum[index];
         const flagKey = flagEnum[index];
@@ -90,7 +88,6 @@ const Assessment = () => {
         return acc;
       }, {});
       obj.sessionId = parseInt(sessionId);
-      console.log(obj);
       const res = await newAssessment(obj);
       if (res.data.success) {
         message.success(res.data.message);
@@ -98,7 +95,6 @@ const Assessment = () => {
       nav("/assessmentresult/" + patientId + "/" + sessionId);
       return;
     }
-    console.log("has 0");
     openNotification("you have to finish all the steps");
   };
   /**

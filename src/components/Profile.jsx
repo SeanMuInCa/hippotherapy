@@ -11,7 +11,6 @@ const Profile = () => {
     setTherapistData(JSON.parse(localStorage.getItem("therapist")));
     setIsLoading(false);
   }, []);
-  console.log("editprofile", therapistData);
   if (isLoading) {
     return <div>Loading...</div>;
   }

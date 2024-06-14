@@ -15,7 +15,6 @@ const Security = (props) => {
   const onFinish = async (values) => {
     const res = await forgetPassword(values);
     if (res.status == 200) {
-      console.log(res);
       message.success("Password reset successfully");
       nav(/resetresult/ + encodeBase64(res.data.password));
     } else {

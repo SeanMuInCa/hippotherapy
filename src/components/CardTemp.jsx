@@ -11,17 +11,14 @@ export default function CardTemp(props) {
   const patientStore = usePatientStore();
   const nav = useNavigate();
   const data = props.data;
-  console.log(props);
   /**
    * callback of click the card
    * @param {object} data patient information from back-end
    */
   const handleClick = (data) => {
     props.setChoose(true);
-    console.log(data);
     nav(`/session/${data.patient_id}`);
     patientStore[0].selected = data.patient_id;
-    console.log(patientStore[0].selected);
   };
 
   return (
@@ -49,7 +46,7 @@ export default function CardTemp(props) {
           <div className=" flex-1 px-5 py-2">
             <p>{data.email_id}</p>
             <p>{data.contact_number}</p>
-            <p>{data.date_of_birth}</p>
+            <p>{data.date_of_birth.substring(0,10)}</p>
             <p>{data.guardian_first_name}</p>
           </div>
         </div>

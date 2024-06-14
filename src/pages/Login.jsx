@@ -24,7 +24,6 @@ export default function Login() {
         if (res.data.success) {
           message.success("Welcome Back Dr.");
           state.userId = res.data.userId;
-          console.log(res);
           localStorage.setItem("therapistId", res.data.userId);
           localStorage.setItem("last_name", res.data.last_name);
           nav("/home");

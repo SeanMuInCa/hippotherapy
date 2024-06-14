@@ -19,7 +19,6 @@ const useUserStore = defineStore({
     login() {},
     logout() {},
     setLoginStatus(value) {
-      console.log("store");
       const state = this.$getState();
       this.$setState({ ...state, isLogin: value });
     },

@@ -16,13 +16,11 @@ const TherapyForm = (props) => {
    * @param {obj} values form data
    */
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
     values.years_of_experience =
       values.years_of_experience < 0 ? 0 : values.years_of_experience;
     if (props.type === "register") {
       registerApi(values)
         .then((res) => {
-          console.log(res);
           if (res.data.success) {
             nav("/login");
             message.success("register successfully");
@@ -30,8 +28,7 @@ const TherapyForm = (props) => {
             message.error("something went wrong");
           }
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           message.error("something went wrong");
         });
     } else {

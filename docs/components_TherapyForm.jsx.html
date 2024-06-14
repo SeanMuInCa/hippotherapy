@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/TherapyForm.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/TherapyForm.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Button, Form, Input, InputNumber, message, Tag } from "antd";
+import { useNavigate } from "react-router-dom";
+import { registerApi, updateInfo } from "@/api";
+/**
+ * this is the therapy's profile form
+ * @param {props} - if the type is register the form is used in register page else it is used in edit profile page
+ * @returns
+ */
+const TherapyForm = (props) => {
+  const [form] = Form.useForm();
+  const nav = useNavigate();
+  let question = "What is your mother's maiden name?";
+
+  /**
+   * submit form function
+   * @param {obj} values form data
+   */
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
+    values.years_of_experience =
+      values.years_of_experience &lt; 0 ? 0 : values.years_of_experience;
+    if (props.type === "register") {
+      registerApi(values)
+        .then((res) => {
+          console.log(res);
+          if (res.data.success) {
+            nav("/login");
+            message.success("register successfully");
+          } else {
+            message.error("something went wrong");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          message.error("something went wrong");
+        });
+    } else {
+      values.therapist_id = localStorage.getItem("therapistId");
+      updateInfo(values).then((res) => {
+        if (res.status == 200) {
+          message.success(res.data.message);
+          localStorage.setItem("last_name", values.last_name);
+          localStorage.setItem("therapist", JSON.stringify(values));
+          nav("/patient");
+        } else {
+          message.error(res.data.message);
+        }
+      });
+    }
+  };
+  return (
+    &lt;Form
+      labelCol={{
+        span: 5,
+      }}
+      className="flex flex-col items-center my-5"
+      form={form}
+      name="register"
+      onFinish={onFinish}
+      initialValues={props.data}
+    >
+      &lt;Form.Item
+        className="w-6/12"
+        name="first_name"
+        label="First Name"
+        rules={[
+          {
+            required: true,
+            message: "Please input your first name",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="last_name"
+        label="Last Name"
+        rules={[
+          {
+            required: true,
+            message: "Please input your last name",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="contact_number"
+        label="Contact Number"
+        rules={[
+          {
+            required: true,
+            message: "Please input your number",
+          },
+        ]}
+      >
+        &lt;Input placeholder="123-123-1234" />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="city"
+        label="City"
+        rules={[
+          {
+            required: true,
+            message: "Please input your city",
+          },
+        ]}
+      >
+        &lt;Input placeholder="Saskatoon" />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="province"
+        label="Province"
+        rules={[
+          {
+            required: true,
+            message: "Please input your province",
+          },
+        ]}
+      >
+        &lt;Input placeholder="Saskatchewan" />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="education"
+        label="Education"
+        rules={[
+          {
+            required: true,
+            message: "Please input your education",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="specialization"
+        label="Specialization"
+        rules={[
+          {
+            required: true,
+            message: "Please input your specialization",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="training"
+        label="Training"
+        rules={[
+          {
+            required: true,
+            message: "Please input your training",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="expertise"
+        label="Expertise"
+        rules={[
+          {
+            required: true,
+            message: "Please input your expertise",
+          },
+        ]}
+      >
+        &lt;Input />
+      &lt;/Form.Item>
+      &lt;Form.Item
+        className="w-6/12"
+        name="years_of_experience"
+        label="Years of Experience"
+        rules={[
+          {
+            required: true,
+            message: "Please input your years of experience",
+          },
+        ]}
+      >
+        &lt;InputNumber />
+      &lt;/Form.Item>
+      {props.type === "register" &amp;&amp; (
+        &lt;Form.Item
+          className="w-6/12"
+          name="email_id"
+          label="E-mail"
+          rules={[
+            {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+            {
+              required: true,
+              message: "Please input your E-mail!",
+            },
+          ]}
+        >
+          &lt;Input />
+        &lt;/Form.Item>
+      )}
+      {props.type === "register" &amp;&amp; (
+        &lt;Form.Item
+          className="w-6/12"
+          name="answer"
+          label={question}
+          rules={[
+            {
+              required: true,
+              message: "Please input your answer!",
+            },
+          ]}
+        >
+          &lt;div>
+            &lt;Input />
+            &lt;Tag className="my-1 w-full text-center" color="magenta">
+              security question for reset password
+            &lt;/Tag>
+          &lt;/div>
+        &lt;/Form.Item>
+      )}
+      {props.type === "register" &amp;&amp; (
+        &lt;>
+          &lt;Form.Item
+            className="w-6/12"
+            name="password"
+            label="Password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+            ]}
+            hasFeedback
+          >
+            &lt;Input.Password />
+          &lt;/Form.Item>
+
+          &lt;Form.Item
+            className="w-6/12"
+            name="confirm"
+            label="Confirm Password"
+            dependencies={["password"]}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: "Please confirm your password!",
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error(
+                      "The new password that you entered do not match!",
+                    ),
+                  );
+                },
+              }),
+            ]}
+          >
+            &lt;Input.Password />
+          &lt;/Form.Item>
+        &lt;/>
+      )}
+      &lt;Form.Item className="w-6/12 flex justify-center">
+        &lt;Button type="primary" htmlType="submit">
+          {props.type === "register" ? "Register" : "Update"}
+        &lt;/Button>
+      &lt;/Form.Item>
+    &lt;/Form>
+  );
+};
+
+export default TherapyForm;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Assessment">Assessment</a></li><li><a href="global.html#AssessmentImages">AssessmentImages</a></li><li><a href="global.html#AssessmentResult">AssessmentResult</a></li><li><a href="global.html#Avatar">Avatar</a></li><li><a href="global.html#Chart">Chart</a></li><li><a href="global.html#Navgator">Navgator</a></li><li><a href="global.html#NewPatient">NewPatient</a></li><li><a href="global.html#PatientForm">PatientForm</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#Register">Register</a></li><li><a href="global.html#ResearcherPage">ResearcherPage</a></li><li><a href="global.html#Session">Session</a></li><li><a href="global.html#SessionList">SessionList</a></li><li><a href="global.html#TherapyForm">TherapyForm</a></li><li><a href="global.html#axiosRequest">axiosRequest</a></li><li><a href="global.html#usePatientStore">usePatientStore</a></li><li><a href="global.html#useSessionStore">useSessionStore</a></li><li><a href="global.html#useUserStore">useUserStore</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Jun 12 2024 10:47:10 GMT-0600 (北美中部标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

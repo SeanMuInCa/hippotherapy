@@ -80,8 +80,8 @@ const usePatientStore = defineStore({
   },
   actions: {
     async getList(therapistId) {
+      // eslint-disable-next-line no-unused-vars
       const data = await getPatientList(therapistId);
-      console.log("data", data);
     },
   },
 });

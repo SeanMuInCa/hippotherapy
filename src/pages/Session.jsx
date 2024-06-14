@@ -67,7 +67,6 @@ const Session = () => {
    */
   const chooseSession = async (sessionId, end) => {
     const res = await getSessionInfo(sessionId);
-    console.log(res);
     const result = [];
     for (let index = 0; index < res.data.data.length; index++) {
       const targetData = {
@@ -99,14 +98,13 @@ const Session = () => {
     therapistId: parseInt(localStorage.getItem("therapistId")),
     sessionDate: new Date().toISOString().slice(0, 10),
   };
-  console.log(sessionObj);
   const startNewSession = async () => {
     let unfinished = sessionData.find((item) => item.end_session === 0);
     if (unfinished) {
       handleMessage();
     } else {
+      // eslint-disable-next-line no-unused-vars
       const res = await newSession(sessionObj);
-      console.log("startnewsession", res);
       setKey((prevKey) => prevKey + 1);
     }
   };

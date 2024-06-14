@@ -244,8 +244,6 @@ const useSessionStore = defineStore({
       state.sessionList[patientId].find(
         (session) => session.sessionId === sessionId,
       ).end = true;
-
-      console.log(state.sessionList);
     },
     startNewSession(patientId) {
       const state = this.$getState();

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addNewPatient, updatePatientProfile } from "@/api";
 import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
+import { useState } from "react";
 const { Option } = Select;
 
 /**
@@ -11,31 +12,33 @@ const { Option } = Select;
  * @returns
  */
 const PatientForm = (props) => {
+  console.log(props);
   const nav = useNavigate();
   const dateFormat = "YYYY-MM-DD";
+  const [dateString, setDateString] = useState('');
+  const handleDateChange = (date)=>{
+    setDateString(dateFormater(date.$d));
+  };
   const onFinish = (values) => {
     if (props.type === "add") {
-      console.log("value", dateFormater(values.date_of_birth.$d));
       const date = dateFormater(values.date_of_birth.$d);
       values.avatar = props.img;
       values.therapist_id = parseInt(localStorage.getItem("therapistId"));
       values.date_of_birth = date;
       addNewPatient(values).then((res) => {
-        console.log(res);
         if (res.data.success) {
           message.success("added successfully");
-          nav("/patient");
-          nav(0);
+          nav("/session/" + res.data.patientId);
+          // nav(0);
         }
       });
       return;
     } else {
       values.avatar = props.info.avatar;
       values.therapist_id = parseInt(localStorage.getItem("therapistId"));
-      // const date = dateFormater(values.date.$d);
-      // values.date_of_birth = date;
-      console.log("values", values);
-      console.log(props.info);
+      values.date_of_birth = dateString.length == 0 ? props.info.date_of_birth : dateString;
+      //bug
+      values.patient_id = props.info.patient_id;
       updatePatientProfile(values).then((res) => {
         if (res.status == 200) {
           message.success(res.data.message);
@@ -44,14 +47,12 @@ const PatientForm = (props) => {
     }
     props.setEdit(false);
   };
-  console.log(props);
   return (
     <Form
       labelCol={{
         span: 5,
       }}
       className="flex flex-col items-center my-5"
-      // form={form}
       name="profile"
       onFinish={onFinish}
       initialValues={props.info}
@@ -120,7 +121,6 @@ const PatientForm = (props) => {
       ) : (
         <Form.Item
           className="w-9/12"
-          // name="date"
           label="Date of Birth"
           rules={[
             {
@@ -132,6 +132,7 @@ const PatientForm = (props) => {
           <DatePicker
             defaultValue={dayjs(props.info.date_of_birth, dateFormat)}
             disabled={!props.edit}
+            onChange={handleDateChange}
           />
         </Form.Item>
       )}

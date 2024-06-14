@@ -32,7 +32,6 @@ const Navgator = () => {
     if (key == 2) nav("/newPatient");
     if (key == 3) nav("/profile");
   };
-  console.log("state==", state);
   /**
    * navigator label data for therapist landing page
    */
