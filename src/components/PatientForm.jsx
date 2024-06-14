@@ -1,5 +1,5 @@
 import { Form, Input, Button, Select, message, DatePicker } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addNewPatient, updatePatientProfile } from "@/api";
 import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
@@ -12,7 +12,8 @@ const { Option } = Select;
  * @returns
  */
 const PatientForm = (props) => {
-  console.log(props);
+  const params = useParams();
+  console.log(params);
   const nav = useNavigate();
   const dateFormat = "YYYY-MM-DD";
   const [dateString, setDateString] = useState("");
@@ -39,8 +40,9 @@ const PatientForm = (props) => {
       values.date_of_birth =
         dateString.length == 0 ? props.info.date_of_birth : dateString;
       //bug
-      values.patient_id = props.info.patient_id;
+      values.patient_id = parseInt(params.id);
       updatePatientProfile(values).then((res) => {
+        console.log(values);
         if (res.status == 200) {
           message.success(res.data.message);
         }
