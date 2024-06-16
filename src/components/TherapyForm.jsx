@@ -25,7 +25,7 @@ const TherapyForm = (props) => {
             nav("/login");
             message.success("register successfully");
           } else {
-            message.error("something went wrong");
+            message.error(res.data.message);
           }
         })
         .catch(() => {
