@@ -37,7 +37,7 @@ export default function Patient() {
   useEffect(() => {}, [patients]);
   const [choose, setChoose] = useState(false);
   if (choose)
-    return <>{/* <PatientDetail data={patients}></PatientDetail> */}</>;
+    return <><div>Loading</div></>;
   else
     return (
       <>
