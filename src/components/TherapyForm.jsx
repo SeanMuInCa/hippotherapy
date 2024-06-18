@@ -28,8 +28,8 @@ const TherapyForm = (props) => {
             message.error(res.data.message);
           }
         })
-        .catch(() => {
-          message.error("something went wrong");
+        .catch((err) => {
+          message.error(err);
         });
     } else {
       values.therapist_id = localStorage.getItem("therapistId");
