@@ -9,7 +9,7 @@ import { registerApi, updateInfo } from "@/api";
 const TherapyForm = (props) => {
   const [form] = Form.useForm();
   const nav = useNavigate();
-  let question = "What is your mother's maiden name?";
+  const question = "What is your mother's maiden name?";
 
   /**
    * submit form function
