@@ -67,9 +67,7 @@ export default function Tobbar() {
                 className="mx-1"
                 shape="circle"
                 size="large"
-              >
-                
-              </Button>
+              ></Button>
             </>
           )}
         </div>
