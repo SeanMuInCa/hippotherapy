@@ -29,8 +29,8 @@ export default function Tobbar() {
   };
   const [roleData, setRoleData] = useState();
   useEffect(() => {
-    const a = localStorage.getItem("last_name") || "";
-    a && setRoleData({ last_name: a });
+    const lastName = localStorage.getItem("last_name") || "";
+    lastName && setRoleData({ last_name: lastName });
   }, [localStorage.getItem("last_name")]);
 
   return (
