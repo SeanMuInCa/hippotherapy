@@ -16,7 +16,7 @@ const Security = (props) => {
     const res = await forgetPassword(values);
     if (res.status == 200) {
       message.success("Password reset successfully");
-      nav(/resetresult/ + encodeBase64(res.data.password));
+      nav("/resetresult/" + encodeBase64(res.data.password));
     } else {
       message.error("Something went wrong");
     }
