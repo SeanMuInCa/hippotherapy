@@ -28,10 +28,10 @@ export default function Tobbar() {
     nav("/register");
   };
   const [roleData, setRoleData] = useState();
+  const lastName = localStorage.getItem("last_name") || "";
   useEffect(() => {
-    const lastName = localStorage.getItem("last_name") || "";
     lastName && setRoleData({ last_name: lastName });
-  }, [localStorage.getItem("last_name")]);
+  }, [lastName]);
 
   return (
     <>
