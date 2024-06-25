@@ -1,7 +1,7 @@
 import { Button, message } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
 import { SessionList, Chart } from "../components";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   getSessionByPatientAndTherapist,
   newSession,
@@ -20,7 +20,19 @@ const Session = () => {
   const nav = useNavigate();
 
   const [patient, setPatient] = useState();
-  const getSession = async () => {
+  // const getSession = async () => {
+  //   const res = await getSessionByPatientAndTherapist(
+  //     patientId,
+  //     JSON.parse(localStorage.getItem("therapistId")),
+  //   );
+
+  //   if (res.status == 200) {
+  //     setPatient(res.data.patientData[0]);
+  //     setSessionData(res.data.sessionData);
+  //     setIsLoading(false);
+  //   }
+  // };
+  const getSession = useCallback(async () => {
     const res = await getSessionByPatientAndTherapist(
       patientId,
       JSON.parse(localStorage.getItem("therapistId")),
@@ -31,10 +43,10 @@ const Session = () => {
       setSessionData(res.data.sessionData);
       setIsLoading(false);
     }
-  };
+  }, [patientId]);
   useEffect(() => {
     getSession();
-  }, [key]);
+  }, [getSession]);
   const handleMessage = () => {
     message.info("you have unfinished session");
   };
