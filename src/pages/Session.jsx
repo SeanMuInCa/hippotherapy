@@ -20,18 +20,6 @@ const Session = () => {
   const nav = useNavigate();
 
   const [patient, setPatient] = useState();
-  // const getSession = async () => {
-  //   const res = await getSessionByPatientAndTherapist(
-  //     patientId,
-  //     JSON.parse(localStorage.getItem("therapistId")),
-  //   );
-
-  //   if (res.status == 200) {
-  //     setPatient(res.data.patientData[0]);
-  //     setSessionData(res.data.sessionData);
-  //     setIsLoading(false);
-  //   }
-  // };
   const getSession = useCallback(async () => {
     const res = await getSessionByPatientAndTherapist(
       patientId,
