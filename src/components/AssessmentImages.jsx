@@ -37,7 +37,7 @@ const AssessmentImages = ({ imgs, setResult, num, setValue, defaultIndex }) => {
     if (carouselRef.current) {
       carouselRef.current.goTo(defaultIndex);
     }
-  }, []);
+  }, [defaultIndex]);
   return (
     <Carousel infinite={false} arrows={true} ref={carouselRef}>
       {imgs.map((item, index) => {
