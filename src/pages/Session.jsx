@@ -25,7 +25,6 @@ const Session = () => {
       patientId,
       JSON.parse(localStorage.getItem("therapistId")),
     );
-
     if (res.status == 200) {
       setPatient(res.data.patientData[0]);
       setSessionData(res.data.sessionData);
