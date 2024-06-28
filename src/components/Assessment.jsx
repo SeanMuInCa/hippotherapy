@@ -82,7 +82,6 @@ const Assessment = () => {
         const key = titleEnum[index];
         const flagKey = flagEnum[index];
         const val = valueEnum[value];
-
         acc[key] = value;
         acc[flagKey] = val;
         return acc;
