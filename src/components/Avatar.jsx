@@ -26,5 +26,4 @@ const Avatar = ({ img, edit, setImg }) => {
     </>
   );
 };
-
 export default Avatar;
