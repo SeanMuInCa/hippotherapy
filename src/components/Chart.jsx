@@ -21,7 +21,6 @@ const Chart = (props) => {
     let chartDom = document.getElementById("main");
     let myChart = echarts.init(chartDom);
     let option;
-
     option = {
       xAxis: {
         type: "category",
