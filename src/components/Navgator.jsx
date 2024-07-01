@@ -2,7 +2,6 @@ import { Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../store/userStore";
 import { useEffect } from "react";
-
 /**
  * this component is the navigator, it contains three tabs, patient list, new patient, my profile
  * @returns
@@ -18,7 +17,6 @@ const Navgator = () => {
       nav(0); // refresh
     }
   }, [nav]);
-
   const handleReset = () => {
     sessionStorage.removeItem("hasRefreshed");
     //
