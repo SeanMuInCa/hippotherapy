@@ -5,7 +5,6 @@ import dateFormater from "@/utils/dateFormater.js";
 import dayjs from "dayjs";
 import { useState } from "react";
 const { Option } = Select;
-
 /**
  * this is the patient form component
  * @param {props } - if type is add means add new patient else means edit patient
