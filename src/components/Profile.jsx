@@ -14,7 +14,6 @@ const Profile = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
   return <TherapyForm data={therapistData} type="edit" />;
 };
 
