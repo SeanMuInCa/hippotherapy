@@ -1,0 +1,38 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "description": "Back_end funcationality of Hippotherapy App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saskpolytech-Software-Developer-program/SDP2024-Group3.git"
+  },
+  "keywords": [
+    "hippotherapy",
+    "therapy",
+    "healthcare"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saskpolytech-Software-Developer-program/SDP2024-Group3/issues"
+  },
+  "homepage": "https://github.com/Saskpolytech-Software-Developer-program/SDP2024-Group3#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "experss": "^0.0.1-security",
+    "express": "^4.19.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.3"
+  }
+}
